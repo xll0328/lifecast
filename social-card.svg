@@ -1,0 +1,35 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="LifeCast social card">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1c30"/>
+      <stop offset="100%" stop-color="#2f4f7f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.86" cy="0.05" r="0.8">
+      <stop offset="0%" stop-color="#8eb7ff" stop-opacity="0.62"/>
+      <stop offset="100%" stop-color="#8eb7ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g opacity="0.18" stroke="#c8dbff" stroke-width="1">
+    <path d="M0 180 H1200"/><path d="M0 260 H1200"/><path d="M0 340 H1200"/><path d="M0 420 H1200"/>
+    <path d="M220 0 V630"/><path d="M400 0 V630"/><path d="M580 0 V630"/><path d="M760 0 V630"/><path d="M940 0 V630"/>
+  </g>
+  <g>
+    <rect x="86" y="88" rx="12" width="126" height="36" fill="#8fb2e8" opacity="0.92"/>
+    <text x="149" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="20" fill="#102340">LIFECAST</text>
+    <text x="86" y="214" font-family="Instrument Serif, Georgia, serif" font-size="74" fill="#f4f8ff">Predictability as a Social Fact</text>
+    <text x="86" y="272" font-family="DM Sans, Arial, sans-serif" font-size="31" fill="#d7e5ff">Multichannel Daily Life Prediction</text>
+    <text x="86" y="370" font-family="DM Sans, Arial, sans-serif" font-size="28" fill="#f7fbff">914K windows · 13 models · 9198.6% accuracy</text>
+    <text x="86" y="415" font-family="DM Sans, Arial, sans-serif" font-size="24" fill="#c9dbff">Interactive simulation + UK/US comparative findings</text>
+  </g>
+  <g transform="translate(835,410)">
+    <rect x="0" y="0" width="260" height="120" rx="14" fill="#eaf2ff" opacity="0.94"/>
+    <circle cx="42" cy="60" r="8" fill="#5f7fae"/>
+    <circle cx="72" cy="50" r="8" fill="#8e9bb3"/>
+    <circle cx="102" cy="70" r="8" fill="#9bb59f"/>
+    <circle cx="132" cy="42" r="8" fill="#c0a88d"/>
+    <path d="M42 60 C78 25,118 95,156 54" stroke="#6789b9" stroke-width="2" fill="none" opacity=".8"/>
+    <text x="26" y="102" font-family="JetBrains Mono, monospace" font-size="14" fill="#2d466d">SIMULATION</text>
+  </g>
+</svg>
