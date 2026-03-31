@@ -20,7 +20,7 @@
     <text x="149" y="112" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="20" fill="#102340">LIFECAST</text>
     <text x="86" y="214" font-family="Instrument Serif, Georgia, serif" font-size="74" fill="#f4f8ff">Predictability as a Social Fact</text>
     <text x="86" y="272" font-family="DM Sans, Arial, sans-serif" font-size="31" fill="#d7e5ff">Multichannel Daily Life Prediction</text>
-    <text x="86" y="370" font-family="DM Sans, Arial, sans-serif" font-size="28" fill="#f7fbff">914K windows · 13 models · 9198.6% accuracy</text>
+    <text x="86" y="370" font-family="DM Sans, Arial, sans-serif" font-size="28" fill="#f7fbff">914K windows - 13 models - 91-98.6% accuracy</text>
     <text x="86" y="415" font-family="DM Sans, Arial, sans-serif" font-size="24" fill="#c9dbff">Interactive simulation + UK/US comparative findings</text>
   </g>
   <g transform="translate(835,410)">
