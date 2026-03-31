@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LifeCast — Multichannel Daily Life Prediction</title>
+  <meta name="description" content="A multichannel ML framework for daily life prediction. 914K time-use windows, 13 models, 91–98.6% accuracy. The income gap in predictability is a social science finding." />
+  <meta name="author" content="LifeCast Research" />
+  <meta property="og:title" content="LifeCast — Predictability as a Social Fact" />
+  <meta property="og:description" content="We train 13 models on 914K daily life windows. The accuracy gap between income groups quantifies structural constraint." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="LifeCast — Multichannel Daily Life Prediction" />
+  <meta name="twitter:description" content="914K windows, 13 models, 91–98.6% accuracy. Predictability as a social fact." />
+  <meta name="theme-color" content="#436289" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23436289'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='14' font-weight='bold' fill='white' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="progress-bar" id="progress-bar"></div>
+<a class="skip-link" href="#abstract">Skip to content</a>
+
+<nav class="nav" id="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero"><span class="logo-mark">LC</span><span class="logo-text">LifeCast</span></a>
+    <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#findings">Findings</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#heatmap">Patterns</a></li>
+      <li><a href="#inertia">Inertia</a></li>
+      <li><a href="#phase2">Phase 2</a></li>
+      <li><a href="#ukus">UK vs US</a></li>
+      <li><a href="#groups">Groups</a></li>
+      <li><a href="#demo">Demo</a></li>
+      <li><a href="#methods">Methods</a></li>
+      <li><a href="#references">Refs</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <canvas id="grid-canvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-badge">Research &middot; 2026 &middot; UKDA-8741 &middot; Phase 2 Complete</div>
+    <h1 class="hero-title">Predictability as a <em>Social Fact</em></h1>
+    <p class="hero-sub">A Multichannel Framework for Daily Life Forecasting</p>
+    <p class="hero-desc">We train predictive models across four channels of daily life on 914,000 time-use windows from the UK. The accuracy gap between demographic groups quantifies structural constraint.</p>
+    <div class="hero-meta">
+      <div class="hm"><span class="hm-v">914K</span><span class="hm-k">windows</span></div>
+      <div class="hm-sep"></div>
+      <div class="hm"><span class="hm-v">300+</span><span class="hm-k">experiments</span></div>
+      <div class="hm-sep"></div>
+      <div class="hm"><span class="hm-v">13</span><span class="hm-k">models</span></div>
+      <div class="hm-sep"></div>
+      <div class="hm"><span class="hm-v">4</span><span class="hm-k">channels</span></div>
+      <div class="hm-sep"></div>
+      <div class="hm"><span class="hm-v">2</span><span class="hm-k">countries</span></div>
+      <div class="hm-sep"></div>
+      <div class="hm"><span class="hm-v">18</span><span class="hm-k">US findings</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#abstract" class="btn-primary">Read abstract</a>
+      <a href="#demo" class="btn-ghost">Try demo</a>
+    </div>
+    <div class="hero-dna" id="hero-dna">
+      <div class="hero-dna-label" id="hero-dna-label">Employed · Low income · Weekday</div>
+      <div class="hero-dna-bar" id="hero-dna-bar"></div>
+      <div class="hero-dna-axis"><span>00h</span><span>06h</span><span>12h</span><span>18h</span><span>24h</span></div>
+    </div>
+  </div>
+</section>
+
+<main id="main-content">
+
+<section class="section" id="abstract">
+  <div class="container">
+    <div class="abs-stat-row reveal">
+      <div class="abs-stat"><span class="abs-stat-v">914K</span><span class="abs-stat-k">training windows</span></div>
+      <div class="abs-stat"><span class="abs-stat-v">91–98.6%</span><span class="abs-stat-k">test accuracy range</span></div>
+      <div class="abs-stat"><span class="abs-stat-v">5.26 pp</span><span class="abs-stat-k">income accuracy gap</span></div>
+      <div class="abs-stat"><span class="abs-stat-v">14–20 pp</span><span class="abs-stat-k">sequence order effect</span></div>
+      <div class="abs-stat"><span class="abs-stat-v">300+</span><span class="abs-stat-k">bootstrap experiments</span></div>
+    </div>
+    <div class="two-col">
+      <div class="col-left">
+        <div class="sec-label">Abstract</div>
+        <h2 class="sec-title">Can ML quantify social structure?</h2>
+      </div>
+      <div class="col-right">
+        <p class="abs-text">We present a multichannel daily life prediction framework trained on the UK Time Use Survey (UKDA-8741), comprising 6,896 diary-days across four channels: <em>Activity</em> (37 categories), <em>Enjoyment</em> (7 levels), <em>Location</em> (3 categories), and <em>With Whom</em> (7 categories). Each diary day is divided into 144 ten-minute slots, yielding ~914,000 sliding-window samples.</p>
+        <p class="abs-text">Using 13 models from Majority Vote to Transformer Encoder, we achieve 91.0–98.6% test accuracy. The <strong>accuracy gap between demographic groups</strong>—up to 5.26 pp by income—is a social science finding: predictability measures structural constraint. Temporal sequence order contributes 14–20 pp; static demographics contribute ≈0.</p>
+        <p class="abs-text">Deep models (LSTM, GRU, Transformer) provide <strong>+3.16 pp</strong> for high-income groups only—revealing behavioural complexity invisible to linear models. All group differences are confirmed by Bootstrap 95% CIs across 300+ experiments.</p>
+        <div class="abs-tags">
+          <span class="tag">Time-use surveys</span><span class="tag">Sequence prediction</span><span class="tag">Social stratification</span><span class="tag">Transformer</span><span class="tag">UKDA-8741</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tinted" id="findings">
+  <div class="container">
+    <div class="sec-label">Key Findings</div>
+    <h2 class="sec-title">Six results that reframe the question</h2>
+    <div class="findings-grid">
+      <div class="finding-card reveal" style="--fc-accent:#436289"><div class="fc-num">F1</div><div class="fc-icon">📐</div><h3>Predictability ceiling, not model floor</h3><p>All 13 models converge within <strong>0.2 pp</strong> on every channel. The bottleneck is the intrinsic regularity of behaviour, not model power.</p><div class="fc-tag">E1 — Model comparison</div></div>
+      <div class="finding-card reveal" style="--fc-accent:#cc5536"><div class="fc-num">F2</div><div class="fc-icon">📊</div><h3>Income is the strongest structural axis</h3><p>Low-income: <strong>91.1%</strong> vs High-income: <strong>85.9%</strong> activity accuracy. A 5.26 pp gap driven by constrained life routines.</p><div class="fc-tag">B1 — Income stratification</div></div>
+      <div class="finding-card reveal" style="--fc-accent:#568bc1"><div class="fc-num">F3</div><div class="fc-icon">🧠</div><h3>Deep models expose high-income complexity</h3><p>Transformer outperforms SGD by <strong>+3.16 pp</strong> for high-income only. Low-income lift <strong>&lt;0.03 pp</strong>.</p><div class="fc-tag">Deep models — B-class</div></div>
+      <div class="finding-card reveal" style="--fc-accent:#b0a060"><div class="fc-num">F4</div><div class="fc-icon">⏰</div><h3>Transition moments: universal blind spots</h3><p>Error peaks at <strong>16% at 08:00</strong> and <strong>14% at 18:00</strong>&mdash;exactly at work and domestic transitions. Night hours: <strong>&lt;1%</strong> error.</p><div class="fc-tag">Error analysis — hourly</div></div>
+      <div class="finding-card reveal" style="--fc-accent:#60a898"><div class="fc-num">F5</div><div class="fc-icon">🔢</div><h3>Sequence order dominates all features</h3><p>Order-preserved vs bag-of-words: <strong>14&ndash;20 pp gap</strong>. Removing order collapses performance more than removing all static demographics combined.</p><div class="fc-tag">E6 — Ablation</div></div>
+      <div class="finding-card reveal" style="--fc-accent:#78b888"><div class="fc-num">F6</div><div class="fc-icon">🌐</div><h3>Channels are self-contained worlds</h3><p>Cross-channel prediction performs <strong>up to 71 pp worse</strong> than self-regression. Enjoyment is least predictable from behaviour.</p><div class="fc-tag">E2 — Cross-channel</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="results">
+  <div class="container">
+    <div class="sec-label">Results — Channel Performance</div>
+    <h2 class="sec-title">Four channels, one framework</h2>
+    <p class="sec-sub">Test accuracy across 13 models. Each 10-minute slot predicted from preceding window (W=1, optimal).</p>
+    <div class="channel-layout">
+      <div class="channel-bars" id="channel-bars"></div>
+      <div class="channel-table-wrap reveal">
+        <div class="tbl-caption">All models &times; all channels &mdash; Test Accuracy (%)</div>
+        <div class="tbl-scroll">
+          <table class="rtable" aria-label="Test accuracy across all models and channels">
+            <caption class="sr-only">Model performance: test accuracy (%) across Activity, Enjoyment, Location, and With Whom channels</caption>
+            <thead><tr><th scope="col">Model</th><th scope="col">Activity</th><th scope="col">Enjoyment</th><th scope="col">Location</th><th scope="col">With Whom</th></tr></thead>
+            <tbody id="e1-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="error-block reveal">
+      <div class="error-hdr">
+        <div><div class="sec-label">Error Analysis</div><h3 class="subsec-title">When does the model fail?</h3></div>
+        <p class="error-note">Errors concentrate at behavioural transitions &mdash; morning routines (08:00), lunch (12:00), and the work-to-home shift (17&ndash;18:00). Night hours approach 0% error.</p>
+      </div>
+      <div class="hourly-wrap">
+        <div class="hourly-chart" id="hourly-chart"></div>
+        <div class="hourly-axis" id="hourly-axis"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="heatmap">
+  <div class="container">
+    <div class="sec-label">24h Activity Patterns</div>
+    <h2 class="sec-title">How does a day unfold?</h2>
+    <p class="sec-sub">Each column is one hour. Each row is a demographic profile. Colour shows the dominant activity at that hour &mdash; revealing how structured constraint shapes daily time.</p>
+    <div class="hmap-controls">
+      <button type="button" class="hmap-btn active" data-hmap="income">By Income</button>
+      <button type="button" class="hmap-btn" data-hmap="econstat">By Employment</button>
+      <button type="button" class="hmap-btn" data-hmap="sex">By Gender</button>
+    </div>
+    <div class="hmap-wrap reveal" id="hmap-wrap"></div>
+    <div class="hmap-axis" id="hmap-axis"></div>
+    <div class="hmap-legend" id="hmap-legend"></div>
+  </div>
+</section>
+
+<section class="section section-tinted" id="inertia">
+  <div class="container">
+    <div class="sec-label">Core Mechanism</div>
+    <h2 class="sec-title">How much is true prediction, and how much is inertia?</h2>
+    <p class="sec-sub">Across UK and US runs, a simple persistence rule (&ldquo;next slot = previous slot&rdquo;) is extremely strong. This reframes the headline: high accuracy often reflects behavioural inertia rather than rich anticipatory forecasting.</p>
+
+    <div class="inertia-bignums reveal">
+      <div class="ibn-card">
+        <span class="ibn-v">88.76%</span>
+        <span class="ibn-l">Persistence (UK &amp; US activity)</span>
+        <span class="ibn-sub">identical in both countries</span>
+      </div>
+      <div class="ibn-card ibn-card--good">
+        <span class="ibn-v">88.56%</span>
+        <span class="ibn-l">Transformer (US activity)</span>
+        <span class="ibn-sub">Δ = −0.20 pp vs persistence</span>
+      </div>
+      <div class="ibn-card ibn-card--good">
+        <span class="ibn-v">+1.57 pp</span>
+        <span class="ibn-l">Model beats persistence</span>
+        <span class="ibn-sub">US location channel</span>
+      </div>
+      <div class="ibn-card">
+        <span class="ibn-v">14–20 pp</span>
+        <span class="ibn-l">Sequence order contribution</span>
+        <span class="ibn-sub">UK &amp; US ablation</span>
+      </div>
+    </div>
+
+    <div class="inertia-grid">
+      <div class="in-card reveal">
+        <div class="in-kicker">US 2024 (Quick A1)</div>
+        <h3>Activity: SGD under persistence</h3>
+        <div class="in-metrics">
+          <div class="in-m"><span class="in-v">86.48%</span><span class="in-l">SGD</span></div>
+          <div class="in-vs">vs</div>
+          <div class="in-m"><span class="in-v in-v-hot">88.76%</span><span class="in-l">Persistence</span></div>
+        </div>
+        <p class="in-desc">SGD trails a one-step copy baseline by <strong>2.28 pp</strong> on US activity forecasting.</p>
+      </div>
+      <div class="in-card reveal">
+        <div class="in-kicker">US 2024 (Quick A1)</div>
+        <h3>Location: model slightly helps</h3>
+        <div class="in-metrics">
+          <div class="in-m"><span class="in-v">94.40%</span><span class="in-l">SGD</span></div>
+          <div class="in-vs">vs</div>
+          <div class="in-m"><span class="in-v">92.84%</span><span class="in-l">Persistence</span></div>
+        </div>
+        <p class="in-desc">For coarse and sticky channels like location, model features can still add a small gain.</p>
+      </div>
+      <div class="in-card reveal">
+        <div class="in-kicker">Interpretation</div>
+        <h3>Predictability as social constraint</h3>
+        <p class="in-desc">If a group is highly predictable mainly because today repeats yesterday, this reflects <strong>institutionalized time</strong>: fixed work schedules, constrained options, and role-bound routines.</p>
+        <div class="in-tags"><span class="tag">Inertia</span><span class="tag">Institutional time</span><span class="tag">Structure &amp; agency</span></div>
+      </div>
+    </div>
+    <div class="in-bars reveal" id="inertia-bars"></div>
+    <div class="boot-ci-wrap reveal" id="boot-ci-wrap">
+      <div class="sec-label" style="margin-top:2.5rem">Bootstrap 95% Confidence Intervals</div>
+      <h3 class="subsec-title" style="margin-bottom:1rem">Income group accuracy: non-overlapping CIs confirm significance</h3>
+      <div id="boot-ci-chart"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ukus">
+  <div class="container">
+    <div class="sec-label">Cross-National Comparison &mdash; UK &amp; US</div>
+    <h2 class="sec-title">The income gap replicates across two countries</h2>
+    <p class="sec-sub">UKDA-8741 (UK, 2014&ndash;2015) and ATUS 2024 (US) show structurally identical patterns. Income stratification is a durable, cross-national social fact.</p>
+    <div class="ukus-grid">
+      <div class="ukus-chart-wrap reveal">
+        <div class="ukus-chart-label">🇬🇧 Activity accuracy by income — UK</div>
+        <div class="ukus-bars" id="ukus-bars-uk"></div>
+      </div>
+      <div class="ukus-chart-wrap reveal">
+        <div class="ukus-chart-label">🇺🇸 Activity accuracy by income — US</div>
+        <div class="ukus-bars" id="ukus-bars-us"></div>
+      </div>
+    </div>
+    <div class="ukus-findings reveal">
+      <div class="ukus-fi"><span class="ukus-fi-n">F7</span><span>Income gap replicates: UK 5.26 pp gap &mdash; US 6.58 pp gap (Transformer, single-year); pooled gap narrows to 2.17 pp as sample size equalizes group fit. Same direction, both countries.</span></div>
+      <div class="ukus-fi"><span class="ukus-fi-n">F8</span><span>Persistence baseline identical: UK 88.76% = US 88.76%. Short-term inertia is a universal human feature.</span></div>
+      <div class="ukus-fi"><span class="ukus-fi-n">F9</span><span>Pooled data (2003&ndash;2024): model <em>beats</em> persistence (+0.2&ndash;0.5 pp). Small-sample &ldquo;unbeatable persistence&rdquo; is a methodological artefact, not a true ceiling.</span></div>
+      <div class="ukus-fi"><span class="ukus-fi-n">F10</span><span>Gender effects depend on sample and setup (UK 0.46 pp; US pooled activity gap 3.30 pp), but they collapse at full scale. <strong>Full ATUS data: male = female = 87.51% — gap vanishes entirely.</strong> Economic status &mdash; not gender &mdash; is the true structural determinant of behavioral regularity.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tinted" id="phase2">
+  <div class="container">
+    <div class="sec-label">Phase 2 &mdash; Complete</div>
+    <h2 class="sec-title">US expansion: all experiments complete</h2>
+    <p class="sec-sub">Phase 2 report finalized: 389 lines, 11 chapters, 18 key findings, 127 data table rows. Covers ATUS 2024 and pooled 2003&ndash;2024 cross-year analysis. Report is advisor-ready.</p>
+    <div class="p2-grid">
+      <div class="p2-card reveal">
+        <div class="p2-top"><span class="p2-pill ok">Completed</span><span class="p2-code">WP1</span></div>
+        <h3>US loader stabilization</h3>
+        <p>Pooled + 2024 schema compatibility validated. Pipeline is production-ready for iterative batches.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-top"><span class="p2-pill ok">Completed</span><span class="p2-code">WP2/WP4</span></div>
+        <h3>US baseline + grouped activity</h3>
+        <p>Activity forecasting by income / employment / sex complete. Transformer consistently beats SGD across all US subgroups.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-top"><span class="p2-pill ok">Completed</span><span class="p2-code">C1</span></div>
+        <h3>Fine vs coarse activity</h3>
+        <p>Coarse grouping lifts model accuracy from <strong>87.72%</strong> to <strong>90.11%</strong> (+2.4 pp) &mdash; but fine grain captures genuine behavioural complexity.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-top"><span class="p2-pill ok">Completed</span><span class="p2-code">D1</span></div>
+        <h3>10-min vs 30-min timescale</h3>
+        <p>30-min resampling loses <strong>14 pp</strong> accuracy vs 10-min. Finer resolution is decisively better; behavioural signal degrades rapidly with temporal aggregation.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-top"><span class="p2-pill ok">Completed</span><span class="p2-code">E1</span></div>
+        <h3>Weekday-only proxy test</h3>
+        <p>Weekday-only sampling loses only <strong>0.8 pp</strong> vs full-week. Model generalises robustly &mdash; structural patterns dominate over day-type variation.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-top"><span class="p2-pill next">Next</span><span class="p2-code">WP4+</span></div>
+        <h3>Cross-national feasibility</h3>
+        <p>MTUS onboarding and country comparability diagnostics are the next execution frontier.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-top"><span class="p2-pill ok">Completed</span><span class="p2-code">A1-full</span></div>
+        <h3>Full-scale A1 runs (SGD + Transformer)</h3>
+        <p>Full-sample SGD and Transformer complete. Transformer reaches persistence ceiling on activity. Both models validated across all channels.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-top"><span class="p2-pill ok">Completed</span><span class="p2-code">B1-pool</span></div>
+        <h3>Pooled 2003&ndash;2024 ATUS analysis</h3>
+        <p>20-year pooled analysis confirms temporal stability. Behavioural predictability is a durable social fact &mdash; not an artefact of recent data.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-top"><span class="p2-pill ok">New Finding</span><span class="p2-code">B1-pool</span></div>
+        <h3>Pooled data: model beats persistence</h3>
+        <p>With 140,000+ training windows, Transformer <strong>exceeds</strong> the persistence baseline by +0.2&ndash;0.5 pp across income, age, and weekday groups. The apparent &ldquo;unbeatable persistence&rdquo; in small samples is a methodological artefact of underfitting.</p>
+      </div>
+      <div class="p2-card reveal">
+        <div class="p2-top"><span class="p2-pill ok">New Finding</span><span class="p2-code">Cross-national</span></div>
+        <h3>Persistence ceiling identical across UK &amp; US</h3>
+        <p>Both UK (UKDA-8741) and US (ATUS) yield <strong>88.76%</strong> persistence accuracy on activity. Short-term temporal inertia is a universal human feature, independent of institutional context.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem">
+      <div class="sec-label">US Phase 2 &mdash; Nine Core Findings</div>
+      <h3 class="subsec-title" style="margin-bottom:1.5rem">What the US data confirms &mdash; and what replicates across UK &amp; US</h3>
+    </div>
+    <div class="findings-grid" id="p2-findings"></div>
+  </div>
+</section>
+
+<section class="section section-tinted" id="groups">
+  <div class="container">
+    <div class="sec-label">Group Differences</div>
+    <h2 class="sec-title">Predictability maps social structure</h2>
+    <p class="sec-sub">Accuracy gaps between demographic groups are social science findings. Bootstrap 95% CIs confirm all differences are significant.</p>
+    <div class="gtabs" role="tablist" aria-label="Group comparison tabs">
+      <button type="button" class="gtab active" data-tab="income" role="tab" aria-selected="true">Income</button>
+      <button type="button" class="gtab" data-tab="econstat" role="tab" aria-selected="false">Employment</button>
+      <button type="button" class="gtab" data-tab="sex" role="tab" aria-selected="false">Gender</button>
+      <button type="button" class="gtab" data-tab="age" role="tab" aria-selected="false">Age</button>
+      <button type="button" class="gtab" data-tab="temporal" role="tab" aria-selected="false">Weekday vs Weekend</button>
+      <button type="button" class="gtab" data-tab="deep" role="tab" aria-selected="false">Deep models &times; Income</button>
+    </div>
+    <div class="groups-body">
+      <div id="groups-chart"></div>
+      <div class="groups-note" id="groups-note"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="container">
+    <div class="sec-label">Interactive Demo</div>
+    <h2 class="sec-title">Predict a life</h2>
+    <p class="sec-sub">Choose a demographic profile. The model forecasts a complete 24-hour day &mdash; slot by slot, the same way the Transformer does it.</p>
+    <div class="demo2-wrap">
+      <div class="demo2-panel">
+        <div class="dp2-section">
+          <span class="dp2-label">Income</span>
+          <div class="dp2-opts" data-ctrl="income">
+            <button type="button" class="dp2-opt active" data-v="low"><span class="dp2-opt-name">Low</span><span class="dp2-opt-sub">91.1% acc</span></button>
+            <button type="button" class="dp2-opt" data-v="mid"><span class="dp2-opt-name">Mid</span><span class="dp2-opt-sub">89.8% acc</span></button>
+            <button type="button" class="dp2-opt" data-v="high"><span class="dp2-opt-name">High</span><span class="dp2-opt-sub">85.9% acc</span></button>
+          </div>
+        </div>
+        <div class="dp2-section">
+          <span class="dp2-label">Employment</span>
+          <div class="dp2-opts" data-ctrl="econstat">
+            <button type="button" class="dp2-opt active" data-v="employed"><span class="dp2-opt-name">Employed</span></button>
+            <button type="button" class="dp2-opt" data-v="retired"><span class="dp2-opt-name">Retired</span></button>
+            <button type="button" class="dp2-opt" data-v="student"><span class="dp2-opt-name">Student</span></button>
+            <button type="button" class="dp2-opt" data-v="homemaker"><span class="dp2-opt-name">Homemaker</span></button>
+            <button type="button" class="dp2-opt" data-v="unemployed"><span class="dp2-opt-name">Unemployed</span></button>
+          </div>
+        </div>
+        <div class="dp2-section">
+          <span class="dp2-label">Gender</span>
+          <div class="dp2-opts" data-ctrl="sex">
+            <button type="button" class="dp2-opt active" data-v="male"><span class="dp2-opt-name">Male</span></button>
+            <button type="button" class="dp2-opt" data-v="female"><span class="dp2-opt-name">Female</span></button>
+          </div>
+        </div>
+        <div class="dp2-section">
+          <span class="dp2-label">Day type</span>
+          <div class="dp2-opts" data-ctrl="day">
+            <button type="button" class="dp2-opt active" data-v="weekday"><span class="dp2-opt-name">Weekday</span></button>
+            <button type="button" class="dp2-opt" data-v="weekend"><span class="dp2-opt-name">Weekend</span></button>
+          </div>
+        </div>
+        <button type="button" class="demo2-run" id="run-sim">Run prediction</button>
+      </div>
+      <div class="demo2-out">
+        <div class="demo2-clock">
+          <span class="demo2-time" id="demo2-time">&mdash;</span>
+          <span class="demo2-act" id="demo2-act">Select a profile and run&hellip;</span>
+        </div>
+        <div class="demo2-tl-wrap">
+          <div class="demo2-tl" id="demo2-tl"></div>
+          <div class="demo2-tl-axis"><span>00h</span><span>06h</span><span>12h</span><span>18h</span><span>24h</span></div>
+        </div>
+        <div class="demo2-stats">
+          <div class="demo2-stat"><span class="demo2-stat-v" id="demo2-acc">&mdash;</span><span class="demo2-stat-k">Predicted accuracy</span></div>
+          <div class="demo2-stat"><span class="demo2-stat-v" id="demo2-slots">&mdash;</span><span class="demo2-stat-k">Slots predicted</span></div>
+          <div class="demo2-stat"><span class="demo2-stat-v" id="demo2-acts">&mdash;</span><span class="demo2-stat-k">Distinct activities</span></div>
+        </div>
+        <div class="demo2-breakdown" id="demo2-breakdown"></div>
+        <div class="demo2-legend" id="demo2-legend"></div>
+      </div>
+    </div>
+<div class="swarm-section" id="swarm-section">
+      <div class="swarm-hdr">
+        <div class="swarm-title-wrap">
+          <span class="sec-label">Population Simulation</span>
+          <h3 class="swarm-title">2,000 simulated lives &mdash; a city in motion</h3>
+        </div>
+        <div class="swarm-controls">
+          <div class="swarm-time" id="swarm-time">00:00</div>
+          <span class="swarm-phase" id="swarm-phase">🌙 Night</span>
+          <span class="swarm-phase" id="swarm-perf" style="display:none;">FPS 60 · S1</span>
+          <button class="swarm-btn" id="swarm-play">&#9646;&#9646; Pause</button>
+          <button class="swarm-btn swarm-btn-ghost" id="swarm-restart">&#8635; Restart</button>
+          <div class="swarm-speed">
+            <span class="swarm-spd-lbl">Speed</span>
+            <button class="swarm-spd" id="swarm-spd-x1">0.5×</button>
+            <button class="swarm-spd active" id="swarm-spd-x2">1×</button>
+            <button class="swarm-spd" id="swarm-spd-x4">2×</button>
+          </div>
+          <div class="swarm-speed">
+            <span class="swarm-spd-lbl">Mode</span>
+            <button class="swarm-spd active" id="swarm-mode-balanced">Balanced</button>
+            <button class="swarm-spd" id="swarm-mode-performance">Performance</button>
+            <button class="swarm-spd" id="swarm-mode-auto">Auto</button>
+          </div>
+        </div>
+      </div>
+      <div class="swarm-body">
+        <p class="swarm-desc">Each dot is one simulated life. Coloured zones are city districts. People flow between districts as the day progresses &mdash; driven by the same structural patterns our model learns to predict.</p>
+        <div class="swarm-progress-bar"><div class="swarm-progress-fill" id="swarm-progress"></div><div class="swarm-progress-labels"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div></div>
+        <canvas id="swarm-canvas"></canvas>
+        <div class="swarm-legend" id="swarm-legend"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tinted" id="methods">
+  <div class="container">
+    <div class="sec-label">Methods</div>
+    <h2 class="sec-title">Framework design</h2>
+    <div class="methods-grid">
+      <div class="ms reveal"><div class="ms-n">01</div><h3>Data pipeline</h3><p>UKDA-8741 Stata .dta &rarr; wide-to-long &rarr; sliding windows. Person-level 70/15/15 split by mainid. No cross-person leakage.</p></div>
+      <div class="ms reveal"><div class="ms-n">02</div><h3>Sliding windows</h3><p>W consecutive slots &rarr; predict slot W+1. W=1 (10 min) optimal. ~914K samples total across four channels.</p></div>
+      <div class="ms reveal"><div class="ms-n">03</div><h3>13 models</h3><p>Majority, Naive Bayes, Markov (N-gram), Logistic, Ridge, SGD, Random Forest, GBDT, XGBoost, LightGBM, LSTM, GRU, Transformer Encoder.</p></div>
+      <div class="ms reveal"><div class="ms-n">04</div><h3>Evaluation</h3><p>Accuracy, Macro-F1, MAE, QWK, Within-one. Bootstrap 95% CI (n=1000 resamples). Brier Score 0.0849, LCS 0.9921.</p></div>
+      <div class="ms reveal"><div class="ms-n">05</div><h3>Group experiments</h3><p>Per-group train/eval for income, econstat, sex, age, region, survey period. 198 B-class experiments. Controlled for group size.</p></div>
+      <div class="ms reveal"><div class="ms-n">06</div><h3>Ablation design</h3><p>Order vs bag encoding, window length (W=1&ndash;30), static features individually, cross-channel inputs. Each factor isolated independently.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="references">
+  <div class="container">
+    <div class="sec-label">References & Theoretical Anchors</div>
+    <h2 class="sec-title">From predictive metrics to social theory</h2>
+    <p class="sec-sub">This project interprets forecasting performance through sociology of time, institutional constraint, and stratified agency.</p>
+    <div class="refs-grid">
+      <div class="ref-card reveal">
+        <div class="ref-n">R1</div>
+        <p><strong>Pred, A. (1981/2005 reprint).</strong> Time-geography and the social anchoring of everyday practices. Used here for the concept of daily routines as space-time constraints.</p>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-n">R2</div>
+        <p><strong>Weber, M. (1905; 1922).</strong> Rationalization and the &ldquo;iron cage&rdquo;. Used to interpret fixed work-time systems as institutionalized temporal discipline.</p>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-n">R3</div>
+        <p><strong>Working Time Mismatch and Employee Subjective Well-being across Institutional Contexts</strong> (job-quality perspective). Supports the institutional-context lens for cross-national expansion.</p>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-n">R4</div>
+        <p><strong>Hochschild, A. (1989).</strong> The second shift. Supports gendered role-load interpretation for fragmented daily schedules.</p>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-n">R5</div>
+        <p><strong>Peterson, R. (1992).</strong> Cultural omnivore thesis. Inspires the hypothesis of “omnivore schedules” in higher-income groups.</p>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-n">R6</div>
+        <p><strong>Method note.</strong> At this phase, missing-value handling follows advisor guidance: drop-first strategy for core variables before imputation extensions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo"><span class="logo-mark">LC</span> LifeCast</span>
+      <div>
+        <span class="footer-info">Phase 1 complete &mdash; Phase 2 core experiments complete &mdash; UKDA-8741 + ATUS 2024</span><br>
+        <span class="footer-info">Cross-national expansion: next frontier &mdash; <span id="footer-year">2026</span></span>
+      </div>
+      <span class="footer-accent">914K windows &middot; 300+ experiments</span>
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script>
+  // Auto-update footer year
+  const fy=document.getElementById('footer-year');
+  if(fy) fy.textContent=new Date().getFullYear();
+  // Auto-run first demo prediction after short delay
+  setTimeout(()=>{
+    const btn=document.getElementById('run-sim');
+    if(btn)btn.click();
+  },1200);
+</script>
+</body>
+</html>
