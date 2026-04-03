@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LifeCast — Multichannel Daily Life Prediction</title>
-  <meta name="description" content="A multichannel ML framework for daily life prediction. 914K time-use windows, 13 models, 91–98.6% accuracy. The income gap in predictability is a social science finding." />
+  <meta name="description" content="LifeCast is a three-phase research program on daily life predictability: UK framework, US replication, and MTUS 7-country external validity, now packaged with advisor-ready reports and 35 figures." />
   <meta name="author" content="LifeCast Research" />
+  <meta name="keywords" content="LifeCast, time-use survey, UKDA-8741, ATUS, MTUS, daily life prediction, predictability, social stratification, transformer, external validity" />
   <meta property="og:title" content="LifeCast — Predictability as a Social Fact" />
-  <meta property="og:description" content="We train 13 models on 914K daily life windows. The accuracy gap between income groups quantifies structural constraint." />
+  <meta property="og:description" content="LifeCast now spans Phase 1–3: UK framework, US replication, and MTUS 7-country full validation. Transformer remains above persistence in all 7 MTUS countries." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lifecast.pages.dev/" />
   <meta property="og:image" content="https://lifecast.pages.dev/social-card.png" />
@@ -15,7 +16,7 @@
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="LifeCast — Multichannel Daily Life Prediction" />
-  <meta name="twitter:description" content="914K windows, 13 models, 91–98.6% accuracy. Predictability as a social fact." />
+  <meta name="twitter:description" content="Three-phase daily life prediction program: UK, US, and MTUS 7-country validation. 35 figures, 5 report sets, and full Phase 3 results now complete." />
   <meta name="twitter:image" content="https://lifecast.pages.dev/social-card.png" />
   <link rel="canonical" href="https://lifecast.pages.dev/" />
   <meta name="theme-color" content="#436289" />
@@ -23,6 +24,28 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchProject",
+    "name": "LifeCast",
+    "url": "https://lifecast.pages.dev/",
+    "description": "A three-phase research program on daily life predictability spanning UKDA-8741, ATUS, and MTUS seven-country validation.",
+    "keywords": [
+      "time-use surveys",
+      "daily life prediction",
+      "social stratification",
+      "external validity",
+      "transformer"
+    ],
+    "identifier": [
+      "UKDA-8741",
+      "ATUS 2024",
+      "MTUS"
+    ],
+    "image": "https://lifecast.pages.dev/social-card.png"
+  }
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -37,16 +60,17 @@
     </button>
     <ul class="nav-links" id="nav-links">
       <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#program">Program</a></li>
       <li><a href="#findings">Findings</a></li>
       <li><a href="#results">Results</a></li>
-      <li><a href="#heatmap">Patterns</a></li>
       <li><a href="#inertia">Inertia</a></li>
       <li><a href="#phase2">Phase 2</a></li>
+      <li><a href="#phase3">Phase 3</a></li>
       <li><a href="#ukus">UK vs US</a></li>
       <li><a href="#groups">Groups</a></li>
       <li><a href="#demo">Demo</a></li>
       <li><a href="#methods">Methods</a></li>
-      <li><a href="#references">Refs</a></li>
+      <li><a href="#reports">Reports</a></li>
     </ul>
   </div>
 </nav>
@@ -54,26 +78,26 @@
 <section class="hero" id="hero">
   <canvas id="grid-canvas"></canvas>
   <div class="hero-content">
-    <div class="hero-badge">Research &middot; 2026 &middot; UKDA-8741 &middot; Phase 2 Complete</div>
+    <div class="hero-badge">Research · 2026 · UKDA-8741 + ATUS + MTUS · 3 Phases Complete</div>
     <h1 class="hero-title">Predictability as a <em>Social Fact</em></h1>
-    <p class="hero-sub">A Multichannel Framework for Daily Life Forecasting</p>
-    <p class="hero-desc">We train predictive models across four channels of daily life on 914,000 time-use windows from the UK. The accuracy gap between demographic groups quantifies structural constraint.</p>
+    <p class="hero-sub">A three-phase research program on daily life predictability</p>
+    <p class="hero-desc">From UK framework construction to US replication and MTUS 7-country external validity, LifeCast now presents the full project arc: theory, robustness, and advisor-ready reporting.</p>
     <div class="hero-meta">
       <div class="hm"><span class="hm-v">914K</span><span class="hm-k">windows</span></div>
       <div class="hm-sep"></div>
       <div class="hm"><span class="hm-v">300+</span><span class="hm-k">experiments</span></div>
       <div class="hm-sep"></div>
-      <div class="hm"><span class="hm-v">13</span><span class="hm-k">models</span></div>
+      <div class="hm"><span class="hm-v">35</span><span class="hm-k">figures</span></div>
       <div class="hm-sep"></div>
-      <div class="hm"><span class="hm-v">4</span><span class="hm-k">channels</span></div>
+      <div class="hm"><span class="hm-v">9</span><span class="hm-k">national settings</span></div>
       <div class="hm-sep"></div>
-      <div class="hm"><span class="hm-v">2</span><span class="hm-k">countries</span></div>
+      <div class="hm"><span class="hm-v">31M</span><span class="hm-k">test windows</span></div>
       <div class="hm-sep"></div>
-      <div class="hm"><span class="hm-v">18</span><span class="hm-k">US findings</span></div>
+      <div class="hm"><span class="hm-v">5</span><span class="hm-k">report sets</span></div>
     </div>
     <div class="hero-cta">
       <a href="#abstract" class="btn-primary">Read abstract</a>
-      <a href="#demo" class="btn-ghost">Try demo</a>
+      <a href="#reports" class="btn-ghost">Open reports</a>
     </div>
     <div class="hero-dna" id="hero-dna">
       <div class="hero-dna-label" id="hero-dna-label">Employed · Low income · Weekday</div>
@@ -89,10 +113,10 @@
   <div class="container">
     <div class="abs-stat-row reveal">
       <div class="abs-stat"><span class="abs-stat-v">914K</span><span class="abs-stat-k">training windows</span></div>
-      <div class="abs-stat"><span class="abs-stat-v">91–98.6%</span><span class="abs-stat-k">test accuracy range</span></div>
-      <div class="abs-stat"><span class="abs-stat-v">5.26 pp</span><span class="abs-stat-k">income accuracy gap</span></div>
-      <div class="abs-stat"><span class="abs-stat-v">14–20 pp</span><span class="abs-stat-k">sequence order effect</span></div>
-      <div class="abs-stat"><span class="abs-stat-v">300+</span><span class="abs-stat-k">bootstrap experiments</span></div>
+      <div class="abs-stat"><span class="abs-stat-v">5.26 pp</span><span class="abs-stat-k">UK income gap</span></div>
+      <div class="abs-stat"><span class="abs-stat-v">+0.2–0.5 pp</span><span class="abs-stat-k">US pooled delta</span></div>
+      <div class="abs-stat"><span class="abs-stat-v">+0.44 pp</span><span class="abs-stat-k">MTUS TF delta</span></div>
+      <div class="abs-stat"><span class="abs-stat-v">35</span><span class="abs-stat-k">curated figures</span></div>
     </div>
     <div class="two-col">
       <div class="col-left">
@@ -100,13 +124,26 @@
         <h2 class="sec-title">Can ML quantify social structure?</h2>
       </div>
       <div class="col-right">
-        <p class="abs-text">We present a multichannel daily life prediction framework trained on the UK Time Use Survey (UKDA-8741), comprising 6,896 diary-days across four channels: <em>Activity</em> (37 categories), <em>Enjoyment</em> (7 levels), <em>Location</em> (3 categories), and <em>With Whom</em> (7 categories). Each diary day is divided into 144 ten-minute slots, yielding ~914,000 sliding-window samples.</p>
-        <p class="abs-text">Using 13 models from Majority Vote to Transformer Encoder, we achieve 91.0–98.6% test accuracy. The <strong>accuracy gap between demographic groups</strong>—up to 5.26 pp by income—is a social science finding: predictability measures structural constraint. Temporal sequence order contributes 14–20 pp; static demographics contribute ≈0.</p>
-        <p class="abs-text">Deep models (LSTM, GRU, Transformer) provide <strong>+3.16 pp</strong> for high-income groups only—revealing behavioural complexity invisible to linear models. All group differences are confirmed by Bootstrap 95% CIs across 300+ experiments.</p>
+        <p class="abs-text">LifeCast begins as a multichannel daily life prediction framework trained on the UK Time Use Survey (UKDA-8741), covering 6,896 diary-days and four channels: <em>Activity</em>, <em>Enjoyment</em>, <em>Location</em>, and <em>With Whom</em>. Phase 1 establishes the theoretical core: predictability is not just a machine-learning score, but a way to quantify social constraint.</p>
+        <p class="abs-text">Phase 2 carries the design into the US ATUS ecosystem, where the main question shifts from “can the framework travel?” to “what happens once persistence is treated seriously?” The answer is more mature than a simple win/loss story: quick runs can sit below persistence, but pooled 2003–2024 data recovers stable positive deltas once sample size is large enough.</p>
+        <p class="abs-text">Phase 3 closes the loop through MTUS external-validity testing across seven countries. In the refreshed full summary, Transformer remains positive in <strong>7/7 countries</strong> with a weighted <strong>+0.44 pp</strong> gain over persistence, while fine activity remains more informative than coarse coding. The site now reflects that full project arc rather than a Phase 1 snapshot.</p>
         <div class="abs-tags">
-          <span class="tag">Time-use surveys</span><span class="tag">Sequence prediction</span><span class="tag">Social stratification</span><span class="tag">Transformer</span><span class="tag">UKDA-8741</span>
+          <span class="tag">UKDA-8741</span><span class="tag">ATUS</span><span class="tag">MTUS</span><span class="tag">External validity</span><span class="tag">Transformer</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-tinted" id="program">
+  <div class="container">
+    <div class="sec-label">Research Program</div>
+    <h2 class="sec-title">Three phases, one cumulative argument</h2>
+    <p class="sec-sub">The site now follows the full arc of the project: framework construction in the UK, replication in the US, and external-validity testing across seven MTUS countries. What used to read like a Phase 1 showcase now reads like a completed research program.</p>
+    <div class="program-stats reveal" id="program-stats"></div>
+    <div class="program-grid" id="program-grid"></div>
+    <div class="program-note reveal">
+      <strong>Why this matters.</strong> The project is no longer just a promising framework; it is now a multi-phase evidence stack with figure chains, reporting logic, and advisor-ready handoff materials.
     </div>
   </div>
 </section>
@@ -121,7 +158,7 @@
       <div class="finding-card reveal" style="--fc-accent:#568bc1"><div class="fc-num">F3</div><div class="fc-icon">🧠</div><h3>Deep models expose high-income complexity</h3><p>Transformer outperforms SGD by <strong>+3.16 pp</strong> for high-income only. Low-income lift <strong>&lt;0.03 pp</strong>.</p><div class="fc-tag">Deep models — B-class</div></div>
       <div class="finding-card reveal" style="--fc-accent:#b0a060"><div class="fc-num">F4</div><div class="fc-icon">⏰</div><h3>Transition moments: universal blind spots</h3><p>Error peaks at <strong>16% at 08:00</strong> and <strong>14% at 18:00</strong>&mdash;exactly at work and domestic transitions. Night hours: <strong>&lt;1%</strong> error.</p><div class="fc-tag">Error analysis — hourly</div></div>
       <div class="finding-card reveal" style="--fc-accent:#60a898"><div class="fc-num">F5</div><div class="fc-icon">🔢</div><h3>Sequence order dominates all features</h3><p>Order-preserved vs bag-of-words: <strong>14&ndash;20 pp gap</strong>. Removing order collapses performance more than removing all static demographics combined.</p><div class="fc-tag">E6 — Ablation</div></div>
-      <div class="finding-card reveal" style="--fc-accent:#78b888"><div class="fc-num">F6</div><div class="fc-icon">🌐</div><h3>Channels are self-contained worlds</h3><p>Cross-channel prediction performs <strong>up to 71 pp worse</strong> than self-regression. Enjoyment is least predictable from behaviour.</p><div class="fc-tag">E2 — Cross-channel</div></div>
+      <div class="finding-card reveal" style="--fc-accent:#78b888"><div class="fc-num">F6</div><div class="fc-icon">🌍</div><h3>External validity survives heterogeneity</h3><p>In MTUS full runs, Transformer stays above persistence in <strong>7/7 countries</strong> with a weighted <strong>+0.44 pp</strong> gain. Fine activity carries more signal than coarse coding.</p><div class="fc-tag">Phase 3 — External validity</div></div>
     </div>
   </div>
 </section>
@@ -267,7 +304,7 @@
   <div class="container">
     <div class="sec-label">Phase 2 &mdash; Complete</div>
     <h2 class="sec-title">US expansion: all experiments complete</h2>
-    <p class="sec-sub">Phase 2 report finalized: 389 lines, 11 chapters, 18 key findings, 127 data table rows. Covers ATUS 2024 and pooled 2003&ndash;2024 cross-year analysis. Report is advisor-ready.</p>
+    <p class="sec-sub">Phase 2 report finalized: 389 lines, 11 chapters, 18 key findings, 127 data table rows, and an 8-figure visualization appendix. It covers ATUS 2024 and pooled 2003&ndash;2024 cross-year analysis and is now fully advisor-ready.</p>
     <div class="p2-grid">
       <div class="p2-card reveal">
         <div class="p2-top"><span class="p2-pill ok">Completed</span><span class="p2-code">WP1</span></div>
@@ -295,9 +332,9 @@
         <p>Weekday-only sampling loses only <strong>0.8 pp</strong> vs full-week. Model generalises robustly &mdash; structural patterns dominate over day-type variation.</p>
       </div>
       <div class="p2-card reveal">
-        <div class="p2-top"><span class="p2-pill next">Next</span><span class="p2-code">WP4+</span></div>
+        <div class="p2-top"><span class="p2-pill ok">Completed</span><span class="p2-code">WP4+</span></div>
         <h3>Cross-national feasibility</h3>
-        <p>MTUS onboarding and country comparability diagnostics are the next execution frontier.</p>
+        <p>MTUS onboarding and country comparability diagnostics were completed here, then carried forward into the full 7-country validation delivered in Phase 3.</p>
       </div>
       <div class="p2-card reveal">
         <div class="p2-top"><span class="p2-pill ok">Completed</span><span class="p2-code">A1-full</span></div>
@@ -326,6 +363,73 @@
       <h3 class="subsec-title" style="margin-bottom:1.5rem">What the US data confirms &mdash; and what replicates across UK &amp; US</h3>
     </div>
     <div class="findings-grid" id="p2-findings"></div>
+  </div>
+</section>
+
+<section class="section" id="phase3">
+  <div class="container">
+    <div class="sec-label">Phase 3 &mdash; External Validity</div>
+    <h2 class="sec-title">MTUS full runs turn LifeCast into a cross-national result</h2>
+    <p class="sec-sub">Phase 3 is no longer a quick-status page. The refreshed summaries now include all 42 A1 fine records and 105 B1 grouped full runs across CA, ES, FR, IT, KR, NL, and ZA, supported by a dedicated 10-figure chain and a complete technical report.</p>
+    <div class="p3-update-stamp">Last updated: full summary + figures + advisor package sync · 2026</div>
+
+    <div class="p3-kpis reveal">
+      <div class="p3-kpi"><span class="p3-v">7</span><span class="p3-k">MTUS countries</span></div>
+      <div class="p3-kpi"><span class="p3-v">42</span><span class="p3-k">A1 fine records</span></div>
+      <div class="p3-kpi"><span class="p3-v">105</span><span class="p3-k">B1 full records</span></div>
+      <div class="p3-kpi"><span class="p3-v">31.4M</span><span class="p3-k">test windows</span></div>
+      <div class="p3-kpi"><span class="p3-v">+0.44pp</span><span class="p3-k">TF vs persistence</span></div>
+      <div class="p3-kpi"><span class="p3-v">10</span><span class="p3-k">Phase 3 figures</span></div>
+    </div>
+
+    <div class="p3-grid">
+      <div class="p3-card reveal">
+        <h3>Mainline decision</h3>
+        <p><strong>Keep:</strong> fine activity + Transformer as the formal default. In the refreshed full summary, Transformer is positive in all 7 countries.</p>
+        <p><strong>Interpretation:</strong> persistence remains strong, but it is not the final ceiling once harmonization and sample size are handled carefully.</p>
+      </div>
+      <div class="p3-card reveal">
+        <h3>Grouped robustness</h3>
+        <p><strong>Keep:</strong> age_bin and sex as the stable Phase 3 grouped lanes. Both remain above zero in the full runs.</p>
+        <p><strong>Why it matters:</strong> model lift is not confined to pooled totals; it survives social slices as well.</p>
+      </div>
+      <div class="p3-card reveal">
+        <h3>Fine vs coarse</h3>
+        <p><strong>Fine:</strong> weighted delta <strong>+0.44 pp</strong>. <strong>Coarse:</strong> <strong>+0.16 pp</strong>.</p>
+        <p>Coarse remains a robustness lane, but fine activity carries the richer signal and therefore stays on the main narrative path.</p>
+      </div>
+    </div>
+
+    <div class="p3-panels">
+      <div class="p3-panel reveal">
+        <div class="p3-panel-kicker">Country deltas</div>
+        <h3>Transformer stays positive in all seven countries</h3>
+        <div class="p3-bar-list" id="phase3-country-bars" aria-label="Phase 3 Transformer country deltas"></div>
+      </div>
+      <div class="p3-panel reveal">
+        <div class="p3-panel-kicker">Quick &rarr; full correction</div>
+        <h3>Formal runs amplify the weak quick signals</h3>
+        <div class="p3-bar-list" id="phase3-uplift-bars" aria-label="Phase 3 quick to full uplift chart"></div>
+      </div>
+    </div>
+
+    <div class="p3-panel p3-panel-full reveal">
+      <div class="p3-panel-kicker">Grouped heatmap</div>
+      <h3>age_bin and sex stay positive country by country</h3>
+      <div class="p3-heatmap" id="phase3-heatmap" aria-label="Phase 3 grouped delta heatmap"></div>
+    </div>
+
+    <div class="p3-bilingual reveal">
+      <p><strong>中文：</strong>Phase 3 现在已经不是 quick 通报，而是完整的跨国外部效度结果：7 国 full runs、42 条 A1 fine 记录、105 条 B1 分组 full records 全部入表，且 Transformer 在 7 国均保持正增益。</p>
+      <p><strong>EN:</strong> Phase 3 is now a full external-validity result, not a quick note: all 42 A1 fine records and 105 grouped full records are included, and Transformer remains positive in all seven MTUS countries.</p>
+    </div>
+
+    <div class="p3-links reveal">
+      <span class="p3-chip">PHASE3_COMPLETE_REPORT</span>
+      <span class="p3-chip">PHASE3_VISUALIZATION_REPORT</span>
+      <span class="p3-chip">uk_us_mtus_master_table.csv</span>
+      <span class="p3-chip">10 dedicated figures</span>
+    </div>
   </div>
 </section>
 
@@ -447,14 +551,64 @@
 <section class="section section-tinted" id="methods">
   <div class="container">
     <div class="sec-label">Methods</div>
-    <h2 class="sec-title">Framework design</h2>
+    <h2 class="sec-title">Framework, harmonization, and handoff</h2>
     <div class="methods-grid">
       <div class="ms reveal"><div class="ms-n">01</div><h3>Data pipeline</h3><p>UKDA-8741 Stata .dta &rarr; wide-to-long &rarr; sliding windows. Person-level 70/15/15 split by mainid. No cross-person leakage.</p></div>
       <div class="ms reveal"><div class="ms-n">02</div><h3>Sliding windows</h3><p>W consecutive slots &rarr; predict slot W+1. W=1 (10 min) optimal. ~914K samples total across four channels.</p></div>
-      <div class="ms reveal"><div class="ms-n">03</div><h3>13 models</h3><p>Majority, Naive Bayes, Markov (N-gram), Logistic, Ridge, SGD, Random Forest, GBDT, XGBoost, LightGBM, LSTM, GRU, Transformer Encoder.</p></div>
-      <div class="ms reveal"><div class="ms-n">04</div><h3>Evaluation</h3><p>Accuracy, Macro-F1, MAE, QWK, Within-one. Bootstrap 95% CI (n=1000 resamples). Brier Score 0.0849, LCS 0.9921.</p></div>
-      <div class="ms reveal"><div class="ms-n">05</div><h3>Group experiments</h3><p>Per-group train/eval for income, econstat, sex, age, region, survey period. 198 B-class experiments. Controlled for group size.</p></div>
-      <div class="ms reveal"><div class="ms-n">06</div><h3>Ablation design</h3><p>Order vs bag encoding, window length (W=1&ndash;30), static features individually, cross-channel inputs. Each factor isolated independently.</p></div>
+      <div class="ms reveal"><div class="ms-n">03</div><h3>13 models, then focused formal tracks</h3><p>Phase 1 surveys the full model family. Later phases narrow the formal comparison to SGD, Transformer, and persistence-style baselines where the methodological question becomes most interpretable.</p></div>
+      <div class="ms reveal"><div class="ms-n">04</div><h3>Evaluation</h3><p>Accuracy, Macro-F1, delta vs persistence, weighted aggregation, MAE, QWK, and Bootstrap 95% CI. The project increasingly treats persistence as the benchmark that results must explain, not ignore.</p></div>
+      <div class="ms reveal"><div class="ms-n">05</div><h3>Group experiments</h3><p>Per-group train/eval spans income, econstat, sex, age, weekday structure, and later MTUS grouped slices. The grouped question stays constant across phases: who is more predictable, and why?</p></div>
+      <div class="ms reveal"><div class="ms-n">06</div><h3>Ablation design</h3><p>Order vs bag encoding, window length (W=1&ndash;30), fine vs coarse activity, weekday/full-week contrasts, and cross-channel inputs isolate where the predictive signal actually lives.</p></div>
+      <div class="ms reveal"><div class="ms-n">07</div><h3>Cross-national harmonization</h3><p>Phase 2 and Phase 3 align UKDA-8741, ATUS, and MTUS to a shared activity forecasting task. Fine activity stays on the mainline; coarse coding remains a robustness lane rather than the headline result.</p></div>
+      <div class="ms reveal"><div class="ms-n">08</div><h3>Report packaging</h3><p>Each mature phase is delivered as Markdown, self-contained HTML, and print-ready PDF. The advisor package now bundles five report sets with a clear reading order for review.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reports">
+  <div class="container">
+    <div class="sec-label">Research Package</div>
+    <h2 class="sec-title">Advisor-ready reports and figure chains are assembled</h2>
+    <p class="sec-sub">The project now includes complete main reports for Phase 1&ndash;3, dedicated visualization reports for Phase 2 and 3, and a consolidated advisor package with self-contained HTML and print-ready PDF exports.</p>
+    <div class="report-toolbar reveal" id="reports-toolbar"></div>
+    <div class="report-path reveal" aria-label="Recommended reading order">
+      <div class="report-path-step">
+        <span class="report-path-n">1</span>
+        <div>
+          <strong>Phase 1 complete report</strong>
+          <span>framework origin and theory anchor</span>
+          <div class="report-path-links"><a href="reports/advisor-package/PHASE1_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a></div>
+        </div>
+      </div>
+      <div class="report-path-step">
+        <span class="report-path-n">2</span>
+        <div>
+          <strong>Phase 2 complete report</strong>
+          <span>US replication and pooled correction</span>
+          <div class="report-path-links"><a href="reports/advisor-package/PHASE2_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a></div>
+        </div>
+      </div>
+      <div class="report-path-step">
+        <span class="report-path-n">3</span>
+        <div>
+          <strong>Phase 3 complete report</strong>
+          <span>MTUS external-validity closure</span>
+          <div class="report-path-links"><a href="reports/advisor-package/PHASE3_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a></div>
+        </div>
+      </div>
+      <div class="report-path-step report-path-step--sub">
+        <span class="report-path-n">4</span>
+        <div>
+          <strong>Visualization reports</strong>
+          <span>Phase 2 and Phase 3 figure-chain appendices</span>
+          <div class="report-path-links"><a href="reports/index.html#visualization-reports" target="_blank" rel="noopener noreferrer">Open hub section</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="report-stats reveal" id="reports-stats"></div>
+    <div class="report-grid" id="reports-grid"></div>
+    <div class="report-note reveal">
+      <strong>Packaging status.</strong> Markdown remains the editable source, HTML provides offline review, and PDF gives a stable supervisor-facing handoff.
     </div>
   </div>
 </section>
@@ -502,10 +656,10 @@
     <div class="footer-inner">
       <span class="footer-logo"><span class="logo-mark">LC</span> LifeCast</span>
       <div>
-        <span class="footer-info">Phase 1 complete &mdash; Phase 2 core experiments complete &mdash; UKDA-8741 + ATUS 2024</span><br>
-        <span class="footer-info">Cross-national expansion: next frontier &mdash; <span id="footer-year">2026</span></span>
+        <span class="footer-info">Phase 1 · Phase 2 · Phase 3 complete &mdash; UK + US + MTUS 7-country evidence stack</span><br>
+        <span class="footer-info">35 figures · 5 report sets · formal default = fine activity + transformer · <span id="footer-year">2026</span></span>
       </div>
-      <span class="footer-accent">914K windows &middot; 300+ experiments</span>
+      <span class="footer-accent">35 figures &middot; 15 packaged files</span>
     </div>
   </div>
 </footer>

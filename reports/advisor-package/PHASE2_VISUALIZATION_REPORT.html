@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phase 2 可视化审计与图链说明</title>
+<style>
+:root {
+    --primary: #1a3c6e;
+    --secondary: #2a5a8e;
+    --accent: #3a7abe;
+    --bg-light: #f5f8fc;
+    --border: #dde3ed;
+}
+@media print {
+    body { font-size: 10pt; }
+    h1, h2 { page-break-before: always; }
+    h1:first-of-type, h2:first-of-type { page-break-before: avoid; }
+    table, pre, blockquote, img { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+@page {
+    size: A4;
+    margin: 18mm 16mm 22mm 16mm;
+}
+* { box-sizing: border-box; }
+body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                 "Noto Sans CJK SC", "Source Han Sans SC",
+                 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #1a1a1a;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20px 30px;
+    background: #fff;
+}
+h1 {
+    font-size: 26px;
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+h2 {
+    font-size: 21px;
+    color: var(--secondary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 6px;
+    margin-top: 35px;
+}
+h3 {
+    font-size: 17px;
+    color: var(--accent);
+    margin-top: 25px;
+}
+h4 {
+    font-size: 15px;
+    color: #555;
+    margin-top: 18px;
+}
+p, li { margin: 0.45em 0; }
+ul, ol { padding-left: 1.5em; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 14px 0;
+    font-size: 13px;
+}
+thead { display: table-header-group; }
+th {
+    background: var(--secondary);
+    color: #fff;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #1a4a7e;
+}
+td {
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    text-align: center;
+}
+tr:nth-child(even) { background: var(--bg-light); }
+blockquote {
+    border-left: 4px solid var(--secondary);
+    background: #eef3fa;
+    padding: 12px 18px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+}
+blockquote strong { color: var(--primary); }
+code {
+    background: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+    font-size: 12px;
+}
+pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 18px auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 30px 0;
+}
+strong { color: var(--primary); }
+a { color: var(--accent); text-decoration: none; }
+.print-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 28px;
+    background: var(--secondary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+.print-btn:hover { background: var(--primary); }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">导出 PDF (Ctrl+P)</button>
+<h1 id="phase-2">Phase 2 可视化审计与图链说明</h1>
+<blockquote>
+<p>项目：<code>Yucheng_Project</code><br />
+阶段：Phase 2（US / ATUS）<br />
+对齐基准：<code>PHASE1_COMPLETE_REPORT.md</code> 的“图表嵌入 + 章节叙事 + 方法解释”风格<br />
+更新时间：2026-04-03</p>
+</blockquote>
+<hr />
+<h2 id="1">1) 本次更新后的结论</h2>
+<p>Phase 2 的可视化已经不再是“有几张零散图”，而是形成了一套<strong>可以直接嵌入正式主报告</strong>的 8 图链：</p>
+<ul>
+<li>baseline：有</li>
+<li>Macro-F1 / delta 误差分解：有</li>
+<li>quick vs pooled stratification：有</li>
+<li>pooled grouped delta：有</li>
+<li>pooled heatmap：有</li>
+<li>methodology sensitivity：有</li>
+<li>sample-size correction：有</li>
+<li>UK vs US 主线对照：有</li>
+</ul>
+<p>换句话说，Phase 2 现在已经具备和 Phase 1 同口径的“图驱动叙事”能力，虽然总图量仍少于 Phase 1，但已经足够支撑导师阶段沟通。</p>
+<hr />
+<h2 id="2-phase-2-8">2) 当前 Phase 2 专属图组（8 张）</h2>
+<p>目录：<code>results/phase2_figures/</code></p>
+<table>
+<thead>
+<tr>
+<th>图号</th>
+<th>文件</th>
+<th>在主报告中的位置</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P2-F1</td>
+<td><code>phase2_fig1_us_baseline_activity_location.png</code></td>
+<td>A1 baseline</td>
+<td>US <code>activity/location</code> 基准总览</td>
+</tr>
+<tr>
+<td>P2-F2</td>
+<td><code>phase2_fig2_us_stratified_activity.png</code></td>
+<td>B1 grouped</td>
+<td>quick vs pooled 的分组对照</td>
+</tr>
+<tr>
+<td>P2-F3</td>
+<td><code>phase2_fig3_us_pooled_group_delta.png</code></td>
+<td>pooled 复核</td>
+<td>各分组 delta（按通道拆开）</td>
+</tr>
+<tr>
+<td>P2-F4</td>
+<td><code>phase2_fig4_uk_vs_us_activity_baseline.png</code></td>
+<td>跨阶段对表</td>
+<td>UK vs US <code>activity</code> 主线对照</td>
+</tr>
+<tr>
+<td>P2-F5</td>
+<td><code>phase2_fig5_us_baseline_macrof1_delta.png</code></td>
+<td>A1 baseline</td>
+<td>baseline 的 Macro-F1 与 delta 分解</td>
+</tr>
+<tr>
+<td>P2-F6</td>
+<td><code>phase2_fig6_us_pooled_delta_heatmap.png</code></td>
+<td>pooled 复核</td>
+<td>pooled heatmap，突出位置与活动通道差异</td>
+</tr>
+<tr>
+<td>P2-F7</td>
+<td><code>phase2_fig7_us_methodology_sensitivity.png</code></td>
+<td>稳健性</td>
+<td><code>fine/coarse</code>、<code>10/30min</code>、<code>weekday/full</code></td>
+</tr>
+<tr>
+<td>P2-F8</td>
+<td><code>phase2_fig8_us_sample_size_delta_shift.png</code></td>
+<td>pooled 复核</td>
+<td>sample-size correction 证据图</td>
+</tr>
+</tbody>
+</table>
+<p>生成脚本：<code>generate_phase2_phase3_figures.py</code></p>
+<hr />
+<h2 id="3">3) 为什么现在这套图比旧版强很多</h2>
+<p>旧版 Phase 2 的问题不是“完全没图”，而是图不够成体系：</p>
+<ol>
+<li>大部分图仍借用 Phase 1 语境，缺少专门服务 Phase 2 章节的问题意识。</li>
+<li>没有把 quick 与 pooled 的关系做成可视化，因此“negative delta 是否只是小样本伪象”只能靠文字硬说。</li>
+<li>缺少 Macro-F1、heatmap、sample-size correction 这些会直接提升说服力的证据图。</li>
+</ol>
+<p>这次补齐后的优势在于：</p>
+<ol>
+<li><strong>A1 讲清楚了</strong>：不仅有 baseline accuracy，还有 Macro-F1 与 delta 解释。</li>
+<li><strong>B1 讲清楚了</strong>：quick 与 pooled 可以直接对照，避免过度解释 quick。</li>
+<li><strong>方法论讲清楚了</strong>：不是只展示结果，还展示为什么 sample-size 会改变结论。</li>
+<li><strong>对表讲清楚了</strong>：UK vs US 主线可以一图看懂，不用来回翻文件。</li>
+</ol>
+<hr />
+<h2 id="4">4) 现在够不够发导师</h2>
+<h3 id="_1">用于导师阶段沟通：<strong>已经够</strong></h3>
+<p>目前这 8 张图已经能回答导师最可能追问的几个问题：</p>
+<ol>
+<li>US baseline 到底是什么水平？</li>
+<li>分组差异是 quick 偶然现象，还是 pooled 后仍成立？</li>
+<li>Transformer 相对 persistence 的 gain 到底稳不稳？</li>
+<li>US 与 UK 的关系是“同机制但不同幅度”还是完全不同故事？</li>
+</ol>
+<h3 id="_2">用于论文终稿：<strong>仍有进一步加厚空间</strong></h3>
+<p>如果后续转向投稿级排版，还可以再补：</p>
+<ul>
+<li>pooled CI / bootstrap 风格图；</li>
+<li>confusion / top-error 类型图；</li>
+<li>figure caption 更长、可直接贴进论文 Results。</li>
+</ul>
+<p>但这些已经属于“下一层精修”，不是当前发导师前的必要门槛。</p>
+<hr />
+<h2 id="5-phase-2">5) 建议对导师的话术（Phase 2）</h2>
+<p>可以这样概括：</p>
+<blockquote>
+<p>Phase 2 现在已经不是一份只有几张零散图的中间汇报，而是形成了完整的 8 图主链：baseline、误差分解、quick-vs-pooled 分组对照、pooled delta、heatmap、方法稳健性、样本量修正，以及 UK-US 主线对表。<br />
+它们共同支持一个更成熟的结论：US 中 persistence 依旧强，Transformer 的额外增益在 quick 阶段不一定立刻显形，但在 pooled 和更充分样本下会变得更稳定。</p>
+</blockquote>
+</body>
+</html>

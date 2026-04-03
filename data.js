@@ -369,5 +369,141 @@ const RESEARCH_DATA = {
     "us_10min_vs_30min": { "ten_min": 86.48, "thirty_min": 73.47, "note": "10-min retains 14% more accuracy than 30-min" },
     "us_fine_vs_coarse": { "fine": 87.72, "coarse": 90.11, "note": "Coarse +2.4 pp — but loses behavioural resolution" },
     "us_fullweek_vs_weekday": { "full_week": 86.48, "weekday_only": 85.79, "note": "Weekday-only -0.8 pp — robust generalisation" }
+  },
+  "project_summary": {
+    "phases": 3,
+    "country_settings": 9,
+    "figures": 35,
+    "report_sets": 5,
+    "packaged_files": 15,
+    "formats": 3
+  },
+  "project_phases": [
+    {
+      "code": "Phase 1",
+      "title": "Framework construction in the UK",
+      "dataset": "UKDA-8741",
+      "scope": "914K windows · 13 models · 4 channels",
+      "insight": "Predictability behaves like a social fact: income gap reaches 5.26 pp, and temporal order adds 14–20 pp over bag-style encodings.",
+      "output": "17 visualizations · complete technical report"
+    },
+    {
+      "code": "Phase 2",
+      "title": "US replication and sample-size correction",
+      "dataset": "ATUS 2024 + pooled 2003–2024",
+      "scope": "8 dedicated figures · 18 key findings",
+      "insight": "Persistence remains a formidable baseline, but pooled ATUS data shows positive model deltas once sample size is sufficient and the quick/full distinction is respected.",
+      "output": "main report + visualization report"
+    },
+    {
+      "code": "Phase 3",
+      "title": "MTUS external validity across seven countries",
+      "dataset": "CA · ES · FR · IT · KR · NL · ZA",
+      "scope": "42 A1 fine records · 105 B1 grouped full runs",
+      "insight": "Transformer stays positive in all 7 countries (+0.44 pp weighted vs persistence), and fine activity remains substantially more informative than coarse coding.",
+      "output": "10-figure chain · full external-validity report"
+    }
+  ],
+  "phase3_full": {
+    "countries": 7,
+    "a1_records": 42,
+    "b1_records": 105,
+    "coarse_records": 21,
+    "test_windows": 31425108,
+    "transformer_delta": 0.44,
+    "sgd_delta": 0.09,
+    "macro_f1": 75.77,
+    "fine_delta": 0.44,
+    "coarse_delta": 0.16,
+    "figures": 10
+  },
+  "phase3_country_delta": [
+    { "country": "ZA", "transformer": 0.76, "sgd": 0.14, "quick": 0.26, "full": 0.76, "age_bin": 0.64, "sex": 0.71 },
+    { "country": "NL", "transformer": 0.58, "sgd": 0.05, "quick": 0.07, "full": 0.58, "age_bin": 0.54, "sex": 0.57 },
+    { "country": "KR", "transformer": 0.55, "sgd": 0.16, "quick": 0.06, "full": 0.55, "age_bin": 0.54, "sex": 0.57 },
+    { "country": "ES", "transformer": 0.32, "sgd": 0.04, "quick": 0.19, "full": 0.32, "age_bin": 0.34, "sex": 0.33 },
+    { "country": "IT", "transformer": 0.27, "sgd": 0.03, "quick": 0.00, "full": 0.27, "age_bin": 0.26, "sex": 0.24 },
+    { "country": "FR", "transformer": 0.19, "sgd": -0.00, "quick": 0.06, "full": 0.19, "age_bin": 0.18, "sex": 0.18 },
+    { "country": "CA", "transformer": 0.15, "sgd": 0.03, "quick": 0.14, "full": 0.15, "age_bin": 0.12, "sex": 0.13 }
+  ],
+  "phase3_group_summary": [
+    { "dimension": "age_bin", "runs": 63, "delta": 0.37, "color": "#436289" },
+    { "dimension": "sex", "runs": 42, "delta": 0.39, "color": "#6caac4" }
+  ],
+  "advisor_package": {
+    "report_sets": 5,
+    "files": 15,
+    "formats": ["PDF", "HTML", "MD"],
+    "hub_path": "reports/index.html",
+    "package_index": "reports/advisor-package/PACKAGE_INDEX.md",
+    "note": "All HTML reports are self-contained for offline review, and the advisor package provides a recommended reading order.",
+    "recommended": [
+      { "label": "Phase 1 complete report", "href": "reports/advisor-package/PHASE1_COMPLETE_REPORT.pdf" },
+      { "label": "Phase 2 complete report", "href": "reports/advisor-package/PHASE2_COMPLETE_REPORT.pdf" },
+      { "label": "Phase 3 complete report", "href": "reports/advisor-package/PHASE3_COMPLETE_REPORT.pdf" },
+      { "label": "Visualization reports", "href": "reports/index.html#visualization-reports" }
+    ],
+    "items": [
+      {
+        "code": "P1",
+        "title": "Phase 1 complete report",
+        "desc": "Framework origin, theory anchor, and the densest single-phase report in the project.",
+        "files": "MD · HTML · PDF",
+        "recommended_format": "PDF",
+        "links": {
+          "pdf": "reports/advisor-package/PHASE1_COMPLETE_REPORT.pdf",
+          "html": "reports/advisor-package/PHASE1_COMPLETE_REPORT.html",
+          "md": "reports/advisor-package/PHASE1_COMPLETE_REPORT.md"
+        }
+      },
+      {
+        "code": "P2-M",
+        "title": "Phase 2 complete report",
+        "desc": "US replication, pooled 2003–2024 correction, and the methodological case against over-reading quick runs.",
+        "files": "MD · HTML · PDF",
+        "recommended_format": "PDF",
+        "links": {
+          "pdf": "reports/advisor-package/PHASE2_COMPLETE_REPORT.pdf",
+          "html": "reports/advisor-package/PHASE2_COMPLETE_REPORT.html",
+          "md": "reports/advisor-package/PHASE2_COMPLETE_REPORT.md"
+        }
+      },
+      {
+        "code": "P2-V",
+        "title": "Phase 2 visualization report",
+        "desc": "Eight-figure chain explaining baseline, pooled deltas, methodology sensitivity, and UK–US alignment.",
+        "files": "MD · HTML · PDF",
+        "recommended_format": "HTML",
+        "links": {
+          "pdf": "reports/advisor-package/PHASE2_VISUALIZATION_REPORT.pdf",
+          "html": "reports/advisor-package/PHASE2_VISUALIZATION_REPORT.html",
+          "md": "reports/advisor-package/PHASE2_VISUALIZATION_REPORT.md"
+        }
+      },
+      {
+        "code": "P3-M",
+        "title": "Phase 3 complete report",
+        "desc": "MTUS external validity with 42 A1 fine records, 105 B1 grouped full runs, and weighted cross-country aggregation.",
+        "files": "MD · HTML · PDF",
+        "recommended_format": "PDF",
+        "links": {
+          "pdf": "reports/advisor-package/PHASE3_COMPLETE_REPORT.pdf",
+          "html": "reports/advisor-package/PHASE3_COMPLETE_REPORT.html",
+          "md": "reports/advisor-package/PHASE3_COMPLETE_REPORT.md"
+        }
+      },
+      {
+        "code": "P3-V",
+        "title": "Phase 3 visualization report",
+        "desc": "Ten-figure chain for country deltas, grouped robustness, quick-to-full correction, and cross-phase closure.",
+        "files": "MD · HTML · PDF",
+        "recommended_format": "HTML",
+        "links": {
+          "pdf": "reports/advisor-package/PHASE3_VISUALIZATION_REPORT.pdf",
+          "html": "reports/advisor-package/PHASE3_VISUALIZATION_REPORT.html",
+          "md": "reports/advisor-package/PHASE3_VISUALIZATION_REPORT.md"
+        }
+      }
+    ]
   }
 };

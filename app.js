@@ -1,5 +1,24 @@
 const PREFER_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+function activateReveal(scope){
+  if(!scope)return;
+  const els=scope.querySelectorAll('.reveal');
+  if(!els.length)return;
+  if(PREFER_REDUCED_MOTION||typeof IntersectionObserver==='undefined'){
+    els.forEach(el=>el.classList.add('visible'));
+    return;
+  }
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.1});
+  els.forEach(el=>obs.observe(el));
+}
+
 /* ===== MOBILE NAV ===== */
 (function(){
   const toggle=document.getElementById('nav-toggle');
@@ -21,8 +40,8 @@ const PREFER_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce
 (function(){
   if(PREFER_REDUCED_MOTION)return;
   const hmVs=document.querySelectorAll('.hm-v');
-  const targets=[914,300,13,4,2,18];
-  const suffixes=['K','+','','','',''];
+  const targets=[914,300,35,9,31,5];
+  const suffixes=['K','+','','','M',''];
   hmVs.forEach((el,i)=>{
     const target=targets[i];
     if(target==null)return;
@@ -430,15 +449,175 @@ const PREFER_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce
         <p>${f.detail}</p>
       </div>`);
   });
-  // wire up reveal observer for dynamically added cards
-  if(typeof IntersectionObserver!=='undefined'){
-    const obs=new IntersectionObserver(e=>e.forEach(x=>{
-      if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}
-    }),{threshold:0.1});
-    wrap.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-  } else {
-    wrap.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+  activateReveal(wrap);
+})();
+
+/* ===== PROJECT PROGRAM ===== */
+(function(){
+  if(typeof RESEARCH_DATA==='undefined')return;
+  const summary=RESEARCH_DATA.project_summary;
+  const phases=RESEARCH_DATA.project_phases;
+  const statsWrap=document.getElementById('program-stats');
+  if(statsWrap&&summary){
+    const stats=[
+      {value:summary.phases,label:'phases complete'},
+      {value:summary.country_settings,label:'national settings'},
+      {value:summary.figures,label:'curated figures'},
+      {value:summary.packaged_files,label:'packaged files'}
+    ];
+    statsWrap.innerHTML=stats.map(s=>
+      `<div class="program-stat"><span class="program-stat-v">${s.value}</span><span class="program-stat-k">${s.label}</span></div>`
+    ).join('');
   }
+  const grid=document.getElementById('program-grid');
+  if(grid&&phases){
+    grid.innerHTML=phases.map(p=>
+      `<article class="program-card reveal">
+        <div class="program-top">
+          <span class="program-code">${p.code}</span>
+          <span class="program-dataset">${p.dataset}</span>
+        </div>
+        <h3>${p.title}</h3>
+        <div class="program-scope">${p.scope}</div>
+        <p>${p.insight}</p>
+        <div class="program-output">${p.output}</div>
+      </article>`
+    ).join('');
+  }
+  activateReveal(document.getElementById('program'));
+})();
+
+/* ===== PHASE 3 FULL DASHBOARD ===== */
+(function(){
+  if(typeof RESEARCH_DATA==='undefined')return;
+  const rows=[...(RESEARCH_DATA.phase3_country_delta||[])];
+  if(!rows.length)return;
+  const signed=v=>`${v>=0?'+':''}${v.toFixed(2)}`;
+  function animateBars(wrap){
+    if(!wrap)return;
+    const fills=wrap.querySelectorAll('.p3-bar-fill');
+    if(!fills.length)return;
+    if(PREFER_REDUCED_MOTION||typeof IntersectionObserver==='undefined'){
+      fills.forEach(fill=>fill.style.width=fill.dataset.w+'%');
+      return;
+    }
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          fills.forEach(fill=>fill.style.width=fill.dataset.w+'%');
+          obs.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.25});
+    obs.observe(wrap);
+  }
+
+  const countryWrap=document.getElementById('phase3-country-bars');
+  if(countryWrap){
+    const max=Math.max(...rows.map(r=>r.transformer),0.01);
+    countryWrap.innerHTML=rows.map(r=>{
+      const pct=(r.transformer/max*100).toFixed(1);
+      return `<div class="p3-bar-row">
+        <div class="p3-bar-lbl">${r.country}</div>
+        <div class="p3-bar-track"><div class="p3-bar-fill" role="img" aria-label="${r.country} Transformer delta ${signed(r.transformer)} pp, SGD ${signed(r.sgd)} pp" data-w="${pct}" style="background:linear-gradient(90deg,#436289,#6caac4);width:0"><span>${signed(r.transformer)} pp</span></div></div>
+        <div class="p3-bar-meta">SGD ${signed(r.sgd)}</div>
+      </div>`;
+    }).join('');
+    animateBars(countryWrap);
+  }
+
+  const upliftWrap=document.getElementById('phase3-uplift-bars');
+  if(upliftWrap){
+    const max=Math.max(...rows.map(r=>r.full-r.quick),0.01);
+    upliftWrap.innerHTML=rows.map(r=>{
+      const uplift=r.full-r.quick;
+      const pct=(uplift/max*100).toFixed(1);
+      return `<div class="p3-bar-row">
+        <div class="p3-bar-lbl">${r.country}</div>
+        <div class="p3-bar-track"><div class="p3-bar-fill" role="img" aria-label="${r.country} quick to full uplift ${signed(uplift)} pp, quick delta ${signed(r.quick)} pp" data-w="${pct}" style="background:linear-gradient(90deg,#cc5536,#e4a3a1);width:0"><span>${signed(uplift)} pp</span></div></div>
+        <div class="p3-bar-meta">Q ${signed(r.quick)}</div>
+      </div>`;
+    }).join('');
+    animateBars(upliftWrap);
+  }
+
+  const heatmap=document.getElementById('phase3-heatmap');
+  if(heatmap){
+    const cols=[
+      {key:'age_bin',label:'age_bin',rgb:'67,98,137'},
+      {key:'sex',label:'sex',rgb:'108,170,196'}
+    ];
+    const max=Math.max(...rows.flatMap(r=>cols.map(c=>r[c.key])),0.01);
+    heatmap.innerHTML=
+      `<div class="p3-heatmap-head"><span></span>${cols.map(c=>`<span>${c.label}</span>`).join('')}</div>`+
+      rows.map(r=>
+        `<div class="p3-heatmap-row">
+          <div class="p3-heatmap-country">${r.country}</div>
+          ${cols.map(c=>{
+            const val=r[c.key];
+            const alpha=(0.22+(val/max)*0.62).toFixed(3);
+            return `<div class="p3-heatmap-cell" role="img" aria-label="${r.country} ${c.label} grouped delta ${signed(val)} pp" style="background:rgba(${c.rgb},${alpha})"><strong>${signed(val)} pp</strong><span>${c.label}</span></div>`;
+          }).join('')}
+        </div>`
+      ).join('');
+  }
+})();
+
+/* ===== REPORT PACKAGE ===== */
+(function(){
+  if(typeof RESEARCH_DATA==='undefined')return;
+  const pkg=RESEARCH_DATA.advisor_package;
+  if(!pkg)return;
+  const toolbar=document.getElementById('reports-toolbar');
+  if(toolbar){
+    const firstRecommended=pkg.recommended&&pkg.recommended[0];
+    const actions=[
+      pkg.hub_path ? {label:'Open report hub', href:pkg.hub_path, primary:true} : null,
+      firstRecommended ? {label:'Start with Phase 1 PDF', href:firstRecommended.href} : null,
+      pkg.package_index ? {label:'Package note', href:pkg.package_index} : null
+    ].filter(Boolean);
+    toolbar.innerHTML=actions.map(action=>
+      `<a class="report-toolbar-link${action.primary?' report-toolbar-link--primary':''}" href="${action.href}" target="_blank" rel="noopener noreferrer">${action.label}</a>`
+    ).join('');
+  }
+  const statsWrap=document.getElementById('reports-stats');
+  if(statsWrap){
+    const stats=[
+      {value:pkg.report_sets,label:'report sets'},
+      {value:pkg.files,label:'packaged files'},
+      {value:pkg.formats.length,label:'formats per set'},
+      {value:RESEARCH_DATA.project_summary&&RESEARCH_DATA.project_summary.figures,label:'curated figures'}
+    ];
+    statsWrap.innerHTML=stats.map(s=>
+      `<div class="report-stat"><span class="report-stat-v">${s.value}</span><span class="report-stat-k">${s.label}</span></div>`
+    ).join('');
+  }
+  const grid=document.getElementById('reports-grid');
+  if(grid&&pkg.items){
+    const order=['pdf','html','md'];
+    grid.innerHTML=pkg.items.map(item=>
+      (() => {
+        const preferredKey=(item.recommended_format||'').toLowerCase();
+        const fallbackKey=order.find(key=>item.links&&item.links[key]);
+        const primaryKey=preferredKey&&item.links&&item.links[preferredKey]?preferredKey:fallbackKey;
+        const primaryHref=primaryKey&&item.links?item.links[primaryKey]:'';
+        return `<article class="report-card reveal">
+        <div class="report-code">${item.code}</div>
+        <h3>${primaryHref?`<a class="report-title-link" href="${primaryHref}" target="_blank" rel="noopener noreferrer">${item.title}</a>`:item.title}</h3>
+        <p>${item.desc}</p>
+        <div class="report-files">${item.files}</div>
+        <div class="report-actions">
+          ${order.filter(key=>item.links&&item.links[key]).map(key=>{
+            const label=key.toUpperCase();
+            const primary=item.recommended_format&&item.recommended_format.toLowerCase()===key;
+            return `<a class="report-btn${primary?' report-btn--primary':''}" href="${item.links[key]}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+          }).join('')}
+        </div>
+      </article>`;
+      })()
+    ).join('');
+  }
+  activateReveal(document.getElementById('reports'));
 })();
 
 /* ===== BOOTSTRAP CI CHART ===== */
@@ -552,6 +731,8 @@ const PREFER_REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce
     navAs.forEach(a=>{
       const match=a.getAttribute('href')==='#'+active.id;
       a.classList.toggle('active',match);
+      if(match)a.setAttribute('aria-current','location');
+      else a.removeAttribute('aria-current');
     });
   }
   window.addEventListener('scroll',onScroll,{passive:true});

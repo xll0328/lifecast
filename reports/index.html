@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LifeCast Reports Hub</title>
+  <meta name="description" content="Advisor-ready LifeCast reports hub with complete Phase 1, Phase 2, and Phase 3 documents in PDF, HTML, and Markdown formats." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surf: #ffffff;
+      --text: #1e2330;
+      --muted: #5d756f;
+      --acc: #436289;
+      --acc2: #6caac4;
+      --border: rgba(67,98,137,0.12);
+      --acc-light: #e8eff6;
+      --serif: "Instrument Serif", Georgia, serif;
+      --sans: "DM Sans", system-ui, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+      --max: 1120px;
+      --r: 10px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: linear-gradient(180deg, #f7fafc 0%, #eef3f8 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(255,255,255,0.9);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      padding: 0 0.5rem;
+      border-radius: 4px;
+      background: var(--acc);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surf);
+      color: var(--text);
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--acc);
+      box-shadow: 0 8px 24px rgba(67,98,137,0.08);
+    }
+    .btn-primary {
+      background: var(--acc);
+      color: #fff;
+      border-color: var(--acc);
+    }
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+    .hero {
+      padding: 4rem 0 2.5rem;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--acc);
+      margin-bottom: 1rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 18px;
+      height: 1.5px;
+      background: currentColor;
+      opacity: 0.5;
+    }
+    h1 {
+      margin: 0 0 0.9rem;
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: 0.98;
+      color: #1b2434;
+      letter-spacing: -0.03em;
+    }
+    .hero p {
+      max-width: 760px;
+      margin: 0 0 1.3rem;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.5rem;
+    }
+    .stat {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1rem 1.1rem;
+      box-shadow: 0 2px 14px rgba(67,98,137,0.05);
+    }
+    .stat strong {
+      display: block;
+      font-family: var(--mono);
+      font-size: 1.35rem;
+      color: var(--acc);
+      line-height: 1.1;
+    }
+    .stat span {
+      display: block;
+      margin-top: 0.32rem;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    section {
+      margin-top: 2rem;
+    }
+    .section-head {
+      margin-bottom: 1rem;
+    }
+    .section-head h2 {
+      margin: 0 0 0.45rem;
+      font-family: var(--serif);
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      line-height: 1.05;
+      color: #1f2838;
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 760px;
+    }
+    .quick-start {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 0.9rem;
+    }
+    .step {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1rem 1.05rem;
+      box-shadow: 0 2px 14px rgba(67,98,137,0.05);
+    }
+    .step-top {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.65rem;
+    }
+    .step-n {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.8rem;
+      height: 1.8rem;
+      border-radius: 999px;
+      background: var(--acc);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+    }
+    .step strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+    .step p {
+      margin: 0 0 0.8rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.15rem;
+      box-shadow: 0 2px 14px rgba(67,98,137,0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--acc2), var(--acc));
+    }
+    .card-code {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 46px;
+      padding: 0.18rem 0.5rem;
+      border-radius: 999px;
+      background: var(--acc-light);
+      color: var(--acc);
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .card h3 {
+      margin: 0 0 0.45rem;
+      font-family: var(--serif);
+      font-size: 1.12rem;
+      line-height: 1.15;
+      color: #1d2737;
+    }
+    .card p {
+      margin: 0 0 0.8rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .meta {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 32px;
+      min-width: 58px;
+      padding: 0.34rem 0.72rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surf);
+      color: var(--text);
+      font-size: 0.69rem;
+      font-family: var(--mono);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: transform 0.15s, border-color 0.2s;
+    }
+    .pill:hover {
+      transform: translateY(-1px);
+      border-color: var(--acc);
+    }
+    .pill-primary {
+      background: var(--acc);
+      color: #fff;
+      border-color: var(--acc);
+    }
+    .note {
+      margin-top: 1rem;
+      padding: 1rem 1.05rem;
+      background: var(--surf);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--acc2);
+      border-radius: var(--r);
+      color: var(--muted);
+    }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    @media (max-width: 720px) {
+      .topbar-inner { align-items: flex-start; }
+      .topbar-actions { justify-content: flex-start; }
+      .hero { padding-top: 2.7rem; }
+      .actions, .topbar-actions { width: 100%; }
+      .btn, .pill { flex: 1 1 auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="../index.html#reports">
+        <span class="brand-mark">LC</span>
+        <span>LifeCast Reports</span>
+      </a>
+      <div class="topbar-actions">
+        <a class="btn" href="../index.html#reports">Back to site</a>
+        <a class="btn btn-primary" href="advisor-package/PHASE1_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">Start with Phase 1 PDF</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Advisor Package</div>
+      <h1>Reports hub for the completed three-phase project</h1>
+      <p>This page turns the packaged documents into a clean reading surface: complete reports for Phase 1&ndash;3, dedicated visualization reports for Phase 2 and Phase 3, and direct access to every PDF, HTML, and Markdown source inside the advisor package.</p>
+      <div class="stats">
+        <div class="stat"><strong>5</strong><span>report sets</span></div>
+        <div class="stat"><strong>15</strong><span>packaged files</span></div>
+        <div class="stat"><strong>3</strong><span>formats per report</span></div>
+        <div class="stat"><strong>19 MB</strong><span>bundle size on site</span></div>
+      </div>
+    </section>
+
+    <section id="recommended">
+      <div class="section-head">
+        <div class="eyebrow">Recommended Order</div>
+        <h2>How to read the project quickly</h2>
+        <p>If your advisor wants the shortest path through the project, begin with the three complete reports in sequence, then use the visualization reports as figure-driven appendices.</p>
+      </div>
+      <div class="quick-start">
+        <article class="step">
+          <div class="step-top"><span class="step-n">1</span><strong>Phase 1 complete report</strong></div>
+          <p>Framework origin, theory anchor, multichannel method, and the richest single-phase narrative.</p>
+          <div class="actions">
+            <a class="pill pill-primary" href="advisor-package/PHASE1_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a class="pill" href="advisor-package/PHASE1_COMPLETE_REPORT.html" target="_blank" rel="noopener noreferrer">HTML</a>
+            <a class="pill" href="advisor-package/PHASE1_COMPLETE_REPORT.md" target="_blank" rel="noopener noreferrer">MD</a>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-top"><span class="step-n">2</span><strong>Phase 2 complete report</strong></div>
+          <p>US replication, pooled 2003&ndash;2024 correction, and the sample-size explanation for persistence.</p>
+          <div class="actions">
+            <a class="pill pill-primary" href="advisor-package/PHASE2_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a class="pill" href="advisor-package/PHASE2_COMPLETE_REPORT.html" target="_blank" rel="noopener noreferrer">HTML</a>
+            <a class="pill" href="advisor-package/PHASE2_COMPLETE_REPORT.md" target="_blank" rel="noopener noreferrer">MD</a>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-top"><span class="step-n">3</span><strong>Phase 3 complete report</strong></div>
+          <p>MTUS seven-country external validity, full summaries, and the final closure of the project logic.</p>
+          <div class="actions">
+            <a class="pill pill-primary" href="advisor-package/PHASE3_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a class="pill" href="advisor-package/PHASE3_COMPLETE_REPORT.html" target="_blank" rel="noopener noreferrer">HTML</a>
+            <a class="pill" href="advisor-package/PHASE3_COMPLETE_REPORT.md" target="_blank" rel="noopener noreferrer">MD</a>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-top"><span class="step-n">4</span><strong>Visualization reports</strong></div>
+          <p>Use these when the reader wants the figure chain directly, especially for Phase 2 and Phase 3 briefing.</p>
+          <div class="actions">
+            <a class="pill pill-primary" href="#visualization-reports">Open section</a>
+            <a class="pill" href="advisor-package/PACKAGE_INDEX.md" target="_blank" rel="noopener noreferrer">Package note</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="main-reports">
+      <div class="section-head">
+        <div class="eyebrow">Main Reports</div>
+        <h2>Complete technical reports</h2>
+        <p>The core reading sequence for the project. PDF is best for formal review, HTML is the easiest browser view, and Markdown remains the editable source.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-code">P1</div>
+          <h3>Phase 1 complete report</h3>
+          <p>Framework origin, theory anchor, multichannel design, and the densest single-phase story in the project.</p>
+          <div class="meta">PDF · HTML · MD</div>
+          <div class="actions">
+            <a class="pill pill-primary" href="advisor-package/PHASE1_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a class="pill" href="advisor-package/PHASE1_COMPLETE_REPORT.html" target="_blank" rel="noopener noreferrer">HTML</a>
+            <a class="pill" href="advisor-package/PHASE1_COMPLETE_REPORT.md" target="_blank" rel="noopener noreferrer">MD</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-code">P2-M</div>
+          <h3>Phase 2 complete report</h3>
+          <p>US replication, pooled correction across 2003&ndash;2024, and the methodological case against over-reading quick runs.</p>
+          <div class="meta">PDF · HTML · MD</div>
+          <div class="actions">
+            <a class="pill pill-primary" href="advisor-package/PHASE2_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a class="pill" href="advisor-package/PHASE2_COMPLETE_REPORT.html" target="_blank" rel="noopener noreferrer">HTML</a>
+            <a class="pill" href="advisor-package/PHASE2_COMPLETE_REPORT.md" target="_blank" rel="noopener noreferrer">MD</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-code">P3-M</div>
+          <h3>Phase 3 complete report</h3>
+          <p>MTUS seven-country external validity with 42 A1 fine records, 105 grouped full runs, and weighted aggregation.</p>
+          <div class="meta">PDF · HTML · MD</div>
+          <div class="actions">
+            <a class="pill pill-primary" href="advisor-package/PHASE3_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a class="pill" href="advisor-package/PHASE3_COMPLETE_REPORT.html" target="_blank" rel="noopener noreferrer">HTML</a>
+            <a class="pill" href="advisor-package/PHASE3_COMPLETE_REPORT.md" target="_blank" rel="noopener noreferrer">MD</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="visualization-reports">
+      <div class="section-head">
+        <div class="eyebrow">Visualization Reports</div>
+        <h2>Figure-chain companions for briefing and review</h2>
+        <p>These two reports are useful when the reader wants the visual argument quickly: what figures exist, why they matter, and how they support the Phase 2 and Phase 3 narratives.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-code">P2-V</div>
+          <h3>Phase 2 visualization report</h3>
+          <p>Eight-figure chain covering US baseline, pooled deltas, methodology sensitivity, and UK&ndash;US alignment.</p>
+          <div class="meta">HTML is often the easiest first view</div>
+          <div class="actions">
+            <a class="pill pill-primary" href="advisor-package/PHASE2_VISUALIZATION_REPORT.html" target="_blank" rel="noopener noreferrer">HTML</a>
+            <a class="pill" href="advisor-package/PHASE2_VISUALIZATION_REPORT.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a class="pill" href="advisor-package/PHASE2_VISUALIZATION_REPORT.md" target="_blank" rel="noopener noreferrer">MD</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-code">P3-V</div>
+          <h3>Phase 3 visualization report</h3>
+          <p>Ten-figure chain for country deltas, grouped robustness, quick-to-full correction, and cross-phase closure.</p>
+          <div class="meta">HTML is often the easiest first view</div>
+          <div class="actions">
+            <a class="pill pill-primary" href="advisor-package/PHASE3_VISUALIZATION_REPORT.html" target="_blank" rel="noopener noreferrer">HTML</a>
+            <a class="pill" href="advisor-package/PHASE3_VISUALIZATION_REPORT.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+            <a class="pill" href="advisor-package/PHASE3_VISUALIZATION_REPORT.md" target="_blank" rel="noopener noreferrer">MD</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="eyebrow">Package Notes</div>
+        <h2>What the package is optimized for</h2>
+      </div>
+      <div class="note">
+        All HTML files are self-contained for offline review, PDFs provide the cleanest supervisor-facing handoff, and Markdown remains the editable source. If someone wants the package note exactly as assembled for the advisor bundle, open <a href="advisor-package/PACKAGE_INDEX.md" target="_blank" rel="noopener noreferrer" style="color: var(--acc); text-decoration: underline;">PACKAGE_INDEX.md</a>.
+      </div>
+    </section>
+
+    <footer>
+      <span>LifeCast report hub &middot; packaged inside the site for direct access</span>
+      <a href="../index.html#reports" style="color: var(--acc);">Return to the main site</a>
+    </footer>
+  </main>
+</body>
+</html>
