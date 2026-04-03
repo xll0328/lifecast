@@ -14,7 +14,7 @@
 
 ## 目录
 
-1. [执行摘要（给导师的 60 秒版本）](#1-执行摘要给导师的-60-秒版本)
+1. [执行摘要](#1-执行摘要)
 2. [Phase 3 在整个项目中的角色：从可迁移性走向外部效度](#2-phase-3-在整个项目中的角色从可迁移性走向外部效度)
 3. [实验矩阵、完成度与数据完整性修正](#3-实验矩阵完成度与数据完整性修正)
 4. [A1 主线结果：跨国 baseline 与模型额外增益](#4-a1-主线结果跨国-baseline-与模型额外增益)
@@ -30,13 +30,13 @@
 
 ---
 
-## 1) 执行摘要（给导师的 60 秒版本）
+## 1) 执行摘要
 
 Phase 3 的意义，不是“再多跑几个国家”，而是要回答：**当我们把 Phase 1 的框架真正推进到多国条件下，它还能不能站住**。
 
 当前这份增强版报告基于已经刷新后的完整 summary，而不是旧版不完整汇总。最关键的结果可以概括为五条：
 
-1. **A1 fine 现在已经是完整 42 条记录**。此前 summary 只统计到 38 条；KR 的 `s42`、`s123` 两个补跑现已正式纳入 `phase3_a1_activity_summary.csv`，并同步刷新了主图与 `uk_us_mtus_master_table.csv`。
+1. **A1 fine 已形成完整的 42 条记录**。此前 summary 只统计到 38 条；KR 的 `s42`、`s123` 两个补跑现已正式纳入 `phase3_a1_activity_summary.csv`，并同步刷新了主图与 `uk_us_mtus_master_table.csv`。
 2. **在 MTUS 7 国 full runs 中，Transformer 对 persistence 的加权增益为 +0.44pp，显著高于 SGD 的 +0.09pp。** 这说明在更强的跨国异质环境中，深度序列模型依然能学到一部分惯性之外的额外结构。
 3. **Transformer 在 7 国 A1 主线上全部为正增益。** 其中国别强度排序大致为 ZA（+0.76pp）> NL（+0.58pp）> KR（+0.55pp）> ES（+0.32pp）> IT（+0.27pp）> FR（+0.19pp）> CA（+0.15pp）。
 4. **B1 的 `age_bin` 与 `sex` 两条主分组线，在 full runs 下也全部转为稳定正增益。** 换句话说，Phase 3 的模型优势不是只在总体样本里存在，而是能够进入社会分层切片。
@@ -105,7 +105,7 @@ Phase 3 覆盖的国家为：
 
 ### 3.2 KR 补跑已经真正“入表”
 
-Phase 3 的一个关键修正是：KR 的 `A1-fine s42` 与 `s123` 补跑文件不仅存在，而且现在已经真正写入 summary。
+Phase 3 的一个关键修正是：KR 的 `A1-fine s42` 与 `s123` 补跑文件不仅存在，而且已经正式写入 summary。
 
 已核验文件：
 
@@ -443,7 +443,7 @@ Phase 3 则完成了最重要的一步：
 
 > 在如此复杂的外部条件下，Transformer 还能不能稳定保留正增益？
 
-当前答案是：**能，而且证据已经足够系统。**
+当前答案是：**能，而且相关证据已经形成完整、可复核的链条。**
 
 ---
 
@@ -481,16 +481,16 @@ Phase 3 则完成了最重要的一步：
 
 这意味着 Phase 3 现在不再只是“表格结果足够”，而是已经拥有一套可以支撑导师讨论甚至论文初稿结果段的视觉结构。
 
-### 9.3 与 Phase 1 的差距还大吗
+### 9.3 与 Phase 1 的功能对照
 
-如果和 Phase 1 的 17+ 张图相比，Phase 3 的总量仍然更精简；但它已经不再处于“图不够说服力弱”的状态。
+如果和 Phase 1 的 17+ 张图相比，Phase 3 的图量仍然更精简；但它已经具备独立支撑外部效度论证所需的核心证据链。
 
 更准确地说：
 
 - **Phase 1**：图量更大，理论与应用段更丰富；
 - **Phase 3**：图量略少，但主问题更聚焦，图的功能更集中于“外部效度与稳健性”。
 
-就导师阶段汇报而言，Phase 3 现在已经足够成熟。
+因此，Phase 3 在当前版本下已经具备独立成章的证据密度，可作为三阶段项目的外部效度主报告。
 
 ---
 
@@ -570,11 +570,11 @@ Phase 3 的最终价值，并不是把 UK / US 的故事简单复读一遍，而
 3. **negative quick delta 不能被直接解释成 ceiling**。Phase 2 提醒了我们这一点，Phase 3 则在 full runs 中把它系统性地验证出来。
 4. **fine 比 coarse 更能承载论文主叙事**。因为真正值得讨论的那部分可学习复杂性，恰恰存在于 fine-grained activity 里。
 
-如果要用一句最适合写进论文 Results 总结段的话来概括：
+如果要用一句适合写入论文 Results 总结段的话来概括：
 
 > Across heterogeneous national contexts, persistence remains the dominant baseline for next-slot activity prediction, yet Transformer models retain a small but stable positive margin over persistence in both aggregate and grouped analyses, indicating that everyday behavioral sequences contain weak but genuine learnable structure beyond inertia.
 
-这句话现在已经不只是“概念上好听”，而是有完整 summary、图链和跨阶段对表支撑的结论。
+这一定义性句子对应的 summary、图链与跨阶段对表已经齐备，因此可以作为本阶段最凝练、也最稳妥的结论表述。
 
 ---
 

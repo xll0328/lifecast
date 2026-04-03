@@ -163,7 +163,7 @@ a { color: var(--accent); text-decoration: none; }
 <hr />
 <h2 id="_1">目录</h2>
 <ol>
-<li><a href="#1-执行摘要给导师的-60-秒版本">执行摘要（给导师的 60 秒版本）</a></li>
+<li><a href="#1-执行摘要">执行摘要</a></li>
 <li><a href="#2-phase-3-在整个项目中的角色从可迁移性走向外部效度">Phase 3 在整个项目中的角色：从可迁移性走向外部效度</a></li>
 <li><a href="#3-实验矩阵完成度与数据完整性修正">实验矩阵、完成度与数据完整性修正</a></li>
 <li><a href="#4-a1-主线结果跨国-baseline-与模型额外增益">A1 主线结果：跨国 baseline 与模型额外增益</a></li>
@@ -178,11 +178,11 @@ a { color: var(--accent); text-decoration: none; }
 <li><a href="#13-附录图表索引与关键文件">附录：图表索引与关键文件</a></li>
 </ol>
 <hr />
-<h2 id="1-60">1) 执行摘要（给导师的 60 秒版本）</h2>
+<h2 id="1">1) 执行摘要</h2>
 <p>Phase 3 的意义，不是“再多跑几个国家”，而是要回答：<strong>当我们把 Phase 1 的框架真正推进到多国条件下，它还能不能站住</strong>。</p>
 <p>当前这份增强版报告基于已经刷新后的完整 summary，而不是旧版不完整汇总。最关键的结果可以概括为五条：</p>
 <ol>
-<li><strong>A1 fine 现在已经是完整 42 条记录</strong>。此前 summary 只统计到 38 条；KR 的 <code>s42</code>、<code>s123</code> 两个补跑现已正式纳入 <code>phase3_a1_activity_summary.csv</code>，并同步刷新了主图与 <code>uk_us_mtus_master_table.csv</code>。</li>
+<li><strong>A1 fine 已形成完整的 42 条记录</strong>。此前 summary 只统计到 38 条；KR 的 <code>s42</code>、<code>s123</code> 两个补跑现已正式纳入 <code>phase3_a1_activity_summary.csv</code>，并同步刷新了主图与 <code>uk_us_mtus_master_table.csv</code>。</li>
 <li><strong>在 MTUS 7 国 full runs 中，Transformer 对 persistence 的加权增益为 +0.44pp，显著高于 SGD 的 +0.09pp。</strong> 这说明在更强的跨国异质环境中，深度序列模型依然能学到一部分惯性之外的额外结构。</li>
 <li><strong>Transformer 在 7 国 A1 主线上全部为正增益。</strong> 其中国别强度排序大致为 ZA（+0.76pp）&gt; NL（+0.58pp）&gt; KR（+0.55pp）&gt; ES（+0.32pp）&gt; IT（+0.27pp）&gt; FR（+0.19pp）&gt; CA（+0.15pp）。</li>
 <li><strong>B1 的 <code>age_bin</code> 与 <code>sex</code> 两条主分组线，在 full runs 下也全部转为稳定正增益。</strong> 换句话说，Phase 3 的模型优势不是只在总体样本里存在，而是能够进入社会分层切片。</li>
@@ -242,7 +242,7 @@ a { color: var(--accent); text-decoration: none; }
 <li>B1 full（<code>age_bin</code> + <code>sex</code>）：(3 + 2) groups × 7 国 × 3 seeds = <strong>105 条记录</strong></li>
 </ul>
 <h3 id="32-kr">3.2 KR 补跑已经真正“入表”</h3>
-<p>Phase 3 的一个关键修正是：KR 的 <code>A1-fine s42</code> 与 <code>s123</code> 补跑文件不仅存在，而且现在已经真正写入 summary。</p>
+<p>Phase 3 的一个关键修正是：KR 的 <code>A1-fine s42</code> 与 <code>s123</code> 补跑文件不仅存在，而且已经正式写入 summary。</p>
 <p>已核验文件：</p>
 <ul>
 <li><code>results/phase3_mtus_a1/kr/a1_full_activity_sgd_transformer_s42.json</code></li>
@@ -834,7 +834,7 @@ a { color: var(--accent); text-decoration: none; }
 <blockquote>
 <p>在如此复杂的外部条件下，Transformer 还能不能稳定保留正增益？</p>
 </blockquote>
-<p>当前答案是：<strong>能，而且证据已经足够系统。</strong></p>
+<p>当前答案是：<strong>能，而且相关证据已经形成完整、可复核的链条。</strong></p>
 <hr />
 <h2 id="9">9) 可视化资产与报告成熟度评估</h2>
 <h3 id="91-phase-3">9.1 当前 Phase 3 图组</h3>
@@ -866,14 +866,14 @@ a { color: var(--accent); text-decoration: none; }
 <li><strong>cross-phase integration</strong>：有</li>
 </ul>
 <p>这意味着 Phase 3 现在不再只是“表格结果足够”，而是已经拥有一套可以支撑导师讨论甚至论文初稿结果段的视觉结构。</p>
-<h3 id="93-phase-1">9.3 与 Phase 1 的差距还大吗</h3>
-<p>如果和 Phase 1 的 17+ 张图相比，Phase 3 的总量仍然更精简；但它已经不再处于“图不够说服力弱”的状态。</p>
+<h3 id="93-phase-1">9.3 与 Phase 1 的功能对照</h3>
+<p>如果和 Phase 1 的 17+ 张图相比，Phase 3 的图量仍然更精简；但它已经具备独立支撑外部效度论证所需的核心证据链。</p>
 <p>更准确地说：</p>
 <ul>
 <li><strong>Phase 1</strong>：图量更大，理论与应用段更丰富；</li>
 <li><strong>Phase 3</strong>：图量略少，但主问题更聚焦，图的功能更集中于“外部效度与稳健性”。</li>
 </ul>
-<p>就导师阶段汇报而言，Phase 3 现在已经足够成熟。</p>
+<p>因此，Phase 3 在当前版本下已经具备独立成章的证据密度，可作为三阶段项目的外部效度主报告。</p>
 <hr />
 <h2 id="10">10) 方法论反思与边界条件</h2>
 <h3 id="101-phase-3-income_bin">10.1 为什么 Phase 3 不应再执着于 <code>income_bin</code></h3>
@@ -939,11 +939,11 @@ a { color: var(--accent); text-decoration: none; }
 <li><strong>negative quick delta 不能被直接解释成 ceiling</strong>。Phase 2 提醒了我们这一点，Phase 3 则在 full runs 中把它系统性地验证出来。</li>
 <li><strong>fine 比 coarse 更能承载论文主叙事</strong>。因为真正值得讨论的那部分可学习复杂性，恰恰存在于 fine-grained activity 里。</li>
 </ol>
-<p>如果要用一句最适合写进论文 Results 总结段的话来概括：</p>
+<p>如果要用一句适合写入论文 Results 总结段的话来概括：</p>
 <blockquote>
 <p>Across heterogeneous national contexts, persistence remains the dominant baseline for next-slot activity prediction, yet Transformer models retain a small but stable positive margin over persistence in both aggregate and grouped analyses, indicating that everyday behavioral sequences contain weak but genuine learnable structure beyond inertia.</p>
 </blockquote>
-<p>这句话现在已经不只是“概念上好听”，而是有完整 summary、图链和跨阶段对表支撑的结论。</p>
+<p>这一定义性句子对应的 summary、图链与跨阶段对表已经齐备，因此可以作为本阶段最凝练、也最稳妥的结论表述。</p>
 <hr />
 <h2 id="13">13) 附录：图表索引与关键文件</h2>
 <h3 id="131">13.1 图表索引</h3>

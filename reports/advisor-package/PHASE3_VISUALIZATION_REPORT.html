@@ -156,8 +156,8 @@ a { color: var(--accent); text-decoration: none; }
 更新时间：2026-04-03</p>
 </blockquote>
 <hr />
-<h2 id="1">1) 本次更新后的结论</h2>
-<p>Phase 3 的可视化现在已经从“只有表，没有足够图”升级为一套 <strong>10 张</strong> 的成体系图组，而且这套图组是基于<strong>补齐 KR 两个 A1 fine 补跑后重新生成的完整 summary</strong>，不是旧版 38 条 A1 记录的残缺版本。</p>
+<h2 id="1">1) 总体结论</h2>
+<p>Phase 3 的可视化已从“主表完整但图证不足”扩展为一套 <strong>10 张</strong> 的成体系图组，而且这套图组是基于<strong>补齐 KR 两个 A1 fine 补跑后重新生成的完整 summary</strong>，不是旧版 38 条 A1 记录的残缺版本。</p>
 <p>当前这套图链已经覆盖：</p>
 <ul>
 <li>A1 各国主结果</li>
@@ -171,7 +171,7 @@ a { color: var(--accent); text-decoration: none; }
 <li>fine/coarse sensitivity</li>
 <li>Phase1/2/3 统一对照</li>
 </ul>
-<p>也就是说，Phase 3 现在不只是“表够了”，而是“图也足以支撑完整叙事”。</p>
+<p>也就是说，Phase 3 不仅主表完整，图链也已经能够独立支撑完整叙事。</p>
 <hr />
 <h2 id="2-phase-3-10">2) 当前 Phase 3 专属图组（10 张）</h2>
 <p>目录：<code>results/phase3_figures/</code></p>
@@ -249,7 +249,7 @@ a { color: var(--accent); text-decoration: none; }
 </table>
 <p>生成脚本：<code>generate_phase2_phase3_figures.py</code></p>
 <hr />
-<h2 id="3">3) 为什么这一版比旧版强很多</h2>
+<h2 id="3">3) 图组相对于早期版本的增强</h2>
 <p>旧版 Phase 3 的最大问题，并不是“没有结果”，而是：</p>
 <ol>
 <li>图不够，导致跨国外部效度叙事看起来更像一堆表格摘要。</li>
@@ -264,8 +264,8 @@ a { color: var(--accent); text-decoration: none; }
 <li><strong>跨阶段闭环可视化完成</strong>：Phase1 / Phase2 / Phase3 可以一图连起来讲。</li>
 </ol>
 <hr />
-<h2 id="4">4) 现在够不够发导师</h2>
-<h3 id="_1">用于导师阶段沟通：<strong>已经足够</strong></h3>
+<h2 id="4">4) 当前版本的适用性判断</h2>
+<h3 id="_1">导师审阅与阶段汇报：<strong>证据已经完整</strong></h3>
 <p>现在这 10 张图已经足以回答导师最可能追问的核心问题：</p>
 <ol>
 <li>Transformer 在 7 国是不是都保持正增益？</li>
@@ -275,16 +275,16 @@ a { color: var(--accent); text-decoration: none; }
 <li>fine 为什么应该保留为主线？</li>
 <li>整个项目从 Phase 1 到 Phase 3 到底是不是一条连续主线？</li>
 </ol>
-<h3 id="_2">用于论文终稿：<strong>已经接近，但仍可继续加厚</strong></h3>
-<p>如果后续面向投稿排版，还可以再补：</p>
+<h3 id="_2">若进入论文定稿阶段：<strong>可做的增强项</strong></h3>
+<p>在不改变当前主结论的前提下，还可以继续补充：</p>
 <ul>
 <li>forest plot（country-level CI）</li>
 <li>更长的 caption 版本</li>
 <li>更贴近论文风格的 multi-panel summary figure</li>
 </ul>
-<p>但就当前“发导师审阅”的目标而言，Phase 3 的图层已经不再是短板。</p>
+<p>这些内容属于面向投稿版式的增强，不影响当前版本作为正式阶段性汇报材料的完整性。</p>
 <hr />
-<h2 id="5-phase-1">5) 与 Phase 1 的差距还有多大</h2>
+<h2 id="5-phase-1">5) 与 Phase 1 的功能对照</h2>
 <p>如果拿 Phase 1 的 17+ 张图作标准，Phase 3 现在仍然更精简；但两者的任务也不同：</p>
 <ul>
 <li><strong>Phase 1</strong>：要承担框架建立、理论解释、应用段与错误分析，因此图更多；</li>
@@ -292,15 +292,15 @@ a { color: var(--accent); text-decoration: none; }
 </ul>
 <p>因此更准确的判断是：</p>
 <ul>
-<li>Phase 3 现在已经达到“导师阶段完全可用”的成熟度；</li>
-<li>论文终稿阶段只需要进一步精修 caption 与排版，而不是再从零补图。</li>
+<li>Phase 3 已达到能够独立支撑导师审阅的成熟度；</li>
+<li>论文终稿阶段主要需要进一步精修 caption 与排版，而不是重新搭建图链。</li>
 </ul>
 <hr />
-<h2 id="6-phase-3">6) 建议对导师的话术（Phase 3）</h2>
-<p>可以这样概括：</p>
+<h2 id="6">6) 可直接引用的摘要表述</h2>
+<p>下述表述可直接用于邮件摘要、封面说明或口头汇报：</p>
 <blockquote>
-<p>Phase 3 现在已经从“表格完整、图像偏弱”升级为一套完整的 10 图主链，而且这套图是基于最新的完整 summary 重生成的，KR 的两个 A1 fine 补跑也已经正式进入汇总。<br />
-这套图共同支持一个非常清楚的结论：在 7 国 full runs 下，Transformer 相对 persistence 的正增益不仅在总体样本里成立，在 <code>age_bin</code> 和 <code>sex</code> 分组中也保持稳定，而且 fine 比 coarse 更能承载项目主叙事。</p>
+<p>Phase 3 已形成完整的 10 图主链，并且全部基于最新的完整 summary 重生成，KR 的两个 A1 fine 补跑也已正式进入汇总。<br />
+这些图共同支持一个清晰结论：在 7 国 full runs 下，Transformer 相对 persistence 的正增益不仅在总体样本中成立，在 <code>age_bin</code> 和 <code>sex</code> 分组中也保持稳定，而且 fine 比 coarse 更能承载项目主叙事。</p>
 </blockquote>
 </body>
 </html>

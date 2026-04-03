@@ -463,7 +463,7 @@ function activateReveal(scope){
       {value:summary.phases,label:'phases complete'},
       {value:summary.country_settings,label:'national settings'},
       {value:summary.figures,label:'curated figures'},
-      {value:summary.packaged_files,label:'packaged files'}
+      {value:summary.packaged_files,label:'package docs'}
     ];
     statsWrap.innerHTML=stats.map(s=>
       `<div class="program-stat"><span class="program-stat-v">${s.value}</span><span class="program-stat-k">${s.label}</span></div>`
@@ -573,6 +573,8 @@ function activateReveal(scope){
     const firstRecommended=pkg.recommended&&pkg.recommended[0];
     const actions=[
       pkg.hub_path ? {label:'Open report hub', href:pkg.hub_path, primary:true} : null,
+      pkg.bundle_zip ? {label:'Download advisor zip', href:pkg.bundle_zip} : null,
+      pkg.raw_assets_hub ? {label:'Raw figure assets', href:pkg.raw_assets_hub} : null,
       firstRecommended ? {label:'Start with Phase 1 PDF', href:firstRecommended.href} : null,
       pkg.package_index ? {label:'Package note', href:pkg.package_index} : null
     ].filter(Boolean);
@@ -582,11 +584,12 @@ function activateReveal(scope){
   }
   const statsWrap=document.getElementById('reports-stats');
   if(statsWrap){
+    const zipSize=pkg.bundle_size_mb!=null?`${Number(pkg.bundle_size_mb).toFixed(1)} MB`:'—';
     const stats=[
       {value:pkg.report_sets,label:'report sets'},
-      {value:pkg.files,label:'packaged files'},
-      {value:pkg.formats.length,label:'formats per set'},
-      {value:RESEARCH_DATA.project_summary&&RESEARCH_DATA.project_summary.figures,label:'curated figures'}
+      {value:pkg.files,label:'package docs'},
+      {value:pkg.raw_figure_assets,label:'raw figure assets'},
+      {value:zipSize,label:'zip download'}
     ];
     statsWrap.innerHTML=stats.map(s=>
       `<div class="report-stat"><span class="report-stat-v">${s.value}</span><span class="report-stat-k">${s.label}</span></div>`

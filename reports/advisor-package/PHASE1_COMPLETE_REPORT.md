@@ -1240,16 +1240,19 @@ lightgbm>=4.0     openpyxl>=3.0    pillow>=10.0
 
 10分钟可能太细了。在这个粒度上，"惯性"信号统治一切。如果将粒度改为1小时甚至"活动片段"(activity episode)，可能会出现更丰富的预测结构。这是Phase 2值得探索的方向。
 
-### 14.4 Phase 2路线图
+### 14.4 后续阶段的实现情况
 
-| 优先级 | 任务 | 负责人 | 状态 |
-|:------:|------|:------:|:----:|
-| P0 | 跨国数据获取(US ATUS等6国+) | Yucheng | 进行中 |
-| P0 | 活动码跨国映射方案 | Yucheng | 待定 |
-| P1 | 数据对齐脚本(时间粒度/编码/缺失) | 小赖 | 待数据 |
-| P1 | Level One跨国基准复现 | 小赖 | 待执行 |
-| P1 | Level Two跨国分组对比 | 协作 | 待执行 |
-| P2 | 论文初稿 | 协作 | 可开始 |
+Phase 1 在单国 UK 场景中提出的几个核心延展方向，已在后续阶段中得到实证推进。就当前三阶段导师包而言，最重要的后续任务与其实现状态如下：
+
+| Phase 1 中提出的延展方向 | 当前实现情况 | 在导师包中的对应文档 |
+|:---|:---|:---|
+| 单国结果的外部效度验证 | 已在 Phase 2 完成 US 复现，在 Phase 3 完成 MTUS 多国验证 | `PHASE2_COMPLETE_REPORT.*`、`PHASE3_COMPLETE_REPORT.*` |
+| 跨国活动码映射与数据对齐 | 已形成可复用的 harmonization 与 summary 生成链条 | `PHASE2_COMPLETE_REPORT.*`、`PHASE3_COMPLETE_REPORT.*` |
+| Level One 跨国基准复现 | 已完成 UK / US / MTUS 的主线对表 | `PHASE2_COMPLETE_REPORT.*`、`PHASE3_COMPLETE_REPORT.*` |
+| Level Two 分组差异扩展 | 已在 US 与多国条件下完成 grouped analysis，并收敛到更稳的维度主线 | `PHASE2_COMPLETE_REPORT.*`、`PHASE3_COMPLETE_REPORT.*` |
+| 论文主叙事收束 | 已形成“强惯性、弱但稳定的模型增益、样本条件决定可见性、外部效度成立”的三阶段证据链 | 本导师包全部主报告与图链说明 |
+
+因此，本节中原本指向未来阶段的若干开放任务，在当前项目状态下已经大体转化为已完成的研究路径。保留这一节的目的，是说明 Phase 1 如何自然延展为后续两阶段，而不表示本项目仍停留在待启动状态。
 
 ---
 

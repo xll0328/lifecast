@@ -157,12 +157,12 @@ a { color: var(--accent); text-decoration: none; }
 核心口径：<code>accuracy</code> / <code>macro-F1</code> / <code>persistence baseline</code> / <code>delta vs persistence</code><br />
 可视化：8 张<br />
 更新时间：2026-04-03<br />
-状态：Phase 2 Markdown 已增强到可直接发导师审阅的长报告版本</p>
+状态：Phase 2 完整长报告（Advisor Review Version）</p>
 </blockquote>
 <hr />
 <h2 id="_1">目录</h2>
 <ol>
-<li><a href="#1-执行摘要给导师的-90-秒版本">执行摘要（给导师的 90 秒版本）</a></li>
+<li><a href="#1-执行摘要">执行摘要</a></li>
 <li><a href="#2-phase-2-在全项目中的角色它究竟回答什么问题">Phase 2 在全项目中的角色：它究竟回答什么问题</a></li>
 <li><a href="#3-数据通道分组与可比性边界">数据、通道、分组与可比性边界</a></li>
 <li><a href="#4-实验矩阵与完成度哪些已经完整哪些必须诚实交代">实验矩阵与完成度：哪些已经完整，哪些必须诚实交代</a></li>
@@ -177,7 +177,7 @@ a { color: var(--accent); text-decoration: none; }
 <li><a href="#13-附录图表索引与关键文件">附录：图表索引与关键文件</a></li>
 </ol>
 <hr />
-<h2 id="1-90">1) 执行摘要（给导师的 90 秒版本）</h2>
+<h2 id="1">1) 执行摘要</h2>
 <p>Phase 2 的目标不是把 US 分数“卷到最高”，而是回答一个更关键的问题：<strong>Phase 1 在 UK 上识别出的那套机制，到 US 这样一个不同制度与编码环境中，是否仍然成立</strong>。</p>
 <p>这一阶段最终给出了四个最重要的结论：</p>
 <ol>
@@ -375,20 +375,20 @@ a { color: var(--accent); text-decoration: none; }
 </tr>
 </tbody>
 </table>
-<h3 id="42">4.2 为什么这份完成度已经足够“发导师”</h3>
-<p>如果导师要判断 Phase 2 是否已经从“在跑实验”进入“可汇报状态”，主要看三件事：</p>
+<h3 id="42">4.2 为什么这份完成度已经具备正式汇报条件</h3>
+<p>如果要判断 Phase 2 是否已经从“实验执行阶段”进入“正式汇报阶段”，主要看三件事：</p>
 <ol>
 <li>有没有一个清晰的 baseline；</li>
 <li>有没有一组可信的 grouped evidence；</li>
 <li>有没有对 negative result、样本量效应与可比性边界做充分解释。</li>
 </ol>
-<p>本阶段现在已经同时具备这三点：</p>
+<p>当前版本已经同时具备这三点：</p>
 <ul>
 <li>baseline 有；</li>
 <li>grouped evidence 有，而且 quick 与 pooled 两层都有；</li>
 <li>负 delta 的解释与样本校正证据也有。</li>
 </ul>
-<p>也就是说，Phase 2 现在不再是“结果碎片堆积”，而是一个<strong>有机制、有反证、有边界意识</strong>的中间阶段报告。</p>
+<p>也就是说，Phase 2 已不再是“结果碎片堆积”，而是一个<strong>有机制、有反证、有边界意识</strong>的阶段性正式报告。</p>
 <h3 id="43">4.3 哪些地方仍然不应过度承诺</h3>
 <p>为了让这份报告更像 Phase 1，而不是更像“宣传稿”，这里必须把边界说清楚：</p>
 <ul>
@@ -930,38 +930,30 @@ a { color: var(--accent); text-decoration: none; }
 <li><code>phase2_fig7_us_methodology_sensitivity.png</code></li>
 <li><code>phase2_fig8_us_sample_size_delta_shift.png</code></li>
 </ol>
-<h3 id="102">10.2 与旧版相比，增强点在哪里</h3>
-<p>旧版 Phase 2 文档更像“结果摘要”：</p>
+<h3 id="102">10.2 图链增强后的证据结构</h3>
+<p>相较于早期版本仅以结果摘要为主的组织方式，当前版本已经把 Phase 2 的核心证据整合为一条结构清晰的图链：</p>
 <ul>
-<li>有结论；</li>
-<li>有少量表；</li>
-<li>但图不成体系；</li>
-<li>没有把 quick 与 pooled 的关系讲透；</li>
-<li>没有把 sample-size correction 做成一眼可见的证据链。</li>
-</ul>
-<p>现在的版本已经形成了完整图链：</p>
-<ul>
-<li><strong>Fig.1 + Fig.5</strong>：baseline 与误差结构；</li>
-<li><strong>Fig.2</strong>：分组现象；</li>
-<li><strong>Fig.3 + Fig.6 + Fig.8</strong>：pooled 修正与样本量机制；</li>
-<li><strong>Fig.7</strong>：稳健性；</li>
+<li><strong>Fig.1 + Fig.5</strong>：A1 baseline、Macro-F1 与 delta 的误差结构；</li>
+<li><strong>Fig.2</strong>：quick 与 pooled 的分组现象对照；</li>
+<li><strong>Fig.3 + Fig.6 + Fig.8</strong>：pooled 修正、热力图证据与样本量机制；</li>
+<li><strong>Fig.7</strong>：粒度、时间尺度与样本边界的稳健性检查；</li>
 <li><strong>Fig.4</strong>：与 Phase 1 的统一对表。</li>
 </ul>
-<p>这使它第一次具备了和 Phase 1 相似的“章节 - 图像 - 解释”闭环。</p>
-<h3 id="103">10.3 够不够发导师</h3>
-<p>如果目标是“导师阶段沟通”，现在已经够：</p>
+<p>这使 Phase 2 首次具备了与 Phase 1 相同层级的“章节 - 图像 - 解释”闭环，也让 negative delta、sample-size correction 与 cross-phase comparison 不再依赖文字孤立支撑，而拥有可直接审阅的视觉证据。</p>
+<h3 id="103">10.3 当前版本的证据完备性</h3>
+<p>就导师审阅与阶段性交付而言，当前版本已经满足三个关键标准：</p>
 <ul>
-<li>图量不是 Phase 1 的 17 张那么多，但结构已经完整；</li>
-<li>不仅有支持性结果，也有反证性结果；</li>
-<li>不只是“有图”，而是每张图都对应一个明确问题。</li>
+<li>图链结构完整，能够覆盖 baseline、grouped analysis、sample-size correction 与 cross-phase comparison；</li>
+<li>证据类型平衡，既包含支持性结果，也保留了对负 delta 与不稳定分组的谨慎解释；</li>
+<li>每张图都对应一个明确研究问题，而非仅作为装饰性补图存在。</li>
 </ul>
-<p>如果目标是“投稿终稿图层厚度”，后续仍可再补：</p>
+<p>若后续进入论文定稿与排版阶段，可在不改变当前主结论的前提下继续补充：</p>
 <ul>
-<li>confusion / macro-F1 分解图；</li>
+<li>confusion / Macro-F1 的更细分分解图；</li>
 <li>pooled 置信区间或 bootstrap 风格图；</li>
 <li>quick vs pooled 的更细致 forest plot。</li>
 </ul>
-<p>但这些已经属于“更强论文包装”，不是当前发导师的必要门槛。</p>
+<p>这些内容属于面向投稿版式的可选增强，而不是当前主报告完整性的前提。</p>
 <hr />
 <h2 id="11">11) 方法论贡献、局限与风险控制</h2>
 <h3 id="111-phase-2">11.1 Phase 2 的方法论贡献</h3>

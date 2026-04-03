@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LifeCast Reports Hub</title>
-  <meta name="description" content="Advisor-ready LifeCast reports hub with complete Phase 1, Phase 2, and Phase 3 documents in PDF, HTML, and Markdown formats." />
+  <meta name="description" content="Advisor-ready LifeCast reports hub with complete Phase 1, Phase 2, and Phase 3 documents, phase-grouped raw figure assets, and a downloadable advisor zip bundle." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
@@ -357,6 +357,7 @@
       </a>
       <div class="topbar-actions">
         <a class="btn" href="../index.html#reports">Back to site</a>
+        <a class="btn" href="ADVISOR_PACKAGE_PHASE1_2_3_20260403.zip" target="_blank" rel="noopener noreferrer">Download ZIP</a>
         <a class="btn btn-primary" href="advisor-package/PHASE1_COMPLETE_REPORT.pdf" target="_blank" rel="noopener noreferrer">Start with Phase 1 PDF</a>
       </div>
     </div>
@@ -366,12 +367,12 @@
     <section class="hero">
       <div class="eyebrow">Advisor Package</div>
       <h1>Reports hub for the completed three-phase project</h1>
-      <p>This page turns the packaged documents into a clean reading surface: complete reports for Phase 1&ndash;3, dedicated visualization reports for Phase 2 and Phase 3, and direct access to every PDF, HTML, and Markdown source inside the advisor package.</p>
+      <p>This page turns the packaged documents into a clean reading surface: complete reports for Phase 1&ndash;3, dedicated visualization reports for Phase 2 and Phase 3, phase-grouped raw figure assets, and a downloadable advisor zip that mirrors the local handoff folder.</p>
       <div class="stats">
         <div class="stat"><strong>5</strong><span>report sets</span></div>
-        <div class="stat"><strong>15</strong><span>packaged files</span></div>
-        <div class="stat"><strong>3</strong><span>formats per report</span></div>
-        <div class="stat"><strong>19 MB</strong><span>bundle size on site</span></div>
+        <div class="stat"><strong>16</strong><span>package docs</span></div>
+        <div class="stat"><strong>37</strong><span>raw figure assets</span></div>
+        <div class="stat"><strong>14.7 MB</strong><span>zip download</span></div>
       </div>
     </section>
 
@@ -379,7 +380,7 @@
       <div class="section-head">
         <div class="eyebrow">Recommended Order</div>
         <h2>How to read the project quickly</h2>
-        <p>If your advisor wants the shortest path through the project, begin with the three complete reports in sequence, then use the visualization reports as figure-driven appendices.</p>
+        <p>If your advisor wants the shortest path through the project, begin with the three complete reports in sequence, use the visualization reports as figure-driven appendices, then download the zip bundle whenever the raw figure assets are needed.</p>
       </div>
       <div class="quick-start">
         <article class="step">
@@ -415,6 +416,14 @@
           <div class="actions">
             <a class="pill pill-primary" href="#visualization-reports">Open section</a>
             <a class="pill" href="advisor-package/PACKAGE_INDEX.md" target="_blank" rel="noopener noreferrer">Package note</a>
+          </div>
+        </article>
+        <article class="step">
+          <div class="step-top"><span class="step-n">5</span><strong>Raw figures and bundle zip</strong></div>
+          <p>When the reader wants the original figure files, use the zip bundle. It preserves the same phase-grouped <code>ORIGINAL_FIGURES</code> structure as the local advisor package.</p>
+          <div class="actions">
+            <a class="pill pill-primary" href="ADVISOR_PACKAGE_PHASE1_2_3_20260403.zip" target="_blank" rel="noopener noreferrer">ZIP</a>
+            <a class="pill" href="#raw-assets">Raw assets note</a>
           </div>
         </article>
       </div>
@@ -495,13 +504,53 @@
       </div>
     </section>
 
+    <section id="raw-assets">
+      <div class="section-head">
+        <div class="eyebrow">Original Figures</div>
+        <h2>Raw figure assets are preserved with the package</h2>
+        <p>The downloadable advisor zip includes the same <code>ORIGINAL_FIGURES</code> tree as the local handoff folder. That means the reader can recover the phase-grouped PNGs, plus the Phase 1 summary tables, without unpacking the reports themselves.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-code">RAW-P1</div>
+          <h3>Phase 1 raw figures</h3>
+          <p>17 embedded PNG figures, supplementary figures, and the Phase 1 summary table files live under <code>ORIGINAL_FIGURES/PHASE1_results_figures/</code>.</p>
+          <div class="meta">19 files in package</div>
+          <div class="actions">
+            <a class="pill pill-primary" href="ADVISOR_PACKAGE_PHASE1_2_3_20260403.zip" target="_blank" rel="noopener noreferrer">ZIP</a>
+            <a class="pill" href="advisor-package/ORIGINAL_FIGURES/PHASE1_results_figures/figure1_a_class_performance.png" target="_blank" rel="noopener noreferrer">Sample PNG</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-code">RAW-P2</div>
+          <h3>Phase 2 raw figures</h3>
+          <p>The full eight-figure US chain is preserved under <code>ORIGINAL_FIGURES/PHASE2_results_phase2_figures/</code> and can be extracted directly from the bundle zip.</p>
+          <div class="meta">8 PNG files in package</div>
+          <div class="actions">
+            <a class="pill pill-primary" href="ADVISOR_PACKAGE_PHASE1_2_3_20260403.zip" target="_blank" rel="noopener noreferrer">ZIP</a>
+            <a class="pill" href="advisor-package/ORIGINAL_FIGURES/PHASE2_results_phase2_figures/phase2_fig1_us_baseline_activity_location.png" target="_blank" rel="noopener noreferrer">Sample PNG</a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-code">RAW-P3</div>
+          <h3>Phase 3 raw figures</h3>
+          <p>The ten-figure MTUS external-validity chain is preserved under <code>ORIGINAL_FIGURES/PHASE3_results_phase3_figures/</code> so the final country-level visuals remain separately reusable.</p>
+          <div class="meta">10 PNG files in package</div>
+          <div class="actions">
+            <a class="pill pill-primary" href="ADVISOR_PACKAGE_PHASE1_2_3_20260403.zip" target="_blank" rel="noopener noreferrer">ZIP</a>
+            <a class="pill" href="advisor-package/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig1_a1_delta_by_country.png" target="_blank" rel="noopener noreferrer">Sample PNG</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section>
       <div class="section-head">
         <div class="eyebrow">Package Notes</div>
         <h2>What the package is optimized for</h2>
       </div>
       <div class="note">
-        All HTML files are self-contained for offline review, PDFs provide the cleanest supervisor-facing handoff, and Markdown remains the editable source. If someone wants the package note exactly as assembled for the advisor bundle, open <a href="advisor-package/PACKAGE_INDEX.md" target="_blank" rel="noopener noreferrer" style="color: var(--acc); text-decoration: underline;">PACKAGE_INDEX.md</a>.
+        All HTML files are self-contained for offline review, PDFs provide the cleanest supervisor-facing handoff, Markdown remains the editable source, and the downloadable zip preserves the package note plus the complete <code>ORIGINAL_FIGURES</code> asset tree. If someone wants the package note exactly as assembled for the advisor bundle, open <a href="advisor-package/PACKAGE_INDEX.md" target="_blank" rel="noopener noreferrer" style="color: var(--acc); text-decoration: underline;">PACKAGE_INDEX.md</a>.
       </div>
     </section>
 

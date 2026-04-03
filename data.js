@@ -375,7 +375,9 @@ const RESEARCH_DATA = {
     "country_settings": 9,
     "figures": 35,
     "report_sets": 5,
-    "packaged_files": 15,
+    "packaged_files": 16,
+    "raw_figure_assets": 37,
+    "bundle_size_mb": 14.74,
     "formats": 3
   },
   "project_phases": [
@@ -432,11 +434,15 @@ const RESEARCH_DATA = {
   ],
   "advisor_package": {
     "report_sets": 5,
-    "files": 15,
+    "files": 16,
+    "raw_figure_assets": 37,
+    "bundle_size_mb": 14.74,
     "formats": ["PDF", "HTML", "MD"],
     "hub_path": "reports/index.html",
     "package_index": "reports/advisor-package/PACKAGE_INDEX.md",
-    "note": "All HTML reports are self-contained for offline review, and the advisor package provides a recommended reading order.",
+    "bundle_zip": "reports/ADVISOR_PACKAGE_PHASE1_2_3_20260403.zip",
+    "raw_assets_hub": "reports/index.html#raw-assets",
+    "note": "All HTML reports are self-contained for offline review, PDFs provide the clearest handoff, and the downloadable advisor bundle now includes ORIGINAL_FIGURES with all raw figure assets.",
     "recommended": [
       { "label": "Phase 1 complete report", "href": "reports/advisor-package/PHASE1_COMPLETE_REPORT.pdf" },
       { "label": "Phase 2 complete report", "href": "reports/advisor-package/PHASE2_COMPLETE_REPORT.pdf" },

@@ -53,8 +53,19 @@
 
 ---
 
+## 原始图文件
+
+- `ORIGINAL_FIGURES/PHASE1_results_figures/`：Phase 1 全部主图、补充图，以及同目录中的汇总表文件。
+- `ORIGINAL_FIGURES/PHASE2_results_phase2_figures/`：Phase 2 的 8 张原始 PNG 图文件。
+- `ORIGINAL_FIGURES/PHASE3_results_phase3_figures/`：Phase 3 的 10 张原始 PNG 图文件。
+
+如果导师需要把图单独插入邮件、PPT 或批注文档，可直接从上述目录中取用对应图片文件。
+
+---
+
 ## 备注
 
 - Phase 2 的主 Markdown 源文件原项目中叫 `US_PHASE2_EXPERIMENTS.md`，这里已统一整理为 `PHASE2_COMPLETE_REPORT.md` 便于发送。
 - Phase 3 的主 Markdown 源文件原项目中叫 `PHASE3_FINAL_REPORT.md`，这里已统一整理为 `PHASE3_COMPLETE_REPORT.md`。
 - 所有 HTML 文件均为自包含版本，图片已内嵌，离线打开即可查看。
+- 同级目录下已生成可直接发送的压缩包：`ADVISOR_PACKAGE_PHASE1_2_3_20260403.zip`。
