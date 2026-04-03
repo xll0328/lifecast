@@ -249,6 +249,23 @@ a { color: var(--accent); text-decoration: none; }
 </table>
 <p>生成脚本：<code>generate_phase2_phase3_figures.py</code></p>
 <hr />
+<h2 id="25-10">2.5) 这 10 张图背后压缩了什么实验足迹</h2>
+<p>Phase 3 的图链看上去比 Phase 1 更“克制”，但这不是因为工作量更小，而是因为最终汇报层把大量 country / seed / group 结果压缩进了更少但更聚焦的图里。</p>
+<p>就当前 <code>results/</code> 目录而言，Phase 3 的核心足迹至少包括：</p>
+<ul>
+<li><code>105</code> 个 <code>phase3_mtus_a1</code> JSON；</li>
+<li><code>522</code> 个 <code>phase3_mtus_b1</code> JSON；</li>
+<li><code>11</code> 个 <code>phase3_cross_country</code> CSV；</li>
+<li><code>10</code> 张 <code>phase3_figures</code> PNG。</li>
+</ul>
+<p>也就是说，<strong>10 张最终图对应的不是 10 个实验，而是 627 个 MTUS 结果 JSON 加上一层 cross-country summary / master table 汇总。</strong></p>
+<p>这也是为什么 Phase 3 的可视化策略必须更“精选”：</p>
+<ol>
+<li>如果把国家、seed、group 的中间结果逐张展开，图量会迅速失控；</li>
+<li>导师真正需要的是能够判断机制是否成立的最终证据链，而不是阅读数百张近似重复的小图；</li>
+<li>因此最终保留下来的 10 张图，承担的是“把 627 个结果 JSON 压缩成可审阅叙事”的任务。</li>
+</ol>
+<hr />
 <h2 id="3">3) 图组相对于早期版本的增强</h2>
 <p>旧版 Phase 3 的最大问题，并不是“没有结果”，而是：</p>
 <ol>

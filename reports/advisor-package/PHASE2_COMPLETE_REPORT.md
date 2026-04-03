@@ -8,6 +8,7 @@
 > 可视化：8 张  
 > 更新时间：2026-04-03  
 > 状态：Phase 2 完整长报告（Advisor Review Version）
+> 实验足迹：53 个 US 结果 JSON + 3 个关键 CSV 汇总 + 8 张最终主图
 
 ---
 
@@ -160,6 +161,23 @@ Phase 2 的一个重要价值，在于它逼出了几处如果不修正就会污
 | C1/D1/E1 | coarse/fine、10/30min、weekday/full | ✅ 完成 | ✅ |
 | pooled econstat full | 仅部分组稳定 | ⚠️ 部分完成 | 仅作边界说明 |
 | 可视化图组 | Phase 2 专属 8 图 | ✅ 完成 | ✅ |
+
+### 4.1.1 为什么最终主文只放 8 张图，但工作量并不薄
+
+Phase 2 的最终交付故意采用“少而强”的图链策略，而不是把所有中间运行结果逐张堆入正文。换句话说，**8 张图是经过筛选后的最终证据层，不是全部实验层**。
+
+如果只看导师包中的主文与图链，容易低估实际工作量；但从 `results/` 目录回看，Phase 2 直接相关的 US 结果产物至少包括：
+
+| 层级 | 结果足迹 | 说明 |
+|---|---:|---|
+| quick / baseline / expansion smoke | 6 个 JSON | `us_phase2_a1_quick`、`us_phase2_b1_quick`、`us_phase2_baseline`、`us_phase2_expansion_quick` |
+| full rerun / reboot validation | 2 个 JSON | `us_a1_full_transformer_reboot` |
+| pooled / full grouped matrices | 43 个 JSON | `income`、`sex`、`age_bin`、`temporal`、`econstat` 等正式矩阵 |
+| index / summary artifacts | 2 个 JSON | `us_phase2_expansion_index.json`、`us_phase2_expansion_summary.json` |
+| key tabular summaries | 3 个 CSV | grouped 与 pooled 主表汇总 |
+| final figure chain | 8 张 PNG | `results/phase2_figures/` |
+
+因此，Phase 2 呈现为 8 张图，并不意味着 Phase 2 只做了 8 组实验；更准确的说法是：**Phase 2 把 50+ 个 US 结果 JSON、若干 pooled/full 分组矩阵和关键 CSV 汇总，压缩成了一条可供导师快速判断的 8 图证据链。**
 
 ### 4.2 为什么这份完成度已经具备正式汇报条件
 

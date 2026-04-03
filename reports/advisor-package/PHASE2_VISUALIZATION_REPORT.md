@@ -43,6 +43,28 @@ Phase 2 的可视化已经不再是“有几张零散图”，而是形成了一
 
 ---
 
+## 2.5) 这 8 张图背后压缩了什么实验足迹
+
+如果只看可视化报告，很容易把“8 张图”误读成“工作量大概也就 8 组实验”。这并不准确。Phase 2 的图链本质上是最终汇报层，它压缩的是一串更长的 US 结果矩阵。
+
+当前 `results/` 中与 Phase 2 直接相关的 US 结果至少包括：
+
+- `53` 个 US 结果 JSON；
+- `3` 个关键 CSV 汇总；
+- `8` 张正式 PNG 图；
+- 以及 quick / pooled / full / sensitivity / cross-phase comparison 这些不同层级的解释链。
+
+其中，JSON 结果又可拆成四层：
+
+1. quick / baseline / expansion smoke：`6` 个 JSON；
+2. full rerun / reboot validation：`2` 个 JSON；
+3. pooled / full grouped matrices：`43` 个 JSON；
+4. index / summary artifacts：`2` 个 JSON。
+
+因此，这 8 张图不是 8 次运行，而是对 US baseline、grouped quick、pooled grouped、full reruns、methodology sensitivity 与 UK-US 对表的**最终压缩表达**。
+
+---
+
 ## 3) 图组相对于早期版本的增强
 
 旧版 Phase 2 的问题不是“完全没图”，而是图不够成体系：

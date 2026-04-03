@@ -588,6 +588,7 @@ function activateReveal(scope){
     const stats=[
       {value:pkg.report_sets,label:'report sets'},
       {value:pkg.files,label:'package docs'},
+      {value:pkg.result_json_artifacts,label:'result JSONs'},
       {value:pkg.raw_figure_assets,label:'raw figure assets'},
       {value:zipSize,label:'zip download'}
     ];

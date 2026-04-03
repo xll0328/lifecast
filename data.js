@@ -376,8 +376,9 @@ const RESEARCH_DATA = {
     "figures": 35,
     "report_sets": 5,
     "packaged_files": 16,
+    "result_json_artifacts": 921,
     "raw_figure_assets": 37,
-    "bundle_size_mb": 14.74,
+    "bundle_size_mb": 14.89,
     "formats": 3
   },
   "project_phases": [
@@ -435,8 +436,9 @@ const RESEARCH_DATA = {
   "advisor_package": {
     "report_sets": 5,
     "files": 16,
+    "result_json_artifacts": 921,
     "raw_figure_assets": 37,
-    "bundle_size_mb": 14.74,
+    "bundle_size_mb": 14.89,
     "formats": ["PDF", "HTML", "MD"],
     "hub_path": "reports/index.html",
     "package_index": "reports/advisor-package/PACKAGE_INDEX.md",

@@ -9,6 +9,7 @@
 > 可视化：10 张  
 > 更新时间：2026-04-03  
 > 状态：Phase 3 实验、汇总、对表、图链与 Markdown 已全部补齐
+> 实验足迹：627 个 MTUS 结果 JSON + 11 个 cross-country CSV + 10 张最终主图
 
 ---
 
@@ -102,6 +103,21 @@ Phase 3 覆盖的国家为：
 - A1 fine：7 国 × 3 seeds × 2 models = **42 条记录**
 - A1 coarse：7 国 × 3 seeds × 1 model = **21 条记录**
 - B1 full（`age_bin` + `sex`）：(3 + 2) groups × 7 国 × 3 seeds = **105 条记录**
+
+### 3.1.1 为什么最终主文只放 10 张图，但背后远不止 10 个实验
+
+Phase 3 的最终呈现采用的是“正式汇报层压缩”逻辑。也就是说，主文中的 10 张图不是 10 次实验，而是对多国、多 seed、多 group 结果矩阵的精选投影。
+
+从当前 `results/` 目录回看，Phase 3 的核心产物至少包括：
+
+| 层级 | 结果足迹 | 说明 |
+|---|---:|---|
+| `phase3_mtus_a1` | 105 个 JSON | 含 A1 fine / coarse、国家、seed、模型等正式运行结果 |
+| `phase3_mtus_b1` | 522 个 JSON | 含 grouped matrices、quick/full、country/group 组合结果 |
+| `phase3_cross_country` | 11 个 CSV | A1/B1 summary、coarse summary、master table 等汇总层 |
+| `phase3_figures` | 10 张 PNG | 最终正式图链 |
+
+因此，Phase 3 在导师包里看起来是“10 张图 + 一份主报告”，并不是因为工作量有限，而是因为**627 个结果 JSON 与 11 个 cross-country CSV 被主动压缩成一条可读、可判、可复核的 10 图主链**。这正是正式汇报材料应有的组织方式，而不是实验执行量的上限。
 
 ### 3.2 KR 补跑已经真正“入表”
 

@@ -157,7 +157,8 @@ a { color: var(--accent); text-decoration: none; }
 核心口径：<code>accuracy</code> / <code>macro-F1</code> / <code>persistence baseline</code> / <code>delta vs persistence</code><br />
 可视化：8 张<br />
 更新时间：2026-04-03<br />
-状态：Phase 2 完整长报告（Advisor Review Version）</p>
+状态：Phase 2 完整长报告（Advisor Review Version）
+实验足迹：53 个 US 结果 JSON + 3 个关键 CSV 汇总 + 8 张最终主图</p>
 </blockquote>
 <hr />
 <h2 id="_1">目录</h2>
@@ -375,6 +376,51 @@ a { color: var(--accent); text-decoration: none; }
 </tr>
 </tbody>
 </table>
+<h3 id="411-8">4.1.1 为什么最终主文只放 8 张图，但工作量并不薄</h3>
+<p>Phase 2 的最终交付故意采用“少而强”的图链策略，而不是把所有中间运行结果逐张堆入正文。换句话说，<strong>8 张图是经过筛选后的最终证据层，不是全部实验层</strong>。</p>
+<p>如果只看导师包中的主文与图链，容易低估实际工作量；但从 <code>results/</code> 目录回看，Phase 2 直接相关的 US 结果产物至少包括：</p>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th style="text-align: right;">结果足迹</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>quick / baseline / expansion smoke</td>
+<td style="text-align: right;">6 个 JSON</td>
+<td><code>us_phase2_a1_quick</code>、<code>us_phase2_b1_quick</code>、<code>us_phase2_baseline</code>、<code>us_phase2_expansion_quick</code></td>
+</tr>
+<tr>
+<td>full rerun / reboot validation</td>
+<td style="text-align: right;">2 个 JSON</td>
+<td><code>us_a1_full_transformer_reboot</code></td>
+</tr>
+<tr>
+<td>pooled / full grouped matrices</td>
+<td style="text-align: right;">43 个 JSON</td>
+<td><code>income</code>、<code>sex</code>、<code>age_bin</code>、<code>temporal</code>、<code>econstat</code> 等正式矩阵</td>
+</tr>
+<tr>
+<td>index / summary artifacts</td>
+<td style="text-align: right;">2 个 JSON</td>
+<td><code>us_phase2_expansion_index.json</code>、<code>us_phase2_expansion_summary.json</code></td>
+</tr>
+<tr>
+<td>key tabular summaries</td>
+<td style="text-align: right;">3 个 CSV</td>
+<td>grouped 与 pooled 主表汇总</td>
+</tr>
+<tr>
+<td>final figure chain</td>
+<td style="text-align: right;">8 张 PNG</td>
+<td><code>results/phase2_figures/</code></td>
+</tr>
+</tbody>
+</table>
+<p>因此，Phase 2 呈现为 8 张图，并不意味着 Phase 2 只做了 8 组实验；更准确的说法是：<strong>Phase 2 把 50+ 个 US 结果 JSON、若干 pooled/full 分组矩阵和关键 CSV 汇总，压缩成了一条可供导师快速判断的 8 图证据链。</strong></p>
 <h3 id="42">4.2 为什么这份完成度已经具备正式汇报条件</h3>
 <p>如果要判断 Phase 2 是否已经从“实验执行阶段”进入“正式汇报阶段”，主要看三件事：</p>
 <ol>
