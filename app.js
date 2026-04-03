@@ -40,8 +40,8 @@ function activateReveal(scope){
 (function(){
   if(PREFER_REDUCED_MOTION)return;
   const hmVs=document.querySelectorAll('.hm-v');
-  const targets=[914,300,35,9,31,5];
-  const suffixes=['K','+','','','M',''];
+  const targets=[914,921,39,9,31,6];
+  const suffixes=['K','','','','M',''];
   hmVs.forEach((el,i)=>{
     const target=targets[i];
     if(target==null)return;
@@ -463,6 +463,7 @@ function activateReveal(scope){
       {value:summary.phases,label:'phases complete'},
       {value:summary.country_settings,label:'national settings'},
       {value:summary.figures,label:'curated figures'},
+      {value:summary.result_json_artifacts,label:'result JSONs'},
       {value:summary.packaged_files,label:'package docs'}
     ];
     statsWrap.innerHTML=stats.map(s=>
@@ -485,6 +486,49 @@ function activateReveal(scope){
     ).join('');
   }
   activateReveal(document.getElementById('program'));
+})();
+
+/* ===== PROJECT SHOWCASE ===== */
+(function(){
+  if(typeof RESEARCH_DATA==='undefined')return;
+  const scales=RESEARCH_DATA.phase_scale_panels||[];
+  const gallery=RESEARCH_DATA.showcase_gallery||[];
+
+  const scaleWrap=document.getElementById('phase-scale-grid');
+  if(scaleWrap&&scales.length){
+    scaleWrap.innerHTML=scales.map(item=>
+      `<article class="phase-scale-card reveal">
+        <div class="phase-scale-top">
+          <span class="phase-scale-code">${item.code}</span>
+          <span class="phase-scale-tag">evidence scale</span>
+        </div>
+        <h3>${item.title}</h3>
+        <p>${item.detail}</p>
+        <div class="phase-scale-badges">
+          ${(item.badges||[]).map(b=>`<span class="phase-scale-badge">${b}</span>`).join('')}
+        </div>
+      </article>`
+    ).join('');
+  }
+
+  const galleryWrap=document.getElementById('showcase-grid');
+  if(galleryWrap&&gallery.length){
+    galleryWrap.innerHTML=gallery.map(item=>
+      `<article class="showcase-card reveal">
+        <div class="showcase-media">
+          <img src="${item.image}" alt="${item.title}" loading="lazy" />
+        </div>
+        <div class="showcase-meta">${item.phase} · ${item.code}</div>
+        <h3>${item.title}</h3>
+        <p>${item.caption}</p>
+        <div class="showcase-actions">
+          <a class="showcase-link" href="${item.href}" target="_blank" rel="noopener noreferrer">${item.link_label||'Open report'}</a>
+        </div>
+      </article>`
+    ).join('');
+  }
+
+  activateReveal(document.getElementById('showcase'));
 })();
 
 /* ===== PHASE 3 FULL DASHBOARD ===== */
@@ -575,7 +619,7 @@ function activateReveal(scope){
       pkg.hub_path ? {label:'Open report hub', href:pkg.hub_path, primary:true} : null,
       pkg.bundle_zip ? {label:'Download advisor zip', href:pkg.bundle_zip} : null,
       pkg.raw_assets_hub ? {label:'Raw figure assets', href:pkg.raw_assets_hub} : null,
-      firstRecommended ? {label:'Start with Phase 1 PDF', href:firstRecommended.href} : null,
+      firstRecommended ? {label:`Start with ${firstRecommended.label}`, href:firstRecommended.href} : null,
       pkg.package_index ? {label:'Package note', href:pkg.package_index} : null
     ].filter(Boolean);
     toolbar.innerHTML=actions.map(action=>

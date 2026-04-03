@@ -373,12 +373,12 @@ const RESEARCH_DATA = {
   "project_summary": {
     "phases": 3,
     "country_settings": 9,
-    "figures": 35,
-    "report_sets": 5,
-    "packaged_files": 16,
+    "figures": 39,
+    "report_sets": 6,
+    "packaged_files": 19,
     "result_json_artifacts": 921,
-    "raw_figure_assets": 37,
-    "bundle_size_mb": 14.89,
+    "raw_figure_assets": 41,
+    "bundle_size_mb": 13.94,
     "formats": 3
   },
   "project_phases": [
@@ -394,9 +394,9 @@ const RESEARCH_DATA = {
       "code": "Phase 2",
       "title": "US replication and sample-size correction",
       "dataset": "ATUS 2024 + pooled 2003–2024",
-      "scope": "8 dedicated figures · 18 key findings",
-      "insight": "Persistence remains a formidable baseline, but pooled ATUS data shows positive model deltas once sample size is sufficient and the quick/full distinction is respected.",
-      "output": "main report + visualization report"
+      "scope": "10 dedicated figures · 49 raw JSONs · unified summary layer",
+      "insight": "Persistence remains a formidable baseline, but pooled ATUS data now makes the support-size pattern explicit: quick negative deltas shrink toward zero and small positive gains become interpretable once sample size is sufficient.",
+      "output": "main report + visualization report + phase2 summary"
     },
     {
       "code": "Phase 3",
@@ -404,7 +404,83 @@ const RESEARCH_DATA = {
       "dataset": "CA · ES · FR · IT · KR · NL · ZA",
       "scope": "42 A1 fine records · 105 B1 grouped full runs",
       "insight": "Transformer stays positive in all 7 countries (+0.44 pp weighted vs persistence), and fine activity remains substantially more informative than coarse coding.",
-      "output": "10-figure chain · full external-validity report"
+      "output": "12-figure chain · full external-validity report"
+    }
+  ],
+  "phase_scale_panels": [
+    {
+      "code": "P1",
+      "title": "Phase 1: theory and structure",
+      "detail": "The UK layer is where the project earns its strongest single-country claim: high predictability is real, but it is socially stratified rather than evenly distributed.",
+      "badges": ["300+ formal experiments", "4 channels", "17 curated figures", "19 raw package assets"]
+    },
+    {
+      "code": "P2",
+      "title": "Phase 2: correction and transport",
+      "detail": "The US layer no longer reads like a thin replication. It now has a dedicated summary layer, support-width figures, and explicit pooled/full correction logic.",
+      "badges": ["49 raw experiment JSONs", "2 tracker JSONs", "10 curated figures", "6 summary CSVs"]
+    },
+    {
+      "code": "P3",
+      "title": "Phase 3: external validity closure",
+      "detail": "The MTUS layer closes the full argument with country, seed, and grouped evidence. The question is no longer whether the gain exists, but how its magnitude varies across settings.",
+      "badges": ["627 result JSONs", "11 cross-country CSVs", "12 curated figures", "7 countries × 3 seeds"]
+    }
+  ],
+  "showcase_gallery": [
+    {
+      "code": "P1-G1",
+      "phase": "Phase 1",
+      "title": "Dimension importance makes the stratification story legible",
+      "image": "reports/advisor-package/ORIGINAL_FIGURES/PHASE1_results_figures/figure10_dimension_importance.png",
+      "caption": "Income and econstat dominate the UK stratification signal, so predictability can be read as structured social constraint rather than a generic model score.",
+      "href": "reports/advisor-package/PHASE1_COMPLETE_REPORT.pdf",
+      "link_label": "Open Phase 1 PDF"
+    },
+    {
+      "code": "P1-G2",
+      "phase": "Phase 1",
+      "title": "Transition analysis shows why high accuracy is mostly inertia",
+      "image": "reports/advisor-package/ORIGINAL_FIGURES/PHASE1_results_figures/figure6_transition_analysis.png",
+      "caption": "Across channels, stay states dominate and transition prediction collapses, establishing persistence as the core mechanism carried into later phases.",
+      "href": "reports/advisor-package/PHASE1_COMPLETE_REPORT.pdf",
+      "link_label": "View transition figure"
+    },
+    {
+      "code": "P2-G1",
+      "phase": "Phase 2",
+      "title": "Sample-size correction rewrites the meaning of quick negatives",
+      "image": "reports/advisor-package/ORIGINAL_FIGURES/PHASE2_results_phase2_figures/phase2_fig8_us_sample_size_delta_shift.png",
+      "caption": "US quick negatives are not final ceilings. Once grouped slices move from quick to pooled support, several deltas shift upward enough to change the conclusion tier.",
+      "href": "reports/advisor-package/PHASE2_COMPLETE_REPORT.pdf",
+      "link_label": "Open Phase 2 PDF"
+    },
+    {
+      "code": "P2-G2",
+      "phase": "Phase 2",
+      "title": "Support-size map shows where pooled gains actually stabilize",
+      "image": "reports/advisor-package/ORIGINAL_FIGURES/PHASE2_results_phase2_figures/phase2_fig10_us_pooled_support_vs_delta.png",
+      "caption": "Location stays positive across grouped slices, while activity clusters near zero and only becomes interpretable once support size is large enough.",
+      "href": "reports/advisor-package/PHASE2_VISUALIZATION_REPORT.html",
+      "link_label": "Open Phase 2 figures"
+    },
+    {
+      "code": "P3-G1",
+      "phase": "Phase 3",
+      "title": "Country-level CI forest shows strength differences, not sign reversals",
+      "image": "reports/advisor-package/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig11_a1_country_ci_forest.png",
+      "caption": "ZA, NL, and KR lead the uplift ranking, but all seven countries remain above zero once country means, seed points, and uncertainty are viewed together.",
+      "href": "reports/advisor-package/PHASE3_COMPLETE_REPORT.pdf",
+      "link_label": "Open Phase 3 PDF"
+    },
+    {
+      "code": "P3-G2",
+      "phase": "Phase 3",
+      "title": "Grouped boxplots show full-run distributions staying above zero",
+      "image": "reports/advisor-package/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig12_b1_distribution_boxplots.png",
+      "caption": "The grouped result is no longer just a mean table: full-run distributions for age_bin and sex stay on the positive side across countries.",
+      "href": "reports/advisor-package/PHASE3_VISUALIZATION_REPORT.html",
+      "link_label": "Open Phase 3 figures"
     }
   ],
   "phase3_full": {
@@ -418,7 +494,7 @@ const RESEARCH_DATA = {
     "macro_f1": 75.77,
     "fine_delta": 0.44,
     "coarse_delta": 0.16,
-    "figures": 10
+    "figures": 12
   },
   "phase3_country_delta": [
     { "country": "ZA", "transformer": 0.76, "sgd": 0.14, "quick": 0.26, "full": 0.76, "age_bin": 0.64, "sex": 0.71 },
@@ -434,24 +510,37 @@ const RESEARCH_DATA = {
     { "dimension": "sex", "runs": 42, "delta": 0.39, "color": "#6caac4" }
   ],
   "advisor_package": {
-    "report_sets": 5,
-    "files": 16,
+    "report_sets": 6,
+    "files": 19,
     "result_json_artifacts": 921,
-    "raw_figure_assets": 37,
-    "bundle_size_mb": 14.89,
+    "raw_figure_assets": 41,
+    "bundle_size_mb": 13.94,
     "formats": ["PDF", "HTML", "MD"],
     "hub_path": "reports/index.html",
     "package_index": "reports/advisor-package/PACKAGE_INDEX.md",
     "bundle_zip": "reports/ADVISOR_PACKAGE_PHASE1_2_3_20260403.zip",
     "raw_assets_hub": "reports/index.html#raw-assets",
-    "note": "All HTML reports are self-contained for offline review, PDFs provide the clearest handoff, and the downloadable advisor bundle now includes ORIGINAL_FIGURES with all raw figure assets.",
+    "note": "All HTML reports are self-contained for offline review, PDFs provide the clearest handoff, the new project overview is the fastest entry point, and the downloadable advisor bundle now includes ORIGINAL_FIGURES with all raw figure assets.",
     "recommended": [
+      { "label": "project overview", "href": "reports/advisor-package/LIFECAST_PROJECT_OVERVIEW.pdf" },
       { "label": "Phase 1 complete report", "href": "reports/advisor-package/PHASE1_COMPLETE_REPORT.pdf" },
       { "label": "Phase 2 complete report", "href": "reports/advisor-package/PHASE2_COMPLETE_REPORT.pdf" },
       { "label": "Phase 3 complete report", "href": "reports/advisor-package/PHASE3_COMPLETE_REPORT.pdf" },
       { "label": "Visualization reports", "href": "reports/index.html#visualization-reports" }
     ],
     "items": [
+      {
+        "code": "OVR",
+        "title": "LifeCast project overview",
+        "desc": "Fastest entry point for the whole package: three-phase arc, project scale, reading order, and representative figures in one place.",
+        "files": "MD · HTML · PDF",
+        "recommended_format": "PDF",
+        "links": {
+          "pdf": "reports/advisor-package/LIFECAST_PROJECT_OVERVIEW.pdf",
+          "html": "reports/advisor-package/LIFECAST_PROJECT_OVERVIEW.html",
+          "md": "reports/advisor-package/LIFECAST_PROJECT_OVERVIEW.md"
+        }
+      },
       {
         "code": "P1",
         "title": "Phase 1 complete report",
@@ -479,7 +568,7 @@ const RESEARCH_DATA = {
       {
         "code": "P2-V",
         "title": "Phase 2 visualization report",
-        "desc": "Eight-figure chain explaining baseline, pooled deltas, methodology sensitivity, and UK–US alignment.",
+        "desc": "Ten-figure chain explaining baseline, pooled deltas, support-width, support-size, methodology sensitivity, and UK–US alignment.",
         "files": "MD · HTML · PDF",
         "recommended_format": "HTML",
         "links": {
@@ -503,7 +592,7 @@ const RESEARCH_DATA = {
       {
         "code": "P3-V",
         "title": "Phase 3 visualization report",
-        "desc": "Ten-figure chain for country deltas, grouped robustness, quick-to-full correction, and cross-phase closure.",
+        "desc": "Twelve-figure chain for country deltas, CI, grouped distributions, quick-to-full correction, and cross-phase closure.",
         "files": "MD · HTML · PDF",
         "recommended_format": "HTML",
         "links": {

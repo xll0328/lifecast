@@ -7,9 +7,10 @@
 
 ## 建议优先阅读
 
-1. `PHASE1_COMPLETE_REPORT.pdf`
-2. `PHASE2_COMPLETE_REPORT.pdf`
-3. `PHASE3_COMPLETE_REPORT.pdf`
+1. `LIFECAST_PROJECT_OVERVIEW.pdf`
+2. `PHASE1_COMPLETE_REPORT.pdf`
+3. `PHASE2_COMPLETE_REPORT.pdf`
+4. `PHASE3_COMPLETE_REPORT.pdf`
 
 如果导师需要看网页版或继续批注，可对应打开同名的 `.html` 或 `.md` 文件。
 
@@ -22,20 +23,30 @@
 当前项目的底层结果树大致包含：
 
 - `921` 个结果 JSON；
-- `68` 张 PNG；
-- `27` 个 CSV。
+- `72` 张 PNG；
+- `34` 个 CSV。
 
 在三阶段中，这些底层产物被进一步压缩为导师可快速审阅的正式交付层：
 
 - Phase 1：主报告中已明确总结为 **300+** 正式实验；
-- Phase 2：主报告与图链对应 **53 个 US 结果 JSON + 3 个关键 CSV + 8 张最终图**；
-- Phase 3：主报告与图链对应 **627 个 MTUS 结果 JSON + 11 个 cross-country CSV + 10 张最终图**。
+- Phase 2：主报告与图链对应 **49 个原始实验 JSON（41 个完成结果 + 8 个 small-group 占位）+ 2 个 tracker JSON + `phase2_summary` 统一汇总层 + 10 张最终图**；
+- Phase 3：主报告与图链对应 **627 个 MTUS 结果 JSON + 11 个 cross-country CSV + 12 张最终图**。
+
+此外，这次收尾前还额外完成了一轮逐条 closure audit：三阶段主线共 **11 条** 关键 claim 已全部对回 `结果 -> 图 -> 报告 -> 网站/交付` 链路，当前没有再发现必须依赖新补跑才能闭环的关键缺口。
 
 换句话说，导师包里的图和文档是“筛选后的最终证据面”，而不是实验执行量的全部展开。
 
 ---
 
 ## 文件说明
+
+### Project Overview
+
+- `LIFECAST_PROJECT_OVERVIEW.md`
+- `LIFECAST_PROJECT_OVERVIEW.html`
+- `LIFECAST_PROJECT_OVERVIEW.pdf`
+
+说明：三阶段总成果入口页，适合导师先快速把握主线、规模、阅读顺序与代表图。
 
 ### Phase 1
 
@@ -76,8 +87,8 @@
 ## 原始图文件
 
 - `ORIGINAL_FIGURES/PHASE1_results_figures/`：Phase 1 全部主图、补充图，以及同目录中的汇总表文件。
-- `ORIGINAL_FIGURES/PHASE2_results_phase2_figures/`：Phase 2 的 8 张原始 PNG 图文件。
-- `ORIGINAL_FIGURES/PHASE3_results_phase3_figures/`：Phase 3 的 10 张原始 PNG 图文件。
+- `ORIGINAL_FIGURES/PHASE2_results_phase2_figures/`：Phase 2 的 10 张原始 PNG 图文件。
+- `ORIGINAL_FIGURES/PHASE3_results_phase3_figures/`：Phase 3 的 12 张原始 PNG 图文件。
 
 如果导师需要把图单独插入邮件、PPT 或批注文档，可直接从上述目录中取用对应图片文件。
 

@@ -157,7 +157,7 @@ a { color: var(--accent); text-decoration: none; }
 </blockquote>
 <hr />
 <h2 id="1">1) 总体结论</h2>
-<p>Phase 3 的可视化已从“主表完整但图证不足”扩展为一套 <strong>10 张</strong> 的成体系图组，而且这套图组是基于<strong>补齐 KR 两个 A1 fine 补跑后重新生成的完整 summary</strong>，不是旧版 38 条 A1 记录的残缺版本。</p>
+<p>Phase 3 的可视化已从“主表完整但图证不足”扩展为一套 <strong>12 张</strong> 的成体系图组，而且这套图组是基于<strong>补齐 KR 两个 A1 fine 补跑后重新生成的完整 summary</strong>，不是旧版 38 条 A1 记录的残缺版本。</p>
 <p>当前这套图链已经覆盖：</p>
 <ul>
 <li>A1 各国主结果</li>
@@ -168,12 +168,14 @@ a { color: var(--accent); text-decoration: none; }
 <li>specific subgroup heatmaps</li>
 <li>B1 quick -&gt; full 修正</li>
 <li>sample-size sensitivity</li>
+<li>country-level CI forest</li>
+<li>grouped full-run distribution boxplots</li>
 <li>fine/coarse sensitivity</li>
 <li>Phase1/2/3 统一对照</li>
 </ul>
 <p>也就是说，Phase 3 不仅主表完整，图链也已经能够独立支撑完整叙事。</p>
 <hr />
-<h2 id="2-phase-3-10">2) 当前 Phase 3 专属图组（10 张）</h2>
+<h2 id="2-phase-3-12">2) 当前 Phase 3 专属图组（12 张）</h2>
 <p>目录：<code>results/phase3_figures/</code></p>
 <table>
 <thead>
@@ -245,45 +247,57 @@ a { color: var(--accent); text-decoration: none; }
 <td>稳健性</td>
 <td>sample size 与 delta 的关系</td>
 </tr>
+<tr>
+<td>P3-F11</td>
+<td><code>phase3_fig11_a1_country_ci_forest.png</code></td>
+<td>A1 主线</td>
+<td>country mean + seed + CI 的 forest-style 视图</td>
+</tr>
+<tr>
+<td>P3-F12</td>
+<td><code>phase3_fig12_b1_distribution_boxplots.png</code></td>
+<td>B1 grouped</td>
+<td><code>age_bin/sex</code> 的 grouped full-run 分布箱线图</td>
+</tr>
 </tbody>
 </table>
 <p>生成脚本：<code>generate_phase2_phase3_figures.py</code></p>
 <hr />
-<h2 id="25-10">2.5) 这 10 张图背后压缩了什么实验足迹</h2>
+<h2 id="25-12">2.5) 这 12 张图背后压缩了什么实验足迹</h2>
 <p>Phase 3 的图链看上去比 Phase 1 更“克制”，但这不是因为工作量更小，而是因为最终汇报层把大量 country / seed / group 结果压缩进了更少但更聚焦的图里。</p>
 <p>就当前 <code>results/</code> 目录而言，Phase 3 的核心足迹至少包括：</p>
 <ul>
 <li><code>105</code> 个 <code>phase3_mtus_a1</code> JSON；</li>
 <li><code>522</code> 个 <code>phase3_mtus_b1</code> JSON；</li>
 <li><code>11</code> 个 <code>phase3_cross_country</code> CSV；</li>
-<li><code>10</code> 张 <code>phase3_figures</code> PNG。</li>
+<li><code>12</code> 张 <code>phase3_figures</code> PNG。</li>
 </ul>
-<p>也就是说，<strong>10 张最终图对应的不是 10 个实验，而是 627 个 MTUS 结果 JSON 加上一层 cross-country summary / master table 汇总。</strong></p>
+<p>也就是说，<strong>12 张最终图对应的不是 12 个实验，而是 627 个 MTUS 结果 JSON 加上一层 cross-country summary / master table 汇总。</strong></p>
 <p>这也是为什么 Phase 3 的可视化策略必须更“精选”：</p>
 <ol>
 <li>如果把国家、seed、group 的中间结果逐张展开，图量会迅速失控；</li>
 <li>导师真正需要的是能够判断机制是否成立的最终证据链，而不是阅读数百张近似重复的小图；</li>
-<li>因此最终保留下来的 10 张图，承担的是“把 627 个结果 JSON 压缩成可审阅叙事”的任务。</li>
+<li>因此最终保留下来的 12 张图，承担的是“把 627 个结果 JSON 压缩成可审阅叙事”的任务。</li>
 </ol>
 <hr />
 <h2 id="3">3) 图组相对于早期版本的增强</h2>
 <p>旧版 Phase 3 的最大问题，并不是“没有结果”，而是：</p>
 <ol>
 <li>图不够，导致跨国外部效度叙事看起来更像一堆表格摘要。</li>
-<li>没有 seed stability / quick-full / sample-size 这类能够直接回应质疑的证据图。</li>
-<li>没有把 B1 grouped 的 country-level 结构可视化出来，因此“跨组稳定性”更多停留在文字层面。</li>
+<li>没有 seed stability / quick-full / sample-size / CI 这类能够直接回应质疑的证据图。</li>
+<li>没有把 B1 grouped 的 country-level 结构与 full-run 分布一起可视化出来，因此“跨组稳定性”更多停留在文字层面。</li>
 </ol>
 <p>这次补齐后的提升很明确：</p>
 <ol>
-<li><strong>A1 不只是一张柱状图</strong>：现在有 country delta、seed stability、quick-full 修正三层图。</li>
-<li><strong>B1 不只是一句‘都为正’</strong>：现在有 scatter、country x dimension heatmap、specific subgroup heatmap、quick-full 修正图。</li>
-<li><strong>方法论解释不再只靠文字</strong>：sample-size 与 fine/coarse 现在都有明确图像支撑。</li>
+<li><strong>A1 不只是一张柱状图</strong>：现在有 country delta、seed stability、quick-full 修正、country-level CI forest 四层图。</li>
+<li><strong>B1 不只是一句‘都为正’</strong>：现在有 scatter、country x dimension heatmap、specific subgroup heatmap、quick-full 修正图，以及 grouped boxplots。</li>
+<li><strong>方法论解释不再只靠文字</strong>：sample-size、fine/coarse 与 grouped full-run 分布现在都有明确图像支撑。</li>
 <li><strong>跨阶段闭环可视化完成</strong>：Phase1 / Phase2 / Phase3 可以一图连起来讲。</li>
 </ol>
 <hr />
 <h2 id="4">4) 当前版本的适用性判断</h2>
 <h3 id="_1">导师审阅与阶段汇报：<strong>证据已经完整</strong></h3>
-<p>现在这 10 张图已经足以回答导师最可能追问的核心问题：</p>
+<p>现在这 12 张图已经足以回答导师最可能追问的核心问题：</p>
 <ol>
 <li>Transformer 在 7 国是不是都保持正增益？</li>
 <li>这些增益是不是 seed 偶然？</li>
@@ -292,14 +306,15 @@ a { color: var(--accent); text-decoration: none; }
 <li>fine 为什么应该保留为主线？</li>
 <li>整个项目从 Phase 1 到 Phase 3 到底是不是一条连续主线？</li>
 </ol>
-<h3 id="_2">若进入论文定稿阶段：<strong>可做的增强项</strong></h3>
-<p>在不改变当前主结论的前提下，还可以继续补充：</p>
+<p>如果进一步把图链与 full summary 合并来看，这套“完整性”现在还能被更精确地量化：A1 Transformer 的 country mean 已达到 <strong>7/7 国家为正</strong>，而 <code>age_bin/sex</code> 的 grouped full-run 切片已达到 <strong>35/35 个 country×group cells 为正</strong>。因此，这 12 张图现在承担的已经不是“试着讲故事”，而是把正式结论压缩成最可审阅的证据链。</p>
+<h3 id="_2">若进入论文投稿版式阶段：<strong>只剩表达层精修</strong></h3>
+<p>如果继续往前推进，重点也只会落在表达层，而不会改变“当前版本已经完整”的判断：</p>
 <ul>
-<li>forest plot（country-level CI）</li>
 <li>更长的 caption 版本</li>
 <li>更贴近论文风格的 multi-panel summary figure</li>
+<li>若投稿版式要求，可把 grouped boxplot 拆成 appendix 级 country panels</li>
 </ul>
-<p>这些内容属于面向投稿版式的增强，不影响当前版本作为正式阶段性汇报材料的完整性。</p>
+<p>这些内容属于投稿版式层的表达优化，不影响当前版本作为正式阶段性汇报材料的完整性。</p>
 <hr />
 <h2 id="5-phase-1">5) 与 Phase 1 的功能对照</h2>
 <p>如果拿 Phase 1 的 17+ 张图作标准，Phase 3 现在仍然更精简；但两者的任务也不同：</p>
@@ -316,7 +331,7 @@ a { color: var(--accent); text-decoration: none; }
 <h2 id="6">6) 可直接引用的摘要表述</h2>
 <p>下述表述可直接用于邮件摘要、封面说明或口头汇报：</p>
 <blockquote>
-<p>Phase 3 已形成完整的 10 图主链，并且全部基于最新的完整 summary 重生成，KR 的两个 A1 fine 补跑也已正式进入汇总。<br />
+<p>Phase 3 已形成完整的 12 图主链，并且全部基于最新的完整 summary 重生成，KR 的两个 A1 fine 补跑也已正式进入汇总。<br />
 这些图共同支持一个清晰结论：在 7 国 full runs 下，Transformer 相对 persistence 的正增益不仅在总体样本中成立，在 <code>age_bin</code> 和 <code>sex</code> 分组中也保持稳定，而且 fine 比 coarse 更能承载项目主叙事。</p>
 </blockquote>
 </body>

@@ -61,6 +61,7 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="#abstract">Abstract</a></li>
       <li><a href="#program">Program</a></li>
+      <li><a href="#showcase">Showcase</a></li>
       <li><a href="#findings">Findings</a></li>
       <li><a href="#results">Results</a></li>
       <li><a href="#inertia">Inertia</a></li>
@@ -85,15 +86,15 @@
     <div class="hero-meta">
       <div class="hm"><span class="hm-v">914K</span><span class="hm-k">windows</span></div>
       <div class="hm-sep"></div>
-      <div class="hm"><span class="hm-v">300+</span><span class="hm-k">experiments</span></div>
+      <div class="hm"><span class="hm-v">921</span><span class="hm-k">result JSONs</span></div>
       <div class="hm-sep"></div>
-      <div class="hm"><span class="hm-v">35</span><span class="hm-k">figures</span></div>
+      <div class="hm"><span class="hm-v">39</span><span class="hm-k">figures</span></div>
       <div class="hm-sep"></div>
       <div class="hm"><span class="hm-v">9</span><span class="hm-k">national settings</span></div>
       <div class="hm-sep"></div>
       <div class="hm"><span class="hm-v">31M</span><span class="hm-k">test windows</span></div>
       <div class="hm-sep"></div>
-      <div class="hm"><span class="hm-v">5</span><span class="hm-k">report sets</span></div>
+      <div class="hm"><span class="hm-v">6</span><span class="hm-k">report sets</span></div>
     </div>
     <div class="hero-cta">
       <a href="#abstract" class="btn-primary">Read abstract</a>
@@ -116,7 +117,7 @@
       <div class="abs-stat"><span class="abs-stat-v">5.26 pp</span><span class="abs-stat-k">UK income gap</span></div>
       <div class="abs-stat"><span class="abs-stat-v">+0.2–0.5 pp</span><span class="abs-stat-k">US pooled delta</span></div>
       <div class="abs-stat"><span class="abs-stat-v">+0.44 pp</span><span class="abs-stat-k">MTUS TF delta</span></div>
-      <div class="abs-stat"><span class="abs-stat-v">35</span><span class="abs-stat-k">curated figures</span></div>
+      <div class="abs-stat"><span class="abs-stat-v">39</span><span class="abs-stat-k">curated figures</span></div>
     </div>
     <div class="two-col">
       <div class="col-left">
@@ -144,6 +145,19 @@
     <div class="program-grid" id="program-grid"></div>
     <div class="program-note reveal">
       <strong>Why this matters.</strong> The project is no longer just a promising framework; it is now a multi-phase evidence stack with figure chains, reporting logic, and advisor-ready handoff materials.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="showcase">
+  <div class="container">
+    <div class="sec-label">Project Showcase</div>
+    <h2 class="sec-title">Representative figures and phase-scale evidence</h2>
+    <p class="sec-sub">The site now exposes the project at two levels at once: how much evidence each phase carries, and which figures best represent the final argument without forcing the reader to download a report first.</p>
+    <div class="phase-scale-grid reveal" id="phase-scale-grid"></div>
+    <div class="showcase-grid reveal" id="showcase-grid"></div>
+    <div class="program-note reveal">
+      <strong>Why this section exists.</strong> The project used to look lighter than it really was because the public surface only showed the final report cards. These panels make the evidence scale and representative figures visible directly on the site.
     </div>
   </div>
 </section>
@@ -560,7 +574,7 @@
       <div class="ms reveal"><div class="ms-n">05</div><h3>Group experiments</h3><p>Per-group train/eval spans income, econstat, sex, age, weekday structure, and later MTUS grouped slices. The grouped question stays constant across phases: who is more predictable, and why?</p></div>
       <div class="ms reveal"><div class="ms-n">06</div><h3>Ablation design</h3><p>Order vs bag encoding, window length (W=1&ndash;30), fine vs coarse activity, weekday/full-week contrasts, and cross-channel inputs isolate where the predictive signal actually lives.</p></div>
       <div class="ms reveal"><div class="ms-n">07</div><h3>Cross-national harmonization</h3><p>Phase 2 and Phase 3 align UKDA-8741, ATUS, and MTUS to a shared activity forecasting task. Fine activity stays on the mainline; coarse coding remains a robustness lane rather than the headline result.</p></div>
-      <div class="ms reveal"><div class="ms-n">08</div><h3>Report packaging</h3><p>Each mature phase is delivered as Markdown, self-contained HTML, and print-ready PDF. The advisor package now bundles five report sets, 37 raw figure assets, and a downloadable zip handoff for direct supervisor review.</p></div>
+      <div class="ms reveal"><div class="ms-n">08</div><h3>Report packaging</h3><p>Each mature phase is delivered as Markdown, self-contained HTML, and print-ready PDF. The advisor package now bundles six report sets, 41 raw figure assets, and a downloadable zip handoff for direct supervisor review.</p></div>
     </div>
   </div>
 </section>
@@ -569,11 +583,19 @@
   <div class="container">
     <div class="sec-label">Research Package</div>
     <h2 class="sec-title">Advisor-ready reports, raw figures, and bundle downloads are assembled</h2>
-    <p class="sec-sub">The project now includes complete main reports for Phase 1&ndash;3, dedicated visualization reports for Phase 2 and 3, a consolidated advisor package with self-contained HTML and print-ready PDF exports, and the original figure assets grouped by phase inside a downloadable zip bundle. This is the curated reporting layer built on top of 921 result JSON artifacts rather than the full raw tree dumped verbatim.</p>
+    <p class="sec-sub">The project now includes a new top-level overview document, complete main reports for Phase 1&ndash;3, dedicated visualization reports for Phase 2 and 3, a consolidated advisor package with self-contained HTML and print-ready PDF exports, and the original figure assets grouped by phase inside a downloadable zip bundle. This is the curated reporting layer built on top of 921 result JSON artifacts rather than the full raw tree dumped verbatim.</p>
     <div class="report-toolbar reveal" id="reports-toolbar"></div>
     <div class="report-path reveal" aria-label="Recommended reading order">
       <div class="report-path-step">
         <span class="report-path-n">1</span>
+        <div>
+          <strong>LifeCast project overview</strong>
+          <span>three-phase arc, project scale, reading order, and representative figures</span>
+          <div class="report-path-links"><a href="reports/advisor-package/LIFECAST_PROJECT_OVERVIEW.pdf" target="_blank" rel="noopener noreferrer">Open PDF</a><a href="reports/advisor-package/LIFECAST_PROJECT_OVERVIEW.html" target="_blank" rel="noopener noreferrer">Open HTML</a></div>
+        </div>
+      </div>
+      <div class="report-path-step">
+        <span class="report-path-n">2</span>
         <div>
           <strong>Phase 1 complete report</strong>
           <span>framework origin and theory anchor</span>
@@ -581,7 +603,7 @@
         </div>
       </div>
       <div class="report-path-step">
-        <span class="report-path-n">2</span>
+        <span class="report-path-n">3</span>
         <div>
           <strong>Phase 2 complete report</strong>
           <span>US replication and pooled correction</span>
@@ -589,7 +611,7 @@
         </div>
       </div>
       <div class="report-path-step">
-        <span class="report-path-n">3</span>
+        <span class="report-path-n">4</span>
         <div>
           <strong>Phase 3 complete report</strong>
           <span>MTUS external-validity closure</span>
@@ -597,7 +619,7 @@
         </div>
       </div>
       <div class="report-path-step report-path-step--sub">
-        <span class="report-path-n">4</span>
+        <span class="report-path-n">5</span>
         <div>
           <strong>Visualization reports</strong>
           <span>Phase 2 and Phase 3 figure-chain appendices</span>
@@ -605,7 +627,7 @@
         </div>
       </div>
       <div class="report-path-step report-path-step--sub">
-        <span class="report-path-n">5</span>
+        <span class="report-path-n">6</span>
         <div>
           <strong>Original figures and package zip</strong>
           <span>Raw figure assets are preserved under <code>ORIGINAL_FIGURES</code> and mirrored in the downloadable advisor bundle</span>
@@ -616,7 +638,7 @@
     <div class="report-stats reveal" id="reports-stats"></div>
     <div class="report-grid" id="reports-grid"></div>
     <div class="report-note reveal">
-      <strong>Packaging status.</strong> Markdown remains the editable source, HTML provides offline review, PDF gives a stable supervisor-facing handoff, and the zip bundle preserves the package note plus all phase-grouped raw figure assets. The visible report cards are intentionally the final evidence surface, while the underlying project now spans 921 result JSON artifacts.
+      <strong>Packaging status.</strong> Markdown remains the editable source, HTML provides offline review, PDF gives a stable supervisor-facing handoff, the new overview document provides the cleanest entry point, and the zip bundle preserves the package note plus all phase-grouped raw figure assets. The visible report cards are intentionally the final evidence surface, while the underlying project now spans 921 result JSON artifacts.
     </div>
   </div>
 </section>

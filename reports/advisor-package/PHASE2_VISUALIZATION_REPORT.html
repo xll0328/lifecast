@@ -157,7 +157,7 @@ a { color: var(--accent); text-decoration: none; }
 </blockquote>
 <hr />
 <h2 id="1">1) 总体结论</h2>
-<p>Phase 2 的可视化已经不再是“有几张零散图”，而是形成了一套<strong>可以直接嵌入正式主报告</strong>的 8 图链：</p>
+<p>Phase 2 的可视化已经不再是“有几张零散图”，而是形成了一套<strong>可以直接嵌入正式主报告</strong>的 10 图链：</p>
 <ul>
 <li>baseline：有</li>
 <li>Macro-F1 / delta 误差分解：有</li>
@@ -166,11 +166,13 @@ a { color: var(--accent); text-decoration: none; }
 <li>pooled heatmap：有</li>
 <li>methodology sensitivity：有</li>
 <li>sample-size correction：有</li>
+<li>pooled support-width intervals：有</li>
+<li>pooled support-size map：有</li>
 <li>UK vs US 主线对照：有</li>
 </ul>
-<p>换句话说，Phase 2 已具备与 Phase 1 同口径的“图驱动叙事”能力。虽然总图量仍少于 Phase 1，但证据结构已经足以支撑导师审阅与阶段性讨论。</p>
+<p>换句话说，Phase 2 已具备与 Phase 1 同口径的“图驱动叙事”能力。虽然总图量仍少于 Phase 1，但证据结构已经足以支撑导师审阅、阶段性讨论，以及对 negative delta / sample-size effect 的更成熟解释。</p>
 <hr />
-<h2 id="2-phase-2-8">2) 当前 Phase 2 专属图组（8 张）</h2>
+<h2 id="2-phase-2-10">2) 当前 Phase 2 专属图组（10 张）</h2>
 <p>目录：<code>results/phase2_figures/</code></p>
 <table>
 <thead>
@@ -230,65 +232,79 @@ a { color: var(--accent); text-decoration: none; }
 <td>pooled 复核</td>
 <td>sample-size correction 证据图</td>
 </tr>
+<tr>
+<td>P2-F9</td>
+<td><code>phase2_fig9_us_pooled_delta_uncertainty.png</code></td>
+<td>pooled 复核</td>
+<td>用 grouped <code>n_test</code> 形成的保守 support-width 区间</td>
+</tr>
+<tr>
+<td>P2-F10</td>
+<td><code>phase2_fig10_us_pooled_support_vs_delta.png</code></td>
+<td>pooled 复核</td>
+<td>全部 pooled 切片的 support-size map</td>
+</tr>
 </tbody>
 </table>
 <p>生成脚本：<code>generate_phase2_phase3_figures.py</code></p>
 <hr />
-<h2 id="25-8">2.5) 这 8 张图背后压缩了什么实验足迹</h2>
-<p>如果只看可视化报告，很容易把“8 张图”误读成“工作量大概也就 8 组实验”。这并不准确。Phase 2 的图链本质上是最终汇报层，它压缩的是一串更长的 US 结果矩阵。</p>
-<p>当前 <code>results/</code> 中与 Phase 2 直接相关的 US 结果至少包括：</p>
+<h2 id="25-10">2.5) 这 10 张图背后压缩了什么实验足迹</h2>
+<p>如果只看可视化报告，很容易把“10 张图”误读成“工作量大概也就 10 组实验”。这并不准确。Phase 2 的图链本质上是最终汇报层，它压缩的是一串更长的 US 结果矩阵。</p>
+<p>当前 <code>results/</code> 中与 Phase 2 直接相关的结果层至少包括：</p>
 <ul>
-<li><code>53</code> 个 US 结果 JSON；</li>
-<li><code>3</code> 个关键 CSV 汇总；</li>
-<li><code>8</code> 张正式 PNG 图；</li>
-<li>以及 quick / pooled / full / sensitivity / cross-phase comparison 这些不同层级的解释链。</li>
+<li><code>49</code> 个原始实验 JSON（其中 <code>41</code> 个完成结果 + <code>8</code> 个 <code>skipped_small_group</code> 占位）；</li>
+<li><code>2</code> 个 tracker JSON；</li>
+<li><code>6</code> 个 <code>phase2_summary</code> CSV + <code>1</code> 个 summary 说明 Markdown；</li>
+<li><code>10</code> 张正式 PNG 图；</li>
+<li>以及 quick / pooled / full-support / methodology / cross-phase comparison 这些不同层级的解释链。</li>
 </ul>
-<p>其中，JSON 结果又可拆成四层：</p>
+<p>其中，证据层现在可以明确拆成四层：</p>
 <ol>
-<li>quick / baseline / expansion smoke：<code>6</code> 个 JSON；</li>
-<li>full rerun / reboot validation：<code>2</code> 个 JSON；</li>
-<li>pooled / full grouped matrices：<code>43</code> 个 JSON；</li>
-<li>index / summary artifacts：<code>2</code> 个 JSON。</li>
+<li>quick headline layer：A1 quick、B1 quick、C1/D1/E1 quick；</li>
+<li>pooled correction layer：<code>income/sex/age_bin/is_weekend/survey_period</code> 的 activity/location grouped 矩阵；</li>
+<li>full-support layer：A1 full、income/sex/econstat 的大样本辅助验证；</li>
+<li>summary layer：<code>results/phase2_summary/</code>，把 JSON 结果统一汇总成可被绘图脚本直接复用的表层。</li>
 </ol>
-<p>因此，这 8 张图不是 8 次运行，而是对 US baseline、grouped quick、pooled grouped、full reruns、methodology sensitivity 与 UK-US 对表的<strong>最终压缩表达</strong>。</p>
+<p>因此，这 10 张图不是 10 次运行，而是对 US baseline、grouped quick、pooled grouped、full-support、methodology sensitivity 与 UK-US 对表的<strong>最终压缩表达</strong>。</p>
 <hr />
 <h2 id="3">3) 图组相对于早期版本的增强</h2>
 <p>旧版 Phase 2 的问题不是“完全没图”，而是图不够成体系：</p>
 <ol>
 <li>大部分图仍借用 Phase 1 语境，缺少专门服务 Phase 2 章节的问题意识。</li>
 <li>没有把 quick 与 pooled 的关系做成可视化，因此“negative delta 是否只是小样本伪象”只能靠文字硬说。</li>
-<li>缺少 Macro-F1、heatmap、sample-size correction 这些会直接提升说服力的证据图。</li>
+<li>缺少 uncertainty / support-size 这类会直接提升说服力的证据图。</li>
 </ol>
 <p>这次补齐后的优势在于：</p>
 <ol>
 <li><strong>A1 讲清楚了</strong>：不仅有 baseline accuracy，还有 Macro-F1 与 delta 解释。</li>
 <li><strong>B1 讲清楚了</strong>：quick 与 pooled 可以直接对照，避免过度解释 quick。</li>
-<li><strong>方法论讲清楚了</strong>：不是只展示结果，还展示为什么 sample-size 会改变结论。</li>
+<li><strong>方法论讲清楚了</strong>：不仅展示 sample-size correction，还展示 pooled support-width 与 support-size pattern。</li>
 <li><strong>对表讲清楚了</strong>：UK vs US 主线可以一图看懂，不用来回翻文件。</li>
 </ol>
 <hr />
 <h2 id="4">4) 当前版本的适用性判断</h2>
 <h3 id="_1">导师审阅与阶段汇报：<strong>证据已经完整</strong></h3>
-<p>目前这 8 张图已经能回答导师最可能追问的几个问题：</p>
+<p>目前这 10 张图已经能回答导师最可能追问的几个问题：</p>
 <ol>
 <li>US baseline 到底是什么水平？</li>
 <li>分组差异是 quick 偶然现象，还是 pooled 后仍成立？</li>
 <li>Transformer 相对 persistence 的 gain 到底稳不稳？</li>
 <li>US 与 UK 的关系是“同机制但不同幅度”还是完全不同故事？</li>
 </ol>
-<h3 id="_2">若进入论文定稿阶段：<strong>可做的增强项</strong></h3>
-<p>在不改变当前主结论的前提下，还可以继续补充：</p>
+<p>如果再把图链和 summary 层一起量化，当前 Phase 2 的“证据已经完整”并不是泛泛而谈：pooled <code>activity</code> 的 grouped layer 现在已经是 <strong>11 个切片里 10 个为正</strong>，均值约 <strong>+0.33pp</strong>；真正需要谨慎书写的，只剩像 <code>income_low</code> 这样贴近零附近的小残差，而不再是 quick 阶段那种视觉上非常夸张的大负值。</p>
+<h3 id="_2">若进入论文投稿版式阶段：<strong>只剩表达层精修</strong></h3>
+<p>如果继续往前推进，重点也只会落在表达层，而不会改变“当前版本已经完整”的判断：</p>
 <ul>
-<li>pooled CI / bootstrap 风格图；</li>
+<li>transition-specific diagnostics；</li>
 <li>confusion / top-error 类型图；</li>
 <li>figure caption 更长、可直接贴进论文 Results。</li>
 </ul>
-<p>这些内容属于面向投稿版式的增强，而不影响当前版本作为正式阶段性汇报材料的完整性。</p>
+<p>这些内容属于投稿版式层的表达优化，不影响当前版本作为正式阶段性汇报材料的完整性。</p>
 <hr />
 <h2 id="5">5) 可直接引用的摘要表述</h2>
 <p>下述表述可直接用于邮件摘要、封面说明或口头汇报：</p>
 <blockquote>
-<p>Phase 2 已形成完整的 8 图主链：baseline、误差分解、quick-vs-pooled 分组对照、pooled delta、heatmap、方法稳健性、样本量修正，以及 UK-US 主线对表。<br />
+<p>Phase 2 已形成完整的 10 图主链：baseline、误差分解、quick-vs-pooled 分组对照、pooled delta、heatmap、方法稳健性、样本量修正、pooled support-width、support-size map，以及 UK-US 主线对表。<br />
 这些图共同支持一个稳定结论：US 中 persistence 依旧强，Transformer 的额外增益在 quick 阶段未必立即显形，但在 pooled 与更充分样本下会呈现出更稳定的正向证据。</p>
 </blockquote>
 </body>
