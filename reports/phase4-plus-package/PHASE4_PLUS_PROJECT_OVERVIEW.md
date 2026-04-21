@@ -2,7 +2,7 @@
 
 > 用途：`Phase 4 + next-stage + next-layer` 的最新导师入口  
 > 包名：`ADVISOR_PACKAGE_PHASE4_PLUS_20260421`  
-> 生成时间：2026-04-21T05:00:19.021702+00:00
+> 生成时间：2026-04-21T05:42:43.960480+00:00
 
 ---
 
@@ -58,6 +58,8 @@
 - 三阶段旧导师包仍保留 `39` 张 curated figures 与 `41` 份 raw figure assets；
 - 当前 Phase 4+ package 新增 `6` 张 package-local 当前态图；
 - 当前 package 还镜像了 `3` 张被当前主叙事反复引用的 anchor figures（`Figure 6 / Figure 8 / Figure 10`）；
+- 当前 package 额外纳入 `14` 张当前项目 support figures 与 `6` 张 archive support figures；
+- 因此当前 package 一共显式收纳 `29` 张 canonical figures，而不是只有几张 summary 图；
 - 因此，对外可读的视觉层已经不只是历史三阶段 archive，而是 archive + current-delivery 两层并存。
 
 也就是说，**你的实验本身已经非常丰富，而这次 package 和网站更新会把这种丰富性更明确地呈现出来**，不再只停留在底层 `results/` 树里。

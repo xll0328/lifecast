@@ -373,17 +373,17 @@ const RESEARCH_DATA = {
   "project_summary": {
     "phases": 4,
     "country_settings": 9,
-    "figures": 45,
+    "figures": 68,
     "report_sets": 9,
-    "packaged_files": 25,
+    "packaged_files": 72,
     "result_json_artifacts": 921,
-    "raw_figure_assets": 50,
-    "bundle_size_mb": 19.94,
+    "raw_figure_assets": 70,
+    "bundle_size_mb": 34.86,
     "formats": 3,
     "stats": [
       { "value": 4, "label": "program layers" },
       { "value": 9, "label": "national settings" },
-      { "value": 45, "label": "surfaced figures" },
+      { "value": 68, "label": "surfaced figures" },
       { "value": 921, "label": "result JSONs" },
       { "value": 9, "label": "report sets" }
     ]
@@ -419,7 +419,7 @@ const RESEARCH_DATA = {
       "dataset": "live summary layer · paper-ready delivery",
       "scope": "frozen Phase 4 · current package · synced website",
       "insight": "This layer packages the finished evidence surface rather than reopening the experiment tree: cross-country bridge, Group B boundaries, pooled bridge, MTUS wave-1 sync, next-layer support, and a formal evidence gate that keeps heavy experiments closed unless a stronger claim is explicitly required.",
-      "output": "3 current reports · 6 new package figures · current report hub"
+      "output": "3 current reports · 29 canonical package figures · current report hub"
     }
   ],
   "phase_scale_panels": [
@@ -445,7 +445,7 @@ const RESEARCH_DATA = {
       "code": "P4+",
       "title": "Phase 4+: delivery, boundaries, and package sync",
       "detail": "The current layer is not another loose todo list. It is the delivery surface that turns live summaries into a boundary-aware story with a current report package, image atlas, website sync, and an explicit gate against unnecessary heavy reruns.",
-      "badges": ["3 current reports", "6 new package figures", "evidence gate live", "paper-ready master synced"]
+      "badges": ["3 current reports", "29 canonical package figures", "evidence gate live", "paper-ready master synced"]
     }
   ],
   "phase4_plus_delivery": {
@@ -663,10 +663,10 @@ const RESEARCH_DATA = {
   ],
   "advisor_package": {
     "report_sets": 9,
-    "files": 25,
+    "files": 72,
     "result_json_artifacts": 921,
-    "raw_figure_assets": 50,
-    "bundle_size_mb": 19.94,
+    "raw_figure_assets": 70,
+    "bundle_size_mb": 34.86,
     "formats": ["PDF", "HTML", "MD"],
     "hub_path": "reports/index.html",
     "package_index": "reports/phase4-plus-package/PACKAGE_INDEX.md",
@@ -683,8 +683,8 @@ const RESEARCH_DATA = {
       { "value": "9", "label": "report sets" },
       { "value": "2", "label": "download bundles" },
       { "value": "921", "label": "result JSONs" },
-      { "value": "45", "label": "surfaced figures" },
-      { "value": "19.9 MB", "label": "zip downloads" }
+      { "value": "68", "label": "surfaced figures" },
+      { "value": "34.9 MB", "label": "zip downloads" }
     ],
     "note": "The public reporting surface is now split into a current Phase 4+ delivery package and a legacy Phase 1–3 archive. Current package first, archive second.",
     "recommended": [

@@ -37,7 +37,10 @@
 
 - `6` 张新生成的当前态图
 - `3` 张复用的 anchor figures
-- `18` 张 package-local PNG
+- `14` 张 current project support figures
+- `6` 张 archive support figures
+- `29` 张 canonical figures
+- `58` 张 package-local PNG
 
 同时，旧三阶段 package 仍保留：
 
@@ -72,7 +75,7 @@
 - Markdown files: `6`
 - HTML files: `3`
 - PDF files: `3`
-- PNG files: `18`
+- PNG files: `58`
 - JSON files: `2`
 
 ---

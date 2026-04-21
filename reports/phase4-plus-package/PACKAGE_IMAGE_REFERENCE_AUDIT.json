@@ -1,6 +1,6 @@
 {
-  "reference_count": 21,
-  "resolved_count": 21,
+  "reference_count": 60,
+  "resolved_count": 60,
   "broken_count": 0,
   "references": [
     {
@@ -35,7 +35,37 @@
     },
     {
       "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/archive_support_figures/phase3_fig11_a1_country_ci_forest.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/archive_support_figures/phase3_fig1_a1_delta_by_country.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
       "reference": "results/anchor_figures/figure6_transition_analysis.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/figure11_deep_transition.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/figure12_order_vs_bag.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/figure5_bootstrap_ci.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/anchor_figures/figure8_input_info_effect.png",
       "exists": true
     },
     {
@@ -50,12 +80,77 @@
     },
     {
       "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/figure13_role_timelines.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/figure14_role_comparison.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/supplementary_fig1_deep_models_by_income.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/archive_support_figures/phase2_fig8_us_sample_size_delta_shift.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/archive_support_figures/phase2_fig10_us_pooled_support_vs_delta.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/archive_support_figures/phase3_fig12_b1_distribution_boxplots.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
       "reference": "results/phase4plus_figures/phase4plus_fig5_extension_support.png",
       "exists": true
     },
     {
       "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
-      "reference": "results/anchor_figures/figure8_input_info_effect.png",
+      "reference": "results/project_figures/figure7_imputation_robustness.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/supplementary_fig2_multitask_comparison.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/supplementary_fig3_error_rate_by_group.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/figure1_a_class_performance.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/figure2_b_class_heatmap.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/figure3_e2b_waterfall.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/figure4_e1_model_comparison.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/project_figures/figure9_unified_model_comparison.png",
       "exists": true
     },
     {
@@ -106,6 +201,106 @@
     {
       "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
       "reference": "results/anchor_figures/figure10_dimension_importance.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure1_a_class_performance.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure2_b_class_heatmap.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure3_e2b_waterfall.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure4_e1_model_comparison.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure5_bootstrap_ci.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure7_imputation_robustness.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure9_unified_model_comparison.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure11_deep_transition.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure12_order_vs_bag.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure13_role_timelines.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/figure14_role_comparison.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/supplementary_fig1_deep_models_by_income.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/supplementary_fig2_multitask_comparison.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/project_figures/supplementary_fig3_error_rate_by_group.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/archive_support_figures/phase2_fig8_us_sample_size_delta_shift.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/archive_support_figures/phase2_fig10_us_pooled_support_vs_delta.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/archive_support_figures/phase3_fig1_a1_delta_by_country.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/archive_support_figures/phase3_fig10_sample_size_vs_delta.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/archive_support_figures/phase3_fig11_a1_country_ci_forest.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/archive_support_figures/phase3_fig12_b1_distribution_boxplots.png",
       "exists": true
     }
   ]

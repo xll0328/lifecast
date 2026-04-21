@@ -40,7 +40,7 @@ function activateReveal(scope){
 (function(){
   if(PREFER_REDUCED_MOTION)return;
   const hmVs=document.querySelectorAll('.hm-v');
-  const targets=[914,921,45,9,31,9];
+  const targets=[914,921,68,9,31,9];
   const suffixes=['K','','','','M',''];
   hmVs.forEach((el,i)=>{
     const target=targets[i];

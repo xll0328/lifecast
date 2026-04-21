@@ -1,7 +1,7 @@
 {
   "package_name": "ADVISOR_PACKAGE_PHASE4_PLUS_20260421",
   "site_package_name": "phase4-plus-package",
-  "generated_at_utc": "2026-04-21T05:00:19.021702+00:00",
+  "generated_at_utc": "2026-04-21T05:42:43.960480+00:00",
   "source_of_truth": {
     "paper_ready_summary": "results/paper_ready_master_results/summary.json",
     "paper_ready_body": "results/paper_ready_master_results/paper_ready_results_body.md",
@@ -82,29 +82,252 @@
   ],
   "anchor_figures": [
     {
+      "code": "ANCHOR-6",
       "filename": "figure6_transition_analysis.png",
+      "title": "Figure 6 transition analysis",
+      "role": "Primary mechanism-first anchor for stay versus transition asymmetry.",
+      "source": "results/figures/figure6_transition_analysis.png",
       "canonical_path": "results/anchor_figures/figure6_transition_analysis.png",
       "original_path": "ORIGINAL_FIGURES/ANCHOR_results_figures/figure6_transition_analysis.png",
       "source_path": "results/figures/figure6_transition_analysis.png"
     },
     {
+      "code": "ANCHOR-8",
       "filename": "figure8_input_info_effect.png",
+      "title": "Figure 8 input-information effect",
+      "role": "Anchor figure for the claim that more history or channels do not materially improve prediction.",
+      "source": "results/figures/figure8_input_info_effect.png",
       "canonical_path": "results/anchor_figures/figure8_input_info_effect.png",
       "original_path": "ORIGINAL_FIGURES/ANCHOR_results_figures/figure8_input_info_effect.png",
       "source_path": "results/figures/figure8_input_info_effect.png"
     },
     {
+      "code": "ANCHOR-10",
       "filename": "figure10_dimension_importance.png",
+      "title": "Figure 10 dimension importance",
+      "role": "Primary social-stratification figure, but only under explicit caption boundaries.",
+      "source": "results/figures/figure10_dimension_importance.png",
       "canonical_path": "results/anchor_figures/figure10_dimension_importance.png",
       "original_path": "ORIGINAL_FIGURES/ANCHOR_results_figures/figure10_dimension_importance.png",
       "source_path": "results/figures/figure10_dimension_importance.png"
     }
   ],
+  "project_support_figures": [
+    {
+      "code": "FIGURE1",
+      "filename": "figure1_a_class_performance.png",
+      "title": "Figure 1 A-class performance",
+      "role": "Historical stage overview for cross-channel asymmetry. Keep as background, not current mainline.",
+      "source": "results/figures/figure1_a_class_performance.png",
+      "canonical_path": "results/project_figures/figure1_a_class_performance.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure1_a_class_performance.png",
+      "source_path": "results/figures/figure1_a_class_performance.png"
+    },
+    {
+      "code": "FIGURE2",
+      "filename": "figure2_b_class_heatmap.png",
+      "title": "Figure 2 B-class heatmap",
+      "role": "Grouped heatmap context for older subgroup evidence.",
+      "source": "results/figures/figure2_b_class_heatmap.png",
+      "canonical_path": "results/project_figures/figure2_b_class_heatmap.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure2_b_class_heatmap.png",
+      "source_path": "results/figures/figure2_b_class_heatmap.png"
+    },
+    {
+      "code": "FIGURE3",
+      "filename": "figure3_e2b_waterfall.png",
+      "title": "Figure 3 E2B waterfall",
+      "role": "Historical channel-to-channel asymmetry support figure.",
+      "source": "results/figures/figure3_e2b_waterfall.png",
+      "canonical_path": "results/project_figures/figure3_e2b_waterfall.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure3_e2b_waterfall.png",
+      "source_path": "results/figures/figure3_e2b_waterfall.png"
+    },
+    {
+      "code": "FIGURE4",
+      "filename": "figure4_e1_model_comparison.png",
+      "title": "Figure 4 E1 model comparison",
+      "role": "Historical accuracy-first comparison. Preserve as archive evidence only.",
+      "source": "results/figures/figure4_e1_model_comparison.png",
+      "canonical_path": "results/project_figures/figure4_e1_model_comparison.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure4_e1_model_comparison.png",
+      "source_path": "results/figures/figure4_e1_model_comparison.png"
+    },
+    {
+      "code": "FIGURE5",
+      "filename": "figure5_bootstrap_ci.png",
+      "title": "Figure 5 bootstrap confidence intervals",
+      "role": "Bootstrap uncertainty support for between-group spread estimates.",
+      "source": "results/figures/figure5_bootstrap_ci.png",
+      "canonical_path": "results/project_figures/figure5_bootstrap_ci.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure5_bootstrap_ci.png",
+      "source_path": "results/figures/figure5_bootstrap_ci.png"
+    },
+    {
+      "code": "FIGURE7",
+      "filename": "figure7_imputation_robustness.png",
+      "title": "Figure 7 imputation robustness",
+      "role": "Supplementary robustness figure for missingness handling.",
+      "source": "results/figures/figure7_imputation_robustness.png",
+      "canonical_path": "results/project_figures/figure7_imputation_robustness.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure7_imputation_robustness.png",
+      "source_path": "results/figures/figure7_imputation_robustness.png"
+    },
+    {
+      "code": "FIGURE9",
+      "filename": "figure9_unified_model_comparison.png",
+      "title": "Figure 9 unified model comparison",
+      "role": "Historical unified comparison figure retained as background.",
+      "source": "results/figures/figure9_unified_model_comparison.png",
+      "canonical_path": "results/project_figures/figure9_unified_model_comparison.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure9_unified_model_comparison.png",
+      "source_path": "results/figures/figure9_unified_model_comparison.png"
+    },
+    {
+      "code": "FIGURE11",
+      "filename": "figure11_deep_transition.png",
+      "title": "Figure 11 deep transition",
+      "role": "Current mainline support figure for transition difficulty across model families.",
+      "source": "results/figures/figure11_deep_transition.png",
+      "canonical_path": "results/project_figures/figure11_deep_transition.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure11_deep_transition.png",
+      "source_path": "results/figures/figure11_deep_transition.png"
+    },
+    {
+      "code": "FIGURE12",
+      "filename": "figure12_order_vs_bag.png",
+      "title": "Figure 12 order versus bag",
+      "role": "Current mechanism-support figure showing sequence order dominance.",
+      "source": "results/figures/figure12_order_vs_bag.png",
+      "canonical_path": "results/project_figures/figure12_order_vs_bag.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure12_order_vs_bag.png",
+      "source_path": "results/figures/figure12_order_vs_bag.png"
+    },
+    {
+      "code": "FIGURE13",
+      "filename": "figure13_role_timelines.png",
+      "title": "Figure 13 role timelines",
+      "role": "Interpretive timeline figure for role-pattern communication.",
+      "source": "results/figures/figure13_role_timelines.png",
+      "canonical_path": "results/project_figures/figure13_role_timelines.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure13_role_timelines.png",
+      "source_path": "results/figures/figure13_role_timelines.png"
+    },
+    {
+      "code": "FIGURE14",
+      "filename": "figure14_role_comparison.png",
+      "title": "Figure 14 role comparison",
+      "role": "Interpretive comparison figure for role-pattern communication.",
+      "source": "results/figures/figure14_role_comparison.png",
+      "canonical_path": "results/project_figures/figure14_role_comparison.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/figure14_role_comparison.png",
+      "source_path": "results/figures/figure14_role_comparison.png"
+    },
+    {
+      "code": "SUPP1",
+      "filename": "supplementary_fig1_deep_models_by_income.png",
+      "title": "Supplementary Figure 1 deep models by income",
+      "role": "Supplementary figure for high-income complexity and deep-model lift.",
+      "source": "results/figures/supplementary_fig1_deep_models_by_income.png",
+      "canonical_path": "results/project_figures/supplementary_fig1_deep_models_by_income.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/supplementary_fig1_deep_models_by_income.png",
+      "source_path": "results/figures/supplementary_fig1_deep_models_by_income.png"
+    },
+    {
+      "code": "SUPP2",
+      "filename": "supplementary_fig2_multitask_comparison.png",
+      "title": "Supplementary Figure 2 multitask comparison",
+      "role": "Supplementary architecture-comparison figure.",
+      "source": "results/figures/supplementary_fig2_multitask_comparison.png",
+      "canonical_path": "results/project_figures/supplementary_fig2_multitask_comparison.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/supplementary_fig2_multitask_comparison.png",
+      "source_path": "results/figures/supplementary_fig2_multitask_comparison.png"
+    },
+    {
+      "code": "SUPP3",
+      "filename": "supplementary_fig3_error_rate_by_group.png",
+      "title": "Supplementary Figure 3 error rate by group",
+      "role": "Supplementary group-level error distribution figure.",
+      "source": "results/figures/supplementary_fig3_error_rate_by_group.png",
+      "canonical_path": "results/project_figures/supplementary_fig3_error_rate_by_group.png",
+      "original_path": "ORIGINAL_FIGURES/PROJECT_results_figures/supplementary_fig3_error_rate_by_group.png",
+      "source_path": "results/figures/supplementary_fig3_error_rate_by_group.png"
+    }
+  ],
+  "archive_support_figures": [
+    {
+      "code": "P2-F8",
+      "filename": "phase2_fig8_us_sample_size_delta_shift.png",
+      "title": "Phase 2 sample-size delta shift",
+      "role": "Archive support figure showing why quick negatives should not be over-read without pooled support.",
+      "source": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE2_results_phase2_figures/phase2_fig8_us_sample_size_delta_shift.png",
+      "canonical_path": "results/archive_support_figures/phase2_fig8_us_sample_size_delta_shift.png",
+      "original_path": "ORIGINAL_FIGURES/ARCHIVE_support_figures/phase2_fig8_us_sample_size_delta_shift.png",
+      "source_path": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE2_results_phase2_figures/phase2_fig8_us_sample_size_delta_shift.png"
+    },
+    {
+      "code": "P2-F10",
+      "filename": "phase2_fig10_us_pooled_support_vs_delta.png",
+      "title": "Phase 2 pooled support versus delta",
+      "role": "Archive support figure for pooled support-width and activity/location delta interpretation.",
+      "source": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE2_results_phase2_figures/phase2_fig10_us_pooled_support_vs_delta.png",
+      "canonical_path": "results/archive_support_figures/phase2_fig10_us_pooled_support_vs_delta.png",
+      "original_path": "ORIGINAL_FIGURES/ARCHIVE_support_figures/phase2_fig10_us_pooled_support_vs_delta.png",
+      "source_path": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE2_results_phase2_figures/phase2_fig10_us_pooled_support_vs_delta.png"
+    },
+    {
+      "code": "P3-F1",
+      "filename": "phase3_fig1_a1_delta_by_country.png",
+      "title": "Phase 3 A1 delta by country",
+      "role": "Archive support figure for MTUS country-level external-validity variation.",
+      "source": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig1_a1_delta_by_country.png",
+      "canonical_path": "results/archive_support_figures/phase3_fig1_a1_delta_by_country.png",
+      "original_path": "ORIGINAL_FIGURES/ARCHIVE_support_figures/phase3_fig1_a1_delta_by_country.png",
+      "source_path": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig1_a1_delta_by_country.png"
+    },
+    {
+      "code": "P3-F10",
+      "filename": "phase3_fig10_sample_size_vs_delta.png",
+      "title": "Phase 3 sample size versus delta",
+      "role": "Archive support figure for sample-size sensitivity in external-validity runs.",
+      "source": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig10_sample_size_vs_delta.png",
+      "canonical_path": "results/archive_support_figures/phase3_fig10_sample_size_vs_delta.png",
+      "original_path": "ORIGINAL_FIGURES/ARCHIVE_support_figures/phase3_fig10_sample_size_vs_delta.png",
+      "source_path": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig10_sample_size_vs_delta.png"
+    },
+    {
+      "code": "P3-F11",
+      "filename": "phase3_fig11_a1_country_ci_forest.png",
+      "title": "Phase 3 country CI forest",
+      "role": "Archive support figure for country-level uncertainty without sign reversal.",
+      "source": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig11_a1_country_ci_forest.png",
+      "canonical_path": "results/archive_support_figures/phase3_fig11_a1_country_ci_forest.png",
+      "original_path": "ORIGINAL_FIGURES/ARCHIVE_support_figures/phase3_fig11_a1_country_ci_forest.png",
+      "source_path": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig11_a1_country_ci_forest.png"
+    },
+    {
+      "code": "P3-F12",
+      "filename": "phase3_fig12_b1_distribution_boxplots.png",
+      "title": "Phase 3 grouped distribution boxplots",
+      "role": "Archive support figure for grouped full-run distributions across countries.",
+      "source": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig12_b1_distribution_boxplots.png",
+      "canonical_path": "results/archive_support_figures/phase3_fig12_b1_distribution_boxplots.png",
+      "original_path": "ORIGINAL_FIGURES/ARCHIVE_support_figures/phase3_fig12_b1_distribution_boxplots.png",
+      "source_path": "ADVISOR_PACKAGE_PHASE1_2_3_20260403/ORIGINAL_FIGURES/PHASE3_results_phase3_figures/phase3_fig12_b1_distribution_boxplots.png"
+    }
+  ],
+  "figure_counts": {
+    "current_generated": 6,
+    "anchor_reused": 3,
+    "project_support": 14,
+    "archive_support": 6,
+    "canonical_total": 29
+  },
   "package_counts": {
     "md": 6,
     "html": 3,
     "pdf": 3,
-    "png": 18,
+    "png": 58,
     "json": 2
   },
   "site_sync": {
