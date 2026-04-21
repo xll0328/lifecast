@@ -1,0 +1,126 @@
+{
+  "package_name": "ADVISOR_PACKAGE_PHASE4_PLUS_20260421",
+  "site_package_name": "phase4-plus-package",
+  "generated_at_utc": "2026-04-21T05:00:19.021702+00:00",
+  "source_of_truth": {
+    "paper_ready_summary": "results/paper_ready_master_results/summary.json",
+    "paper_ready_body": "results/paper_ready_master_results/paper_ready_results_body.md",
+    "evidence_gate_summary": "results/evidence_gate_decision/summary.json"
+  },
+  "statuses": {
+    "phase4": "frozen_complete",
+    "cross_country": "cross_country_activity_master_wave1_ready",
+    "groupb": "groupb_master_with_boundaries_ready",
+    "pooled": "bridge_ready_with_subgroup_sync",
+    "mtus_wave1": "a1_b1_partial_results_available",
+    "mtus_writing": "wave1_partial_integrated_into_master_sync",
+    "next_layer": "grounded_extension_ready",
+    "paper_ready": "paper_ready_master_results_ready_with_boundaries",
+    "evidence_gate": "default_delivery_ready_heavy_experiments_not_required"
+  },
+  "legacy_context": {
+    "result_json_artifacts": 921,
+    "legacy_curated_figures": 39,
+    "legacy_raw_assets": 41,
+    "legacy_unique_plus_current_generated": 45
+  },
+  "generated_figures": [
+    {
+      "code": "F1",
+      "filename": "phase4plus_fig1_delivery_status_matrix.png",
+      "title": "Phase 4+ delivery status matrix",
+      "role": "Top-level state ladder from frozen Phase 4 to evidence-gated delivery.",
+      "source": "live summary jsons",
+      "canonical_path": "results/phase4plus_figures/phase4plus_fig1_delivery_status_matrix.png",
+      "original_path": "ORIGINAL_FIGURES/PHASE4PLUS_results_figures/phase4plus_fig1_delivery_status_matrix.png"
+    },
+    {
+      "code": "F2",
+      "filename": "phase4plus_fig2_cross_country_bridge.png",
+      "title": "Cross-country bridge rows",
+      "role": "Accuracy and delta profile for UK, USA, and MTUS wave-1 bridge rows.",
+      "source": "results/next_stage_cross_country_activity_master/summary.json",
+      "canonical_path": "results/phase4plus_figures/phase4plus_fig2_cross_country_bridge.png",
+      "original_path": "ORIGINAL_FIGURES/PHASE4PLUS_results_figures/phase4plus_fig2_cross_country_bridge.png"
+    },
+    {
+      "code": "F3",
+      "filename": "phase4plus_fig3_mtus_wave1_country_delta.png",
+      "title": "MTUS wave-1 country deltas",
+      "role": "Five-country wave-1 delta profile for current MTUS bridge evidence.",
+      "source": "results/next_stage_cross_country_activity_master/summary.json",
+      "canonical_path": "results/phase4plus_figures/phase4plus_fig3_mtus_wave1_country_delta.png",
+      "original_path": "ORIGINAL_FIGURES/PHASE4PLUS_results_figures/phase4plus_fig3_mtus_wave1_country_delta.png"
+    },
+    {
+      "code": "F4",
+      "filename": "phase4plus_fig4_groupb_axes.png",
+      "title": "Group B axis ladder",
+      "role": "Employment, gender, income, and age status with structural-boundary annotation.",
+      "source": "results/next_stage_groupb_master/summary.json",
+      "canonical_path": "results/phase4plus_figures/phase4plus_fig4_groupb_axes.png",
+      "original_path": "ORIGINAL_FIGURES/PHASE4PLUS_results_figures/phase4plus_fig4_groupb_axes.png"
+    },
+    {
+      "code": "F5",
+      "filename": "phase4plus_fig5_extension_support.png",
+      "title": "Next-layer support and boundary evidence",
+      "role": "Trigger difficulty, contextual/hazard lift, and expanding-window negativity.",
+      "source": "results/next_layer_extension_summary/summary.json",
+      "canonical_path": "results/phase4plus_figures/phase4plus_fig5_extension_support.png",
+      "original_path": "ORIGINAL_FIGURES/PHASE4PLUS_results_figures/phase4plus_fig5_extension_support.png"
+    },
+    {
+      "code": "F6",
+      "filename": "phase4plus_fig6_evidence_gate.png",
+      "title": "Evidence gate decision",
+      "role": "Default-delivery pass/hold structure and stronger-claim trigger rule.",
+      "source": "results/evidence_gate_decision/summary.json",
+      "canonical_path": "results/phase4plus_figures/phase4plus_fig6_evidence_gate.png",
+      "original_path": "ORIGINAL_FIGURES/PHASE4PLUS_results_figures/phase4plus_fig6_evidence_gate.png"
+    }
+  ],
+  "anchor_figures": [
+    {
+      "filename": "figure6_transition_analysis.png",
+      "canonical_path": "results/anchor_figures/figure6_transition_analysis.png",
+      "original_path": "ORIGINAL_FIGURES/ANCHOR_results_figures/figure6_transition_analysis.png",
+      "source_path": "results/figures/figure6_transition_analysis.png"
+    },
+    {
+      "filename": "figure8_input_info_effect.png",
+      "canonical_path": "results/anchor_figures/figure8_input_info_effect.png",
+      "original_path": "ORIGINAL_FIGURES/ANCHOR_results_figures/figure8_input_info_effect.png",
+      "source_path": "results/figures/figure8_input_info_effect.png"
+    },
+    {
+      "filename": "figure10_dimension_importance.png",
+      "canonical_path": "results/anchor_figures/figure10_dimension_importance.png",
+      "original_path": "ORIGINAL_FIGURES/ANCHOR_results_figures/figure10_dimension_importance.png",
+      "source_path": "results/figures/figure10_dimension_importance.png"
+    }
+  ],
+  "package_counts": {
+    "md": 6,
+    "html": 3,
+    "pdf": 3,
+    "png": 18,
+    "json": 2
+  },
+  "site_sync": {
+    "site_root": "/data/sony/Heyucheng/lifecast-site",
+    "site_package_dir": "/data/sony/Heyucheng/lifecast-site/reports/phase4-plus-package",
+    "site_zip": "/data/sony/Heyucheng/lifecast-site/reports/ADVISOR_PACKAGE_PHASE4_PLUS_20260421.zip"
+  },
+  "report_files": {
+    "overview_md": "PHASE4_PLUS_PROJECT_OVERVIEW.md",
+    "overview_html": "PHASE4_PLUS_PROJECT_OVERVIEW.html",
+    "overview_pdf": "PHASE4_PLUS_PROJECT_OVERVIEW.pdf",
+    "report_md": "PHASE4_PLUS_COMPLETE_REPORT.md",
+    "report_html": "PHASE4_PLUS_COMPLETE_REPORT.html",
+    "report_pdf": "PHASE4_PLUS_COMPLETE_REPORT.pdf",
+    "viz_md": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+    "viz_html": "PHASE4_PLUS_VISUALIZATION_ATLAS.html",
+    "viz_pdf": "PHASE4_PLUS_VISUALIZATION_ATLAS.pdf"
+  }
+}

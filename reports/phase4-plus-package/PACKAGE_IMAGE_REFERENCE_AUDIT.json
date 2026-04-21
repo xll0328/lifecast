@@ -1,0 +1,112 @@
+{
+  "reference_count": 21,
+  "resolved_count": 21,
+  "broken_count": 0,
+  "references": [
+    {
+      "markdown": "PHASE4_PLUS_PROJECT_OVERVIEW.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig1_delivery_status_matrix.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_PROJECT_OVERVIEW.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig2_cross_country_bridge.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_PROJECT_OVERVIEW.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig6_evidence_gate.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig1_delivery_status_matrix.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig2_cross_country_bridge.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig3_mtus_wave1_country_delta.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/anchor_figures/figure6_transition_analysis.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig4_groupb_axes.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/anchor_figures/figure10_dimension_importance.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig5_extension_support.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/anchor_figures/figure8_input_info_effect.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_COMPLETE_REPORT.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig6_evidence_gate.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig1_delivery_status_matrix.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig2_cross_country_bridge.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig3_mtus_wave1_country_delta.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig4_groupb_axes.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig5_extension_support.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/phase4plus_figures/phase4plus_fig6_evidence_gate.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/anchor_figures/figure6_transition_analysis.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/anchor_figures/figure8_input_info_effect.png",
+      "exists": true
+    },
+    {
+      "markdown": "PHASE4_PLUS_VISUALIZATION_ATLAS.md",
+      "reference": "results/anchor_figures/figure10_dimension_importance.png",
+      "exists": true
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHASE4 PLUS COMPLETE REPORT</title>
+<style>
+:root {
+    --primary: #1a3c6e;
+    --secondary: #2a5a8e;
+    --accent: #3a7abe;
+    --bg-light: #f5f8fc;
+    --border: #dde3ed;
+}
+@media print {
+    body { font-size: 10pt; }
+    h1, h2 { page-break-before: always; }
+    h1:first-of-type, h2:first-of-type { page-break-before: avoid; }
+    table, pre, blockquote, img { page-break-inside: avoid; }
+    .no-print { display: none; }
+}
+@page {
+    size: A4;
+    margin: 18mm 16mm 22mm 16mm;
+}
+* { box-sizing: border-box; }
+body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+                 "Noto Sans CJK SC", "Source Han Sans SC",
+                 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.75;
+    color: #1a1a1a;
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 20px 30px;
+    background: #fff;
+}
+h1 {
+    font-size: 26px;
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+h2 {
+    font-size: 21px;
+    color: var(--secondary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 6px;
+    margin-top: 35px;
+}
+h3 {
+    font-size: 17px;
+    color: var(--accent);
+    margin-top: 25px;
+}
+h4 {
+    font-size: 15px;
+    color: #555;
+    margin-top: 18px;
+}
+p, li { margin: 0.45em 0; }
+ul, ol { padding-left: 1.5em; }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 14px 0;
+    font-size: 13px;
+}
+thead { display: table-header-group; }
+th {
+    background: var(--secondary);
+    color: #fff;
+    padding: 8px 10px;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #1a4a7e;
+}
+td {
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    text-align: center;
+}
+tr:nth-child(even) { background: var(--bg-light); }
+blockquote {
+    border-left: 4px solid var(--secondary);
+    background: #eef3fa;
+    padding: 12px 18px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+}
+blockquote strong { color: var(--primary); }
+code {
+    background: #f0f0f0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+    font-size: 12px;
+}
+pre {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-x: auto;
+}
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 18px auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 30px 0;
+}
+strong { color: var(--primary); }
+a { color: var(--accent); text-decoration: none; }
+.print-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 28px;
+    background: var(--secondary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+.print-btn:hover { background: var(--primary); }
+</style>
+</head>
+<body>
+<button class="print-btn no-print" onclick="window.print()">导出 PDF (Ctrl+P)</button>
+<h1 id="phase-4-plus-complete-report">Phase 4 Plus Complete Report</h1>
+<pre><code>    &gt; 作用：把 `Phase 4` 工程冻结之后新增的主线、图件、写作规则和 gate 约束，整理成一份可以直接给导师或合作者阅读的完整当前态报告。  
+    &gt; 默认 live 入口：`results/paper_ready_master_results/paper_ready_results_body.md`  
+    &gt; 当前 package：`ADVISOR_PACKAGE_PHASE4_PLUS_20260421`
+
+    ---
+
+    ## 1. Report Scope
+
+    这份报告不重写整个三阶段历史，而是专门回答四个问题：
+
+    1. `Phase 4` 之后到底新增了什么？
+    2. 当前哪些结果已经进入默认写作层？
+    3. 当前哪些边界必须明确保留？
+    4. 当前为什么不应该因为“还可以继续做”就重开 heavy experiments？
+
+    ---
+
+    ## 2. Phase 4 到底完成了什么
+
+    狭义 `Phase 4` 的工程结论已经固定为：
+
+    - `phase4_stage = frozen_complete`
+    - 默认冻结入口仍是 `results/phase4_master_status/summary.json`
+
+    这个层面现在的作用已经很明确：
+
+    - 作为 UK / USA rebuild 的冻结参考；
+    - 作为后续 `next-stage` 与 `next-layer` 的工程起点；
+    - 作为“不能再把 next-stage 误写成 Phase 4 没做完”的边界。
+
+    也就是说，当前项目的开放工作并不表示 Phase 4 没完成，而是说明项目已经进入了 **Phase 4 之后的结果整合层**。
+
+    ![Phase 4 Plus delivery status matrix](results/phase4plus_figures/phase4plus_fig1_delivery_status_matrix.png)
+
+    ---
+
+    ## 3. Cross-country mainline 已经到了哪一层
+
+    当前 cross-country bridge 的核心读法来自 `results/next_stage_cross_country_activity_master/summary.json` 与 `results/paper_ready_master_results/summary.json`：
+
+    - UK frozen pooled reference: `UK_POOLED` / `markov_order1` / `accuracy=88.97%` / `delta=+0.00 pp`
+    - UK signal row: `UKDA-8128` / `logistic` / `accuracy=86.86%` / `delta=+0.04 pp`
+    - USA reference: `ATUS-2003-2024-15MIN` / `markov_order1` / `accuracy=85.67%` / `delta=+0.00 pp`
+    - MTUS current best row: `MTUS-ES` / `transformer` / `accuracy=85.31%` / `delta=+0.27 pp`
+    - MTUS wave-1 countries: `ES, IT, KR, NL, ZA`
+
+    当前这层证据已经足够支持：
+
+    &gt; a usable cross-country bridge
+
+    但还不够支持：
+
+    &gt; a final pooled inference table
+
+    ![Cross-country bridge rows](results/phase4plus_figures/phase4plus_fig2_cross_country_bridge.png)
+
+    ![MTUS wave-1 country deltas](results/phase4plus_figures/phase4plus_fig3_mtus_wave1_country_delta.png)
+
+    ### 当前必须保留的 bridge 边界
+
+    1. UK / USA 是 stable references
+    2. MTUS 是 `wave-1 partial evidence`
+    3. UK stronger lane 只能作为 signal row，不能替代 UK frozen pooled anchor
+    4. pooled 现在是 writable bridge，不是 final pooled baseline table
+
+    ---
+
+    ## 4. 当前真正成熟的解释语言是什么
+
+    当前最重要的解释并不是“总 accuracy 高”，而是：
+
+    - `stay / persistence` 很强；
+    - `transition` 仍明显更难；
+    - 当前模型对变化点的描述仍应保持边界感。
+
+    这也是为什么 `Figure 6` 仍然是当前最强的解释锚点：
+
+    ![Figure 6 transition analysis](results/anchor_figures/figure6_transition_analysis.png)
+
+    根据当前 next-layer summary：
+
+    - W=1 transition accuracy = `0.00%`
+    - W=6 transition accuracy = `0.00%`
+    - W=12 transition accuracy = `0.00%`
+    - Contextual AP = `18.75%`
+    - Hazard AP = `19.57%`
+
+    因此当前最稳妥的文字应保持为：
+
+    &gt; strong aggregate predictability still reflects routine persistence more than solved transition modeling.
+
+    ---
+
+    ## 5. Group B 现在应该怎么写
+
+    当前 Group B 已进入 `groupb_master_with_boundaries_ready`，写作顺序固定为：
+
+    1. employment
+    2. gender
+    3. income
+
+    当前最关键的四个 axis 摘要如下：
+
+    - employment: `MTUS-NL` / `employed` / `accuracy=84.38%` / `delta=+0.23 pp`
+    - gender: `ATUS-2003-2024-15MIN` / `female` / `accuracy=83.02%` / `delta=+0.49 pp`
+    - income: `ATUS-2003-2024-15MIN` / `known` / `accuracy=83.10%` / `delta=+0.08 pp`
+    - age: `MTUS-ZA` / `young` / `accuracy=90.07%` / `delta=+0.33 pp`
+
+    当前 Group B 最重要的边界句也已经固定：
+
+    &gt; ZA econstat_broad=employed remains a structural coverage boundary because it skipped under both quick and full settings.
+
+    ![Group B writing ladder](results/phase4plus_figures/phase4plus_fig4_groupb_axes.png)
+
+    `Figure 10` 仍是当前最好的社会分层锚点，但它必须带上明确 caption 边界：
+
+    ![Figure 10 dimension importance](results/anchor_figures/figure10_dimension_importance.png)
+
+    当前正确用法是：
+
+    - 用它转入 social stratification；
+    - 明确说明它服务的是当前 bootstrap-backed subset；
+    - 不把它误写成完整 seven-dimension ranking。
+
+    ---
+
+    ## 6. Pooled 和 MTUS 现在如何安全整合
+
+    当前 pooled 读法已经比“还没 prose”成熟得多：
+
+    - pooled status: `bridge_ready_with_subgroup_sync`
+    - MTUS status: `a1_b1_partial_results_available`
+    - MTUS writing status: `wave1_partial_integrated_into_master_sync`
+
+    这意味着：
+
+    - pooled 已经进入 bridge-with-subgroup-sync 层；
+    - MTUS wave-1 已经接入写作层；
+    - 但 pooled evidence tier 还没有升格成 final pooled inference。
+
+    换句话说，当前最安全的 pooled 句式是：
+
+    &gt; comparison-ready bridge, not final pooled table
+
+    而不是：
+
+    &gt; finished pooled baseline
+
+    ---
+
+    ## 7. next-layer 现在不是待办，而是结果层
+
+    当前 next-layer 已整体进入 `grounded_extension_ready`。这层最重要的不是“还有没有想做的 extension”，而是：
+
+    - trigger descriptive layer 已经明确告诉我们：transition 还没被解决；
+    - contextual explanatory modeling 与 hazard framing 已经给出 descriptive support；
+    - expanding-window 现在是 `7/7 negative` 的 cross-country boundary；
+    - typical-day 现在是 `+0.05 pp` 的近乎中性 robustness 结果。
+
+    ![Next-layer support and boundary evidence](results/phase4plus_figures/phase4plus_fig5_extension_support.png)
+
+    `Figure 8` 在这层的作用也已经更明确了：
+
+    ![Figure 8 input info effect](results/anchor_figures/figure8_input_info_effect.png)
+
+    它不再只是旧实验图，而是当前 supporting boundary figure：
+
+    - 更长 history 不会自动带来更好结果；
+    - 更多 channels 也不等于显著性能改善；
+    - 所以当前 extension 层应更多服务边界表达，而不是重开伪主线。
+
+    ---
+
+    ## 8. 为什么当前不该重开 heavy experiments
+
+    当前 evidence gate 的正式结论是：
+
+    - overall_status = `default_delivery_ready_heavy_experiments_not_required`
+    - recommended_action = `freeze_default_delivery_and_defer_heavy_experiments_until_stronger_claim_is_required`
+
+    四个 gate 的当前结果是：
+
+    - default delivery gate = `pass`
+    - final pooled table gate = `hold`
+    - low-cost sync gate = `pass`
+    - heavy experiment gate = `hold`
+
+    ![Evidence gate decision](results/phase4plus_figures/phase4plus_fig6_evidence_gate.png)
+
+    当前最关键的判断规则是：
+
+    1. 默认交付已经 ready；
+    2. cheap sync gap 已关闭；
+    3. heavy experiments 只有在需要更强 claim 时才应该重新打开。
+
+    所以，现在继续工作的正确方向不是“为了继续而继续”，而是：
+
+    - package 化；
+    - 网站同步；
+    - communication 一致化；
+    - 只在更强 claim 被明确提出时再开更高证据层实验。
+
+    ---
+
+    ## 9. 当前最稳的 safe claims
+
+    - The project now has a usable cross-country activity bridge across UK, USA, and 5 MTUS wave-1 countries (ES, IT, KR, NL, ZA), but MTUS must still be written as wave-1 partial evidence.
+</code></pre>
+<ul>
+<li>The dominant project-level pattern remains persistence/stay dominance rather than strong transition learning: W=1 transition=0.00%, W=6 transition=0.00%, W=12 transition=0.00%.</li>
+<li>Pooled is now comparison-ready with subgroup synchronization, but it still has to be written as stable UK/USA references plus MTUS partial evidence rather than as a final pooled baseline table.</li>
+<li>Group B should still be written in the order employment -&gt; gender -&gt; income, and ZA econstat_broad=employed remains a structural coverage boundary because it skipped under both quick and full settings.</li>
+<li>Contextual explanatory and hazard layers now support trigger interpretation descriptively: contextual AP=18.75% against a 7.24% base rate; hazard AP=19.57% at a 6.89% hazard rate.</li>
+<li>Longer-history and typical-day are now boundary layers rather than open gaps: expanding-window is negative in 7 of 7 rows, and typical-day changes UK accuracy by +0.05 pp.<pre><code>## 10. 当前必须避免的 claims
+
+- Do not rewrite the project as a final pooled inference table that already treats MTUS wave-1 as fully stabilized evidence.
+</code></pre>
+<ul>
+<li>Do not present high overall accuracy as solved transition modeling; the main pattern is still routine persistence.</li>
+<li>Do not write Group B in an accuracy-first order or hide the ZA employed structural boundary.</li>
+<li>Do not turn contextual explanatory or hazard outputs into causal trigger claims.</li>
+<li>
+<p>Do not reopen expanding-window or typical-day as pseudo-missing work unless a larger explicit rerun is required.</p>
+<hr />
+<h2 id="11">11. 推荐图件顺序</h2>
+<ul>
+<li><code>figure6_transition_analysis.png</code>: Primary mechanism-first anchor: high overall accuracy, perfect stay accuracy, and zero transition accuracy.</li>
+<li><code>figure10_dimension_importance.png</code>: Primary Group B / stratification anchor, with the caption explicitly limited to the current bootstrap-backed subset.</li>
+<li><code>figure8_input_info_effect.png</code>: Supporting boundary figure showing that longer histories and more channels do not materially improve prediction.</li>
+</ul>
+<hr />
+<h2 id="12">12. 当前交付层建议</h2>
+<ol>
+<li>默认先用 <code>PHASE4_PLUS_PROJECT_OVERVIEW.pdf</code> 让导师快速把握状态变化。</li>
+<li>若要看完整逻辑，再读本文件对应的 PDF。</li>
+<li>若要快速看图件与索引，再读 <code>PHASE4_PLUS_VISUALIZATION_ATLAS.pdf</code>。</li>
+<li>若要抽图进邮件、PPT 或批注文档，可直接从 <code>ORIGINAL_FIGURES/</code> 取图。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</body>
+</html>

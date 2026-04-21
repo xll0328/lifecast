@@ -40,7 +40,7 @@ function activateReveal(scope){
 (function(){
   if(PREFER_REDUCED_MOTION)return;
   const hmVs=document.querySelectorAll('.hm-v');
-  const targets=[914,921,39,9,31,6];
+  const targets=[914,921,45,9,31,9];
   const suffixes=['K','','','','M',''];
   hmVs.forEach((el,i)=>{
     const target=targets[i];
@@ -459,12 +459,12 @@ function activateReveal(scope){
   const phases=RESEARCH_DATA.project_phases;
   const statsWrap=document.getElementById('program-stats');
   if(statsWrap&&summary){
-    const stats=[
-      {value:summary.phases,label:'phases complete'},
+    const stats=summary.stats||[
+      {value:summary.phases,label:'program layers'},
       {value:summary.country_settings,label:'national settings'},
       {value:summary.figures,label:'curated figures'},
       {value:summary.result_json_artifacts,label:'result JSONs'},
-      {value:summary.packaged_files,label:'package docs'}
+      {value:summary.report_sets,label:'report sets'}
     ];
     statsWrap.innerHTML=stats.map(s=>
       `<div class="program-stat"><span class="program-stat-v">${s.value}</span><span class="program-stat-k">${s.label}</span></div>`
@@ -529,6 +529,59 @@ function activateReveal(scope){
   }
 
   activateReveal(document.getElementById('showcase'));
+})();
+
+/* ===== PHASE 4+ DELIVERY ===== */
+(function(){
+  if(typeof RESEARCH_DATA==='undefined')return;
+  const delivery=RESEARCH_DATA.phase4_plus_delivery;
+  if(!delivery)return;
+
+  const toneClass=tone=>{
+    if(tone==='pass')return 'delivery-status-card--pass';
+    if(tone==='hold')return 'delivery-status-card--hold';
+    return 'delivery-status-card--boundary';
+  };
+
+  const statusWrap=document.getElementById('delivery-status-grid');
+  if(statusWrap&&delivery.status_cards){
+    statusWrap.innerHTML=delivery.status_cards.map(item=>
+      `<article class="delivery-status-card reveal ${toneClass(item.tone)}">
+        <div class="delivery-status-top">
+          <span class="delivery-status-code">${item.code}</span>
+          <span class="delivery-status-pill">${item.status}</span>
+        </div>
+        <h3>${item.label}</h3>
+        <p>${item.detail}</p>
+      </article>`
+    ).join('');
+  }
+
+  const order=['pdf','html','md','json'];
+  const docsWrap=document.getElementById('delivery-doc-grid');
+  if(docsWrap&&delivery.documents){
+    docsWrap.innerHTML=delivery.documents.map(item=>
+      `<article class="report-card reveal">
+        <div class="report-code">${item.code}</div>
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+        <div class="report-files">${Object.keys(item.links||{}).map(key=>key.toUpperCase()).join(' · ')}</div>
+        <div class="report-actions">
+          ${order.filter(key=>item.links&&item.links[key]).map((key,idx)=>
+            `<a class="report-btn${idx===0?' report-btn--primary':''}" href="${item.links[key]}" target="_blank" rel="noopener noreferrer">${key.toUpperCase()}</a>`
+          ).join('')}
+        </div>
+      </article>`
+    ).join('');
+  }
+
+  const note=document.getElementById('delivery-note');
+  if(note&&delivery.note){
+    note.innerHTML=`<strong>Current rule.</strong> ${delivery.note}`;
+    note.classList.add('reveal');
+  }
+
+  activateReveal(document.getElementById('delivery'));
 })();
 
 /* ===== PHASE 3 FULL DASHBOARD ===== */
@@ -615,13 +668,16 @@ function activateReveal(scope){
   const toolbar=document.getElementById('reports-toolbar');
   if(toolbar){
     const firstRecommended=pkg.recommended&&pkg.recommended[0];
-    const actions=[
-      pkg.hub_path ? {label:'Open report hub', href:pkg.hub_path, primary:true} : null,
-      pkg.bundle_zip ? {label:'Download advisor zip', href:pkg.bundle_zip} : null,
-      pkg.raw_assets_hub ? {label:'Raw figure assets', href:pkg.raw_assets_hub} : null,
-      firstRecommended ? {label:`Start with ${firstRecommended.label}`, href:firstRecommended.href} : null,
-      pkg.package_index ? {label:'Package note', href:pkg.package_index} : null
-    ].filter(Boolean);
+    const actions=(pkg.toolbar_actions&&pkg.toolbar_actions.length
+      ? pkg.toolbar_actions
+      : [
+          pkg.hub_path ? {label:'Open report hub', href:pkg.hub_path, primary:true} : null,
+          pkg.bundle_zip ? {label:'Download advisor zip', href:pkg.bundle_zip} : null,
+          pkg.raw_assets_hub ? {label:'Raw figure assets', href:pkg.raw_assets_hub} : null,
+          firstRecommended ? {label:`Start with ${firstRecommended.label}`, href:firstRecommended.href} : null,
+          pkg.package_index ? {label:'Package note', href:pkg.package_index} : null
+        ].filter(Boolean)
+    );
     toolbar.innerHTML=actions.map(action=>
       `<a class="report-toolbar-link${action.primary?' report-toolbar-link--primary':''}" href="${action.href}" target="_blank" rel="noopener noreferrer">${action.label}</a>`
     ).join('');
@@ -629,7 +685,7 @@ function activateReveal(scope){
   const statsWrap=document.getElementById('reports-stats');
   if(statsWrap){
     const zipSize=pkg.bundle_size_mb!=null?`${Number(pkg.bundle_size_mb).toFixed(1)} MB`:'—';
-    const stats=[
+    const stats=pkg.stats||[
       {value:pkg.report_sets,label:'report sets'},
       {value:pkg.files,label:'package docs'},
       {value:pkg.result_json_artifacts,label:'result JSONs'},
@@ -642,7 +698,7 @@ function activateReveal(scope){
   }
   const grid=document.getElementById('reports-grid');
   if(grid&&pkg.items){
-    const order=['pdf','html','md'];
+    const order=['pdf','html','md','json'];
     grid.innerHTML=pkg.items.map(item=>
       (() => {
         const preferredKey=(item.recommended_format||'').toLowerCase();
@@ -1521,4 +1577,3 @@ function activateReveal(scope){
     setTimeout(tryAutoStart,500);
   }
 })();
-

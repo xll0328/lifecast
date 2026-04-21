@@ -371,15 +371,22 @@ const RESEARCH_DATA = {
     "us_fullweek_vs_weekday": { "full_week": 86.48, "weekday_only": 85.79, "note": "Weekday-only -0.8 pp — robust generalisation" }
   },
   "project_summary": {
-    "phases": 3,
+    "phases": 4,
     "country_settings": 9,
-    "figures": 39,
-    "report_sets": 6,
-    "packaged_files": 19,
+    "figures": 45,
+    "report_sets": 9,
+    "packaged_files": 25,
     "result_json_artifacts": 921,
-    "raw_figure_assets": 41,
-    "bundle_size_mb": 13.94,
-    "formats": 3
+    "raw_figure_assets": 50,
+    "bundle_size_mb": 19.94,
+    "formats": 3,
+    "stats": [
+      { "value": 4, "label": "program layers" },
+      { "value": 9, "label": "national settings" },
+      { "value": 45, "label": "surfaced figures" },
+      { "value": 921, "label": "result JSONs" },
+      { "value": 9, "label": "report sets" }
+    ]
   },
   "project_phases": [
     {
@@ -405,6 +412,14 @@ const RESEARCH_DATA = {
       "scope": "42 A1 fine records · 105 B1 grouped full runs",
       "insight": "Transformer stays positive in all 7 countries (+0.44 pp weighted vs persistence), and fine activity remains substantially more informative than coarse coding.",
       "output": "12-figure chain · full external-validity report"
+    },
+    {
+      "code": "Phase 4+",
+      "title": "Boundary-aware delivery and evidence gate",
+      "dataset": "live summary layer · paper-ready delivery",
+      "scope": "frozen Phase 4 · current package · synced website",
+      "insight": "This layer packages the finished evidence surface rather than reopening the experiment tree: cross-country bridge, Group B boundaries, pooled bridge, MTUS wave-1 sync, next-layer support, and a formal evidence gate that keeps heavy experiments closed unless a stronger claim is explicitly required.",
+      "output": "3 current reports · 6 new package figures · current report hub"
     }
   ],
   "phase_scale_panels": [
@@ -425,9 +440,146 @@ const RESEARCH_DATA = {
       "title": "Phase 3: external validity closure",
       "detail": "The MTUS layer closes the full argument with country, seed, and grouped evidence. The question is no longer whether the gain exists, but how its magnitude varies across settings.",
       "badges": ["627 result JSONs", "11 cross-country CSVs", "12 curated figures", "7 countries × 3 seeds"]
+    },
+    {
+      "code": "P4+",
+      "title": "Phase 4+: delivery, boundaries, and package sync",
+      "detail": "The current layer is not another loose todo list. It is the delivery surface that turns live summaries into a boundary-aware story with a current report package, image atlas, website sync, and an explicit gate against unnecessary heavy reruns.",
+      "badges": ["3 current reports", "6 new package figures", "evidence gate live", "paper-ready master synced"]
     }
   ],
+  "phase4_plus_delivery": {
+    "status_cards": [
+      {
+        "code": "PH4",
+        "label": "Phase 4 engineering",
+        "status": "frozen_complete",
+        "tone": "pass",
+        "detail": "The engineering closure is frozen rather than still moving under the reader's feet."
+      },
+      {
+        "code": "CC",
+        "label": "Cross-country bridge",
+        "status": "wave1_ready",
+        "tone": "pass",
+        "detail": "UK and USA remain stable references while five-country MTUS bridge rows are already integrated into the current writing layer."
+      },
+      {
+        "code": "GB",
+        "label": "Group B",
+        "status": "boundaries_ready",
+        "tone": "pass",
+        "detail": "Employment, gender, and income now have a fixed writing order with structural-boundary language."
+      },
+      {
+        "code": "PL",
+        "label": "Pooled",
+        "status": "bridge_not_final",
+        "tone": "boundary",
+        "detail": "Pooled evidence is comparison-ready and synchronized, but it is not written as a final pooled table."
+      },
+      {
+        "code": "MT",
+        "label": "MTUS wave-1",
+        "status": "partial_but_synced",
+        "tone": "boundary",
+        "detail": "Wave-1 remains explicitly partial evidence, but it has already been absorbed into the master writing layer."
+      },
+      {
+        "code": "XL",
+        "label": "Next-layer extensions",
+        "status": "grounded_extension_ready",
+        "tone": "pass",
+        "detail": "Trigger, contextual, hazard, expanding-window, and typical-day lines have been converted into grounded support and boundary evidence."
+      },
+      {
+        "code": "EG",
+        "label": "Evidence gate",
+        "status": "default_delivery_ready",
+        "tone": "hold",
+        "detail": "Default delivery is ready, while heavy experiments remain closed unless stronger claims are explicitly needed."
+      }
+    ],
+    "documents": [
+      {
+        "code": "P4-O",
+        "title": "Phase 4+ project overview",
+        "desc": "Fastest entry point for the current delivery layer: status ladder, package purpose, reading order, and recommended figures.",
+        "links": {
+          "pdf": "reports/phase4-plus-package/PHASE4_PLUS_PROJECT_OVERVIEW.pdf",
+          "html": "reports/phase4-plus-package/PHASE4_PLUS_PROJECT_OVERVIEW.html",
+          "md": "reports/phase4-plus-package/PHASE4_PLUS_PROJECT_OVERVIEW.md"
+        }
+      },
+      {
+        "code": "P4-R",
+        "title": "Phase 4+ complete report",
+        "desc": "The full current-layer narrative: cross-country bridge, Group B, pooled boundaries, MTUS wave-1 sync, next-layer support, and evidence-gate logic.",
+        "links": {
+          "pdf": "reports/phase4-plus-package/PHASE4_PLUS_COMPLETE_REPORT.pdf",
+          "html": "reports/phase4-plus-package/PHASE4_PLUS_COMPLETE_REPORT.html",
+          "md": "reports/phase4-plus-package/PHASE4_PLUS_COMPLETE_REPORT.md"
+        }
+      },
+      {
+        "code": "P4-V",
+        "title": "Phase 4+ visualization atlas",
+        "desc": "A dedicated atlas for every figure used in the current package, including role, canonical path, and raw source file.",
+        "links": {
+          "pdf": "reports/phase4-plus-package/PHASE4_PLUS_VISUALIZATION_ATLAS.pdf",
+          "html": "reports/phase4-plus-package/PHASE4_PLUS_VISUALIZATION_ATLAS.html",
+          "md": "reports/phase4-plus-package/PHASE4_PLUS_VISUALIZATION_ATLAS.md"
+        }
+      },
+      {
+        "code": "P4-I",
+        "title": "Package index and image audit",
+        "desc": "The current bundle also ships explicit package indexes, figure source audit, and a manifest for later verification.",
+        "links": {
+          "md": "reports/phase4-plus-package/PACKAGE_INDEX.md",
+          "json": "reports/phase4-plus-package/PACKAGE_MANIFEST.json"
+        }
+      }
+    ],
+    "note": "The website now treats Phase 4+ as the current delivery layer: package first, boundary-aware prose second, archive packages third. This keeps the public surface aligned with live artifacts instead of historical runbooks."
+  },
   "showcase_gallery": [
+    {
+      "code": "P4-G1",
+      "phase": "Phase 4+",
+      "title": "Delivery status matrix turns the current state into one readable surface",
+      "image": "reports/phase4-plus-package/results/phase4plus_figures/phase4plus_fig1_delivery_status_matrix.png",
+      "caption": "The current delivery package no longer forces the reader to infer status from scattered notes: frozen Phase 4, bridge-ready cross-country rows, boundary-aware pooled writing, and evidence-gated closure are all visible in one ladder.",
+      "href": "reports/phase4-plus-package/PHASE4_PLUS_PROJECT_OVERVIEW.pdf",
+      "link_label": "Open Phase 4+ overview"
+    },
+    {
+      "code": "P4-G2",
+      "phase": "Phase 4+",
+      "title": "Cross-country bridge rows show what is stable and what must stay bounded",
+      "image": "reports/phase4-plus-package/results/phase4plus_figures/phase4plus_fig2_cross_country_bridge.png",
+      "caption": "UK and USA remain stable references, while five-country MTUS rows already operate as bridge evidence. The point is no longer whether the bridge exists, but how it should be written without overclaiming pooled finality.",
+      "href": "reports/phase4-plus-package/PHASE4_PLUS_COMPLETE_REPORT.pdf",
+      "link_label": "Open current report"
+    },
+    {
+      "code": "P4-G3",
+      "phase": "Phase 4+",
+      "title": "Next-layer support is now result-layer evidence rather than a backlog",
+      "image": "reports/phase4-plus-package/results/phase4plus_figures/phase4plus_fig5_extension_support.png",
+      "caption": "Trigger difficulty, contextual/hazard support, expanding-window negativity, and near-neutral typical-day robustness have all been absorbed into the current explanation layer.",
+      "href": "reports/phase4-plus-package/PHASE4_PLUS_COMPLETE_REPORT.pdf",
+      "link_label": "View extension layer"
+    },
+    {
+      "code": "P4-G4",
+      "phase": "Phase 4+",
+      "title": "Evidence gate makes the stop rule explicit",
+      "image": "reports/phase4-plus-package/results/phase4plus_figures/phase4plus_fig6_evidence_gate.png",
+      "caption": "The current decision is not to keep running for its own sake. Default delivery is ready, low-cost sync gaps are closed, and heavier experiments remain conditional on stronger-claim needs.",
+      "href": "reports/phase4-plus-package/PHASE4_PLUS_VISUALIZATION_ATLAS.pdf",
+      "link_label": "Open evidence gate figure"
+    },
     {
       "code": "P1-G1",
       "phase": "Phase 1",
@@ -510,19 +662,36 @@ const RESEARCH_DATA = {
     { "dimension": "sex", "runs": 42, "delta": 0.39, "color": "#6caac4" }
   ],
   "advisor_package": {
-    "report_sets": 6,
-    "files": 19,
+    "report_sets": 9,
+    "files": 25,
     "result_json_artifacts": 921,
-    "raw_figure_assets": 41,
-    "bundle_size_mb": 13.94,
+    "raw_figure_assets": 50,
+    "bundle_size_mb": 19.94,
     "formats": ["PDF", "HTML", "MD"],
     "hub_path": "reports/index.html",
-    "package_index": "reports/advisor-package/PACKAGE_INDEX.md",
-    "bundle_zip": "reports/ADVISOR_PACKAGE_PHASE1_2_3_20260403.zip",
+    "package_index": "reports/phase4-plus-package/PACKAGE_INDEX.md",
+    "bundle_zip": "reports/ADVISOR_PACKAGE_PHASE4_PLUS_20260421.zip",
     "raw_assets_hub": "reports/index.html#raw-assets",
-    "note": "All HTML reports are self-contained for offline review, PDFs provide the clearest handoff, the new project overview is the fastest entry point, and the downloadable advisor bundle now includes ORIGINAL_FIGURES with all raw figure assets.",
+    "toolbar_actions": [
+      { "label": "Open report hub", "href": "reports/index.html", "primary": true },
+      { "label": "Download current zip", "href": "reports/ADVISOR_PACKAGE_PHASE4_PLUS_20260421.zip" },
+      { "label": "Download archive zip", "href": "reports/ADVISOR_PACKAGE_PHASE1_2_3_20260403.zip" },
+      { "label": "Current figure atlas", "href": "reports/phase4-plus-package/PHASE4_PLUS_VISUALIZATION_ATLAS.pdf" },
+      { "label": "Raw figure assets", "href": "reports/index.html#raw-assets" }
+    ],
+    "stats": [
+      { "value": "9", "label": "report sets" },
+      { "value": "2", "label": "download bundles" },
+      { "value": "921", "label": "result JSONs" },
+      { "value": "45", "label": "surfaced figures" },
+      { "value": "19.9 MB", "label": "zip downloads" }
+    ],
+    "note": "The public reporting surface is now split into a current Phase 4+ delivery package and a legacy Phase 1–3 archive. Current package first, archive second.",
     "recommended": [
-      { "label": "project overview", "href": "reports/advisor-package/LIFECAST_PROJECT_OVERVIEW.pdf" },
+      { "label": "Phase 4+ overview", "href": "reports/phase4-plus-package/PHASE4_PLUS_PROJECT_OVERVIEW.pdf" },
+      { "label": "Phase 4+ complete report", "href": "reports/phase4-plus-package/PHASE4_PLUS_COMPLETE_REPORT.pdf" },
+      { "label": "Phase 4+ visualization atlas", "href": "reports/phase4-plus-package/PHASE4_PLUS_VISUALIZATION_ATLAS.pdf" },
+      { "label": "Phase 1–3 archive hub", "href": "reports/index.html#archive-package" },
       { "label": "Phase 1 complete report", "href": "reports/advisor-package/PHASE1_COMPLETE_REPORT.pdf" },
       { "label": "Phase 2 complete report", "href": "reports/advisor-package/PHASE2_COMPLETE_REPORT.pdf" },
       { "label": "Phase 3 complete report", "href": "reports/advisor-package/PHASE3_COMPLETE_REPORT.pdf" },
@@ -530,9 +699,56 @@ const RESEARCH_DATA = {
     ],
     "items": [
       {
-        "code": "OVR",
-        "title": "LifeCast project overview",
-        "desc": "Fastest entry point for the whole package: three-phase arc, project scale, reading order, and representative figures in one place.",
+        "code": "P4-O",
+        "title": "Phase 4+ project overview",
+        "desc": "Fastest entry point for the current delivery layer: status ladder, reading order, package scope, and recommended current figures.",
+        "files": "MD · HTML · PDF",
+        "recommended_format": "PDF",
+        "links": {
+          "pdf": "reports/phase4-plus-package/PHASE4_PLUS_PROJECT_OVERVIEW.pdf",
+          "html": "reports/phase4-plus-package/PHASE4_PLUS_PROJECT_OVERVIEW.html",
+          "md": "reports/phase4-plus-package/PHASE4_PLUS_PROJECT_OVERVIEW.md"
+        }
+      },
+      {
+        "code": "P4-R",
+        "title": "Phase 4+ complete report",
+        "desc": "Current package narrative for cross-country bridge rows, Group B boundaries, pooled bridge, MTUS wave-1 sync, next-layer support, and evidence-gate logic.",
+        "files": "MD · HTML · PDF",
+        "recommended_format": "PDF",
+        "links": {
+          "pdf": "reports/phase4-plus-package/PHASE4_PLUS_COMPLETE_REPORT.pdf",
+          "html": "reports/phase4-plus-package/PHASE4_PLUS_COMPLETE_REPORT.html",
+          "md": "reports/phase4-plus-package/PHASE4_PLUS_COMPLETE_REPORT.md"
+        }
+      },
+      {
+        "code": "P4-V",
+        "title": "Phase 4+ visualization atlas",
+        "desc": "A dedicated figure atlas for the current report package, including figure role, canonical path, and raw source file references.",
+        "files": "MD · HTML · PDF",
+        "recommended_format": "PDF",
+        "links": {
+          "pdf": "reports/phase4-plus-package/PHASE4_PLUS_VISUALIZATION_ATLAS.pdf",
+          "html": "reports/phase4-plus-package/PHASE4_PLUS_VISUALIZATION_ATLAS.html",
+          "md": "reports/phase4-plus-package/PHASE4_PLUS_VISUALIZATION_ATLAS.md"
+        }
+      },
+      {
+        "code": "P4-I",
+        "title": "Phase 4+ indexes and manifest",
+        "desc": "Package index, image index, and manifest for the current bundle, including the figure-source audit used for handoff verification.",
+        "files": "MD · JSON",
+        "recommended_format": "MD",
+        "links": {
+          "md": "reports/phase4-plus-package/PACKAGE_INDEX.md",
+          "json": "reports/phase4-plus-package/PACKAGE_MANIFEST.json"
+        }
+      },
+      {
+        "code": "ARC-O",
+        "title": "Phase 1–3 archive overview",
+        "desc": "The original three-phase overview remains available as the archive entry point for the earlier package.",
         "files": "MD · HTML · PDF",
         "recommended_format": "PDF",
         "links": {
@@ -544,7 +760,7 @@ const RESEARCH_DATA = {
       {
         "code": "P1",
         "title": "Phase 1 complete report",
-        "desc": "Framework origin, theory anchor, and the densest single-phase report in the project.",
+        "desc": "Framework origin, theory anchor, and the densest single-phase report in the archive package.",
         "files": "MD · HTML · PDF",
         "recommended_format": "PDF",
         "links": {
